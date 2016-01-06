@@ -1,0 +1,115 @@
+body{
+	background-color : #F0F8FF;
+	font-family : Verdana;
+	font-size : 14pt;
+	font-size-adjust : adjust;
+	margin : 0px auto;
+}
+
+
+p{
+	text-align : justify;
+	padding : 0px 5px 0px 5px;
+}
+
+.container_body{
+	width : 1100px;
+	margin : 0px auto;
+}
+
+#header{
+	font-family : arial;
+	border : 3px ;
+	margin : 0px 0px 10px 0px;
+	padding : 10px 0px 10px 0px;
+	background-color : #000000;
+	font-size : 300%;
+	text-align : center;
+	color : #fff;
+	font-size-adjust : adjust;
+}
+
+
+#header:hover{
+	color : #000 ;
+	background-color : 	 #b3b3b3;
+	opacity : 0.4;
+	transition : opacity 1s ease-in-out;
+}
+
+table tr  th{
+	text-align:left;
+	font-size :150;
+	color : #0066CC;
+	padding-right : 40px;
+}
+table tr td{
+	text-align:left;
+	font-size :150;
+}
+
+ul{
+	border : 3px;
+	margin : 10px 0px 10px 0px;
+	padding : 30px;
+	text-align : left;
+}
+
+
+
+
+.main{
+	font-size : 110%;
+	color : black;
+	margin : 20px 250px 10px 250px;
+	padding : 10px;
+} 
+
+.canvas_team{
+	background-color :#333333;
+	font-size : 110%;
+	color : black;
+	padding : 10px;
+	text-align : center;
+	height: 400px;
+	position: relative; top: 0; left: 0;
+	
+}
+
+.team{
+	background-color : #000;
+	font-size : 110%;
+	color : black;
+	
+}
+.team img{
+	margin : 20px;
+	border-radius: 50%;
+	position: absolute; top: 70px; right: 120px;
+}
+
+#footer{
+	background-color : #000000;
+	text-align : center;
+	position: relative; top: 0; left: 0;
+}
+
+#footer img{
+	padding : 10px;
+	border-radius: 50%;
+	height: 40px;
+	width:  40px;
+}
+
+h1{
+	margin : 0px;
+	font-size:130%;
+	color : #3CB371;
+}
+
+h3{
+	text-align:left;
+	text-decoration : underline;
+	font-size:110%;
+	color : #333366;
+}
