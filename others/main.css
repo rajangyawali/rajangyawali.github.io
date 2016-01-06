@@ -19,8 +19,6 @@ p{
 #header{
 	font-family : arial;
 	border : 3px ;
-	margin : 0px 0px 10px 0px;
-	padding : 10px 0px 10px 0px;
 	background-color : #000000;
 	font-size : 300%;
 	text-align : center;
@@ -40,7 +38,7 @@ table tr  th{
 	text-align:left;
 	font-size :150;
 	color : #0066CC;
-	padding-right : 40px;
+	padding-right : 20px;
 }
 table tr td{
 	text-align:left;
@@ -68,7 +66,7 @@ ul{
 	font-size : 110%;
 	color : black;
 	padding : 10px;
-	height: 400px;
+	height: 300px;
 	position: relative; top: 0; left: 0;
 	
 }
@@ -80,11 +78,6 @@ ul{
 	
 }
 
-.motto img{
-	margin : 20px;
-	text-align : center;
-	position: absolute; top: 15px; left : 50px; 
-}
 .team img{
 	margin : 20px;
 	border-radius: 50%;
