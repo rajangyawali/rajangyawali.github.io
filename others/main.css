@@ -26,6 +26,14 @@ p{
 	font-size-adjust : adjust;
 }
 
+#header img{
+	padding : 10px;
+	border-radius: 50%;
+	height: 40px;
+	width:  40px;
+}
+
+
 
 #header:hover{
 	color : #000 ;
@@ -34,15 +42,18 @@ p{
 	transition : opacity 1s ease-in-out;
 }
 
+
 table tr  th{
 	text-align:left;
 	font-size :150;
 	color : #0066CC;
-	padding-right : 20px;
+	padding-right : 7px;
+	font-size-adjust : adjust;
 }
 table tr td{
 	text-align:left;
 	font-size :150;
+	font-size-adjust : adjust;
 }
 
 ul{
@@ -50,6 +61,7 @@ ul{
 	margin : 10px 0px 10px 0px;
 	padding : 30px;
 	text-align : left;
+	font-size-adjust : adjust;
 }
 
 
@@ -59,29 +71,24 @@ ul{
 	font-size : 110%;
 	color : black;
 	padding : 10px;
+	font-size-adjust : adjust;
 } 
 
-.canvas_team{
-	background-color :#333333;
-	font-size : 110%;
-	color : black;
-	padding : 10px;
+
+#about{
+	background-color : #F0F8FF;
+	text-align : center;
 	position: relative; top: 0; left: 0;
-	
 }
 
-.team{
-	background-color : #000;
-	font-size : 110%;
-	color : black;
-	
-}
-
-.team img{
-	margin : 20px;
+#about img{
+	padding : 10px;
 	border-radius: 50%;
-	position: absolute; top: 15px; right: 5px;
+	height: 250px;
+	width:  250px;
 }
+
+
 
 #footer{
 	background-color : #000000;
@@ -92,8 +99,8 @@ ul{
 #footer img{
 	padding : 10px;
 	border-radius: 50%;
-	height: 40px;
-	width:  40px;
+	height: 30px;
+	width:  30px;
 }
 
 h1{
