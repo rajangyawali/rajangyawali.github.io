@@ -140,9 +140,54 @@
                 </div>
                 <div class="card">
                     <div class="container">
-                        <div class="card-title">PUBLICATION</div>
+                        <div class="card-title">PUBLICATIONS</div>
                         <div class="card-body">
-                            R. Gyawali, D. R. Pant, <i>“An Approach for the Employee Face Recognition by RPN and Faster R-CNN Techniques”,</i> IOE Graduate Conference, Volume 6, May 2019.<br>
+                            <b>R Gyawali</b>, A Dhakal, L Wang, J Cheng, <i>“CryoSegNet: accurate cryo-EM protein particle picking by integrating the foundational AI image segmentation model and attention-gated U-Net”,</i> Briefings in Bioinformatics 25 (4)<br>
+                            <span class="collapsible">Abstract</span>
+                            <div class="collapsible-content">
+                                <p> Picking protein particles in cryo-electron microscopy (cryo-EM) micrographs is a crucial step in the cryo-EM-based structure determination. However, existing methods trained on a limited amount of cryo-EM data still cannot accurately pick protein particles from noisy cryo-EM images. The general foundational artificial intelligence–based image segmentation model such as Meta’s Segment Anything Model (SAM) cannot segment protein particles well because their training data do not include cryo-EM images. Here, we present a novel approach (CryoSegNet) of integrating an attention-gated U-shape network (U-Net) specially designed and trained for cryo-EM particle picking and the SAM. The U-Net is first trained on a large cryo-EM image dataset and then used to generate input from original cryo-EM images for SAM to make particle pickings. CryoSegNet shows both high precision and recall in segmenting protein particles from cryo-EM micrographs, irrespective of protein type, shape and size. On several independent datasets of various protein types, CryoSegNet outperforms two top machine learning particle pickers crYOLO and Topaz as well as SAM itself. The average resolution of density maps reconstructed from the particles picked by CryoSegNet is 3.33 Å, 7% better than 3.58 Å of Topaz and 14% better than 3.87 Å of crYOLO. It is publicly available at https://github.com/jianlin-cheng/CryoSegNet<br>
+                                    <br>
+                                    <a href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">Read Full Article</a>
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            A Dhakal, <b>R Gyawali</b>, L Wang, J Cheng, <i>“CryoTransformer: a transformer model for picking protein particles from Cryo-EM micrographs”,</i> Bioinformatics 40 (3), btae109<br>
+                            <span class="collapsible">Abstract</span>
+                            <div class="collapsible-content">
+                                <p> Motivation <br>
+                                    
+                                    Cryo-electron microscopy (cryo-EM) is a powerful technique for determining the structures of large protein complexes. Picking single protein particles from cryo-EM micrographs (images) is a crucial step in reconstructing protein structures from them. However, the widely used template-based particle picking process requires some manual particle picking and is labor-intensive and time-consuming. Though machine learning and artificial intelligence (AI) can potentially automate particle picking, the current AI methods pick particles with low precision or low recall. The erroneously picked particles can severely reduce the quality of reconstructed protein structures, especially for the micrographs with low signal-to-noise ratio.
+                                    <br><br>
+                                    Results<br>
+                                    
+                                    To address these shortcomings, we devised CryoTransformer based on transformers, residual networks, and image processing techniques to accurately pick protein particles from cryo-EM micrographs. CryoTransformer was trained and tested on the largest labeled cryo-EM protein particle dataset—CryoPPP. It outperforms the current state-of-the-art machine learning methods of particle picking in terms of the resolution of 3D density maps reconstructed from the picked particles as well as F1-score, and is poised to facilitate the automation of the cryo-EM protein particle picking.
+                                    <br><br>
+                                    Availability and implementation<br>
+                                    
+                                    The source code and data for CryoTransformer are openly available at: https://github.com/jianlin-cheng/CryoTransformer.<br>
+                                    <br>
+                                    <a href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">Read Full Article</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body">
+                            A Dhakal, <b>R Gyawali</b>, L Wang, J Cheng, <i>“A large expert-curated cryo-EM image dataset for machine learning protein particle picking”,</i> Scientific Data 10 (1), 392<br>
+                            <span class="collapsible">Abstract</span>
+                            <div class="collapsible-content">
+                                <p>Cryo-electron microscopy (cryo-EM) is a powerful technique for determining the structures of biological macromolecular complexes. Picking single-protein particles from cryo-EM micrographs is a crucial step in reconstructing protein structures. However, the widely used template-based particle picking process is labor-intensive and time-consuming. Though machine learning and artificial intelligence (AI) based particle picking can potentially automate the process, its development is hindered by lack of large, high-quality labelled training data. To address this bottleneck, we present CryoPPP, a large, diverse, expert-curated cryo-EM image dataset for protein particle picking and analysis. It consists of labelled cryo-EM micrographs (images) of 34 representative protein datasets selected from the Electron Microscopy Public Image Archive (EMPIAR). The dataset is 2.6 terabytes and includes 9,893 high-resolution micrographs with labelled protein particle coordinates. The labelling process was rigorously validated through 2D particle class validation and 3D density map validation with the gold standard. The dataset is expected to greatly facilitate the development of both AI and classical methods for automated cryo-EM protein particle picking.<br>
+                                    <br>
+                                    <a href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">Read Full Article</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body">
+                            <b>R Gyawali</b>, D R Pant, <i>“An Approach for the Employee Face Recognition by RPN and Faster R-CNN Techniques”,</i> Proceedings of IOE Graduate Conference, 2019-Summer, Volume 6, May 2019.<br>
                             <span class="collapsible">Abstract</span>
                             <div class="collapsible-content">
                                 <p>Face recognition is becoming popular in companies, supermarkets, hospitals etc. for security systems, human machine interaction and video surveillances. Employee face recognition is required to differentiate between employees
@@ -152,7 +197,6 @@
                                     uses CNN for features extraction. From these features, the second section generates region proposals using RPN. The third section classifies these region proposals using faster R-CNN and the employee face is recognized.
                                     The accuracy of the model is 96.0% in recognition of Chokepoint employee dataset. The model is further tested with Nepal Telecom employee dataset and shows an accuracy of 95.2%. The performance of the proposed method
                                     is evaluated on these datasets using confusion matrix. Further, visual and comprehensive evaluation using receiver operating characteristics curve for these datasets shows a clear distinction between employees and non-employees.<br>
-                                    <b><i>Keywords:</i></b> Face Recognition, Region Proposal Networks, Convolutional Neural Network, Faster R-CNN
                                     <br>
                                     <a href="http://conference.ioe.edu.np/publications/ioegc2019-summer/IOEGC-2019-Summer-030.pdf" target="_blank">Read Full Article</a>
                                 </p>
