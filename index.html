@@ -57,12 +57,9 @@
     .hero { padding: 116px 0 76px; border-bottom: 1px solid var(--border); }
     .hero-in { display: grid; grid-template-columns: auto 1fr; gap: 3.75rem; align-items: center; }
 
-    /* Circular photo */
     .photo-wrap { flex-shrink: 0; }
     .photo-circle {
-      width: 190px; height: 190px;
-      border-radius: 50%;
-      overflow: hidden;
+      width: 190px; height: 190px; border-radius: 50%; overflow: hidden;
       border: 3px solid #fff;
       box-shadow: 0 0 0 3px var(--border2), 0 8px 28px rgba(26,37,64,.13);
       background: var(--surface2);
@@ -74,7 +71,6 @@
       font-family: 'Lora', serif; font-size: 4rem; color: var(--border2);
     }
 
-    /* Hero text */
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
@@ -122,91 +118,119 @@
     .sec:last-of-type { border-bottom: none; }
     h2.sec-title { font-family: 'Lora', serif; font-size: 2.4rem; font-weight: 500; color: var(--navy); margin-bottom: 2.4rem; line-height: 1.15; border-bottom: 2px solid var(--border); padding-bottom: 0.75rem; }
 
-    /* ── RESEARCH PROJECTS (1 per row, image + text) ── */
-    .projects { display: flex; flex-direction: column; gap: 2rem; }
+    /* ── RESEARCH PROJECTS ── */
+    .projects { display: flex; flex-direction: column; gap: 2.5rem; }
+
     .project {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 6px; overflow: hidden;
-      display: grid; grid-template-columns: 420px 1fr;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
       transition: border-color .2s, box-shadow .2s;
+    }
+    .project:hover { border-color: var(--border2); box-shadow: 0 8px 32px rgba(0,0,0,.09); }
+
+    /* Top accent line per project */
+    .proj-blue  { border-top: 4px solid var(--accent); }
+    .proj-green { border-top: 4px solid var(--green); }
+    .proj-amber { border-top: 4px solid #d07a00; }
+
+    /* Full-width image panel */
+    .proj-img {
+      width: 100%;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      min-height: 280px;
       position: relative;
     }
-    .project:hover { border-color: var(--border2); box-shadow: 0 6px 28px rgba(0,0,0,.08); }
-
-    /* Accent bar on left edge */
-    .project::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-    }
-    .proj-blue::before  { background: var(--accent); }
-    .proj-green::before { background: var(--green); }
-    .proj-amber::before { background: #d07a00; }
-
-    /* Image panel */
-    .proj-img {
-      position: relative; overflow: hidden;
-      background: var(--surface2);
-      min-height: 260px;
-      display: flex; align-items: center; justify-content: center;
-    }
     .proj-img img {
-      width: 100%; height: 100%; object-fit: contain; object-position: center;
-      display: block; transition: transform .3s ease;
-      /* Show a styled placeholder area when src is missing/broken */
-      min-height: 260px;
-      background: repeating-linear-gradient(
-        -45deg,
-        var(--surface2) 0px,
-        var(--surface2) 10px,
-        var(--border) 10px,
-        var(--border) 11px
-      );
-      color: transparent;
+      max-width: 100%;
+      max-height: 320px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
     }
-    .proj-img img::after {
-      content: attr(alt);
-      display: flex; align-items: center; justify-content: center;
-      position: absolute; inset: 0;
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
-      color: var(--sub); text-align: center; padding: 1rem;
-      background: var(--surface2);
-    }
-    .project:hover .proj-img img { transform: scale(1.02); }
     .proj-img-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,.55));
-      color: rgba(255,255,255,.9); font-size: 0.72rem;
-      font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.04em;
-      padding: 1.5rem 0.85rem 0.6rem;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0.45rem 1rem;
+      background: rgba(26,37,64,0.06);
+      border-top: 1px solid var(--border);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--sub);
+      letter-spacing: 0.04em;
     }
 
-    /* Text panel */
-    .proj-body { padding: 2rem 2rem 2rem 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+    /* Content below image — two columns */
+    .proj-body {
+      padding: 1.8rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: start;
+    }
+    .proj-body-left {}
+    .proj-body-right {
+      border-left: 1px solid var(--border);
+      padding-left: 2rem;
+    }
+
     .proj-num {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--sub);
-      margin-bottom: 0.5rem;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--sub);
+      margin-bottom: 0.45rem;
     }
     .proj-tag {
-      display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem;
+      display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
       letter-spacing: 0.13em; text-transform: uppercase;
-      padding: 0.18rem 0.58rem; border-radius: 2px; margin-bottom: 0.9rem;
+      padding: 0.18rem 0.6rem; border-radius: 2px; margin-bottom: 0.85rem;
     }
     .pt-blue  { background: var(--acc-lt); color: #1a3db5; }
     .pt-green { background: var(--grn-lt); color: #145c38; }
     .pt-amber { background: var(--amb-lt); color: #7a4200; }
 
-    .proj-title { font-family: 'Lora', serif; font-size: 1.28rem; font-weight: 500; color: var(--navy); margin-bottom: 0.7rem; line-height: 1.35; }
-    .proj-desc  { font-size: 0.95rem; color: var(--body); line-height: 1.78; margin-bottom: 1rem; }
-    .proj-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.1rem; }
-    .pill { font-size: 0.8rem; color: var(--mid); background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 0.14rem 0.7rem; }
-    .proj-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--sub); display: flex; gap: 1.2rem; flex-wrap: wrap; }
-    .proj-meta a { color: var(--accent); text-decoration: none; }
-    .proj-meta a:hover { text-decoration: underline; }
-    .proj-meta strong { color: var(--navy); }
+    .proj-title { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.35; }
+    .proj-desc  { font-size: 0.94rem; color: var(--body); line-height: 1.78; }
 
-    @media(max-width:880px){
-      .project { grid-template-columns: 1fr; }
-      .proj-img { min-height: 200px; }
+    /* Right column */
+    .proj-pills-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
+      margin-bottom: 0.6rem;
+    }
+    .proj-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+    .pill {
+      font-size: 0.78rem; color: var(--mid); background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 3px; padding: 0.15rem 0.6rem;
+    }
+    .proj-meta-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
+      margin-bottom: 0.5rem;
+    }
+    .proj-meta { display: flex; flex-direction: column; gap: 0.4rem; }
+    .proj-meta-pub { font-size: 0.84rem; color: var(--body); line-height: 1.5; }
+    .proj-meta-pub strong { color: var(--navy); font-weight: 600; }
+    .proj-meta-links { display: flex; gap: 0.75rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .proj-meta-links a {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem;
+      color: var(--accent); text-decoration: none;
+      border: 1px solid var(--acc-lt); border-radius: 2px;
+      padding: 0.18rem 0.6rem; background: var(--acc-lt);
+      transition: all .15s;
+    }
+    .proj-meta-links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    @media(max-width:800px){
+      .proj-body { grid-template-columns: 1fr; }
+      .proj-body-right { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+      .proj-img { padding: 1rem; min-height: 200px; }
     }
 
     /* ── PUBLICATIONS ── */
@@ -219,10 +243,8 @@
     }
     .f-btn:hover, .f-btn.on { background: var(--navy); color: #fff; border-color: var(--navy); }
 
-    /* CSS counter auto-numbering via data-n attribute (set by JS) */
     .pub-list { display: flex; flex-direction: column; }
     .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1.3rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); align-items: start; }
-    .pub[style*="display: none"], .pub[style*="display:none"] { display: none !important; }
     .pub:last-child { border-bottom: none; }
     .pub-n { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--sub); text-align: right; padding-top: 0.22rem; }
 
@@ -320,14 +342,12 @@
     footer a { color: rgba(255,255,255,.72); }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 1; transform: none; transition: opacity .55s ease, transform .55s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; }
 
     /* ── RESPONSIVE ── */
     @media(max-width:880px){
       .hero-in, .exp, .edu { grid-template-columns: 1fr; gap: 1rem; }
       .photo-circle { width: 140px; height: 140px; }
-      /* cards removed - now .projects handles responsive via project grid-template override above */
       .two-col { grid-template-columns: 1fr; }
       .sk-table td:first-child { width: 145px; font-size: 0.66rem; }
       .talk { grid-template-columns: 1fr; }
@@ -390,11 +410,11 @@
         </div>
 
         <div class="hero-chips">
-          <a class="chip" href="/cdn-cgi/l/email-protection#621005090550220f0b11110d17100b4c070617">
+          <a class="chip" href="mailto:rgkg2@missouri.edu">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rgkg2&#64;missouri.edu
           </a>
-          <a class="chip" href="/cdn-cgi/l/email-protection#c3b1a2a9a2ada4baa2b4a2afaaedadb383a4aea2aaafeda0acae">
+          <a class="chip" href="mailto:rajangyawali.np@gmail.com">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rajangyawali.np&#64;gmail.com
           </a>
@@ -418,24 +438,33 @@
       <!-- PROJECT 1: MICA -->
       <div class="project proj-blue">
         <div class="proj-img">
+          <!-- Replace src with your figure: e.g. src="img/MICA_overview.jpg" -->
           <img src="img/MICA_overview.jpg" alt="MICA architecture overview" />
           <div class="proj-img-caption">MICA workflow: multimodal integration of cryo-EM &amp; AlphaFold3</div>
         </div>
         <div class="proj-body">
-          <div class="proj-num">Project 01</div>
-          <span class="proj-tag pt-blue">3D Atomic Modeling · MICA</span>
-          <div class="proj-title">Multimodal Deep Learning for Protein Complex Structure Determination</div>
-          <div class="proj-desc">MICA integrates cryo-EM density maps with AlphaFold3 structural predictions using a multi-task encoder-decoder with feature pyramid networks. It predicts backbone atoms, Cα atoms, and amino acid types, achieving an average TM-score of <strong>0.93</strong> on high-resolution maps — outperforming all current state-of-the-art methods in accuracy and completeness.</div>
-          <div class="proj-pills">
-            <span class="pill">Encoder-Decoder</span>
-            <span class="pill">Feature Pyramid Network</span>
-            <span class="pill">AlphaFold3</span>
-            <span class="pill">Multi-task Learning</span>
+          <div class="proj-body-left">
+            <div class="proj-num">Project 01</div>
+            <span class="proj-tag pt-blue">3D Atomic Modeling · MICA</span>
+            <div class="proj-title">Multimodal Deep Learning for Protein Complex Structure Determination</div>
+            <div class="proj-desc">MICA integrates cryo-EM density maps with AlphaFold3 structural predictions using a multi-task encoder-decoder with feature pyramid networks. It predicts backbone atoms, C&alpha; atoms, and amino acid types, achieving an average TM-score of <strong>0.93</strong> on high-resolution maps — outperforming all current state-of-the-art methods in accuracy and completeness.</div>
           </div>
-          <div class="proj-meta">
-            <span><strong>Published:</strong> Communications Chemistry (Nature Portfolio), 2025</span>
-            <a href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Paper</a>
-            <a href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
+          <div class="proj-body-right">
+            <div class="proj-pills-label">Methods</div>
+            <div class="proj-pills">
+              <span class="pill">Encoder-Decoder</span>
+              <span class="pill">Feature Pyramid Network</span>
+              <span class="pill">AlphaFold3</span>
+              <span class="pill">Multi-task Learning</span>
+            </div>
+            <div class="proj-meta-label">Publication</div>
+            <div class="proj-meta">
+              <div class="proj-meta-pub"><strong>Communications Chemistry</strong> (Nature Portfolio), 2025</div>
+              <div class="proj-meta-links">
+                <a href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Paper</a>
+                <a href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -443,24 +472,33 @@
       <!-- PROJECT 2: Particle Picking -->
       <div class="project proj-green">
         <div class="proj-img">
+          <!-- Replace src with your figure: e.g. src="img/CryoSegNet_overview.jpg" -->
           <img src="img/CryoSegNet_overview.jpg" alt="CryoSegNet particle picking overview" />
           <div class="proj-img-caption">CryoSegNet: Attention-gated U-Net + SAM particle picking pipeline</div>
         </div>
         <div class="proj-body">
-          <div class="proj-num">Project 02</div>
-          <span class="proj-tag pt-green">Cryo-EM Particle Picking</span>
-          <div class="proj-title">AI-Driven Protein Particle Picking: CryoSegNet, CryoTransformer &amp; CryoFSL</div>
-          <div class="proj-desc">A suite of deep learning methods for automated cryo-EM particle picking. <strong>CryoSegNet</strong> integrates Meta's SAM with an attention-gated U-Net, achieving <strong>3.32 Å</strong> average resolution — 14% better than crYOLO and 7% better than Topaz. <strong>CryoTransformer</strong> achieves an F1-score of 0.747 on diverse proteins. <strong>CryoFSL</strong> reduces annotation cost by <strong>95%</strong> through few-shot learning, generalizing across protein types with minimal labeled data.</div>
-          <div class="proj-pills">
-            <span class="pill">Segment Anything Model</span>
-            <span class="pill">Attention U-Net</span>
-            <span class="pill">Vision Transformers</span>
-            <span class="pill">Few-Shot Learning</span>
+          <div class="proj-body-left">
+            <div class="proj-num">Project 02</div>
+            <span class="proj-tag pt-green">Cryo-EM Particle Picking</span>
+            <div class="proj-title">AI-Driven Protein Particle Picking: CryoSegNet, CryoTransformer &amp; CryoFSL</div>
+            <div class="proj-desc">A suite of deep learning methods for automated cryo-EM particle picking. <strong>CryoSegNet</strong> integrates Meta's SAM with an attention-gated U-Net, achieving <strong>3.32 Å</strong> average resolution — 14% better than crYOLO and 7% better than Topaz. <strong>CryoTransformer</strong> achieves an F1-score of 0.747 on diverse proteins. <strong>CryoFSL</strong> reduces annotation cost by <strong>95%</strong> through few-shot learning, generalizing across protein types with minimal labeled data.</div>
           </div>
-          <div class="proj-meta">
-            <span><strong>CryoSegNet:</strong> Briefings in Bioinformatics, 2024</span>
-            <a href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Paper</a>
-            <a href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
+          <div class="proj-body-right">
+            <div class="proj-pills-label">Methods</div>
+            <div class="proj-pills">
+              <span class="pill">Segment Anything Model</span>
+              <span class="pill">Attention U-Net</span>
+              <span class="pill">Vision Transformers</span>
+              <span class="pill">Few-Shot Learning</span>
+            </div>
+            <div class="proj-meta-label">Publication</div>
+            <div class="proj-meta">
+              <div class="proj-meta-pub"><strong>CryoSegNet:</strong> Briefings in Bioinformatics, 2024</div>
+              <div class="proj-meta-links">
+                <a href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Paper</a>
+                <a href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -468,24 +506,34 @@
       <!-- PROJECT 3: Benchmark Datasets -->
       <div class="project proj-amber">
         <div class="proj-img">
+          <!-- Replace src with your figure: e.g. src="img/CryoPPP_overview.jpg" -->
           <img src="img/CryoPPP_overview.jpg" alt="CryoPPP dataset overview" />
-          <div class="proj-img-caption">CryoPPP dataset creation pipeline</div>
+          <div class="proj-img-caption">CryoPPP dataset creation pipeline (Scientific Data, 2023)</div>
         </div>
         <div class="proj-body">
-          <div class="proj-num">Project 03</div>
-          <span class="proj-tag pt-amber">Benchmark Datasets</span>
-          <div class="proj-title">Community-Standard Cryo-EM Benchmark Datasets: CryoPPP &amp; CryoVirusDB</div>
-          <div class="proj-desc"><strong>CryoPPP</strong> is a 2.6 TB benchmark of 9,893 expert-labeled cryo-EM micrographs with 300K+ particle annotations across 34 protein types, validated rigorously by 2D class analysis and 3D density map reconstruction. It has become the community-standard training and evaluation dataset for cryo-EM particle picking with <strong>45+ citations</strong>. <strong>CryoVirusDB</strong> extends this to virus particles, providing the first annotated cryo-EM dataset for AI-based identification of icosahedral virus structures — enabling new antiviral research pipelines.</div>
-          <div class="proj-pills">
-            <span class="pill">Data Curation</span>
-            <span class="pill">Expert Annotation</span>
-            <span class="pill">3D Validation</span>
-            <span class="pill">EMPIAR</span>
+          <div class="proj-body-left">
+            <div class="proj-num">Project 03</div>
+            <span class="proj-tag pt-amber">Benchmark Datasets</span>
+            <div class="proj-title">Community-Standard Cryo-EM Benchmark Datasets: CryoPPP &amp; CryoVirusDB</div>
+            <div class="proj-desc"><strong>CryoPPP</strong> is a 2.6 TB benchmark of 9,893 expert-labeled cryo-EM micrographs with 300K+ particle annotations across 34 protein types, validated by 2D class analysis and 3D density map reconstruction. Community-standard dataset with <strong>45+ citations</strong>. <strong>CryoVirusDB</strong> extends this to virus particles, providing the first annotated cryo-EM dataset for AI-based identification of icosahedral virus structures.</div>
           </div>
-          <div class="proj-meta">
-            <span><strong>CryoPPP:</strong> Scientific Data (Nature), 2023 &nbsp;·&nbsp; <strong>CryoVirusDB:</strong> Viruses, 2026</span>
-            <a href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ CryoPPP</a>
-            <a href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Data</a>
+          <div class="proj-body-right">
+            <div class="proj-pills-label">Methods</div>
+            <div class="proj-pills">
+              <span class="pill">Data Curation</span>
+              <span class="pill">Expert Annotation</span>
+              <span class="pill">3D Validation</span>
+              <span class="pill">EMPIAR</span>
+            </div>
+            <div class="proj-meta-label">Publications</div>
+            <div class="proj-meta">
+              <div class="proj-meta-pub"><strong>CryoPPP:</strong> Scientific Data (Nature), 2023</div>
+              <div class="proj-meta-pub"><strong>CryoVirusDB:</strong> Viruses, 2026</div>
+              <div class="proj-meta-links">
+                <a href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ CryoPPP</a>
+                <a href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Data</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -829,7 +877,7 @@
 
 <footer>
   <p>&#169; 2026 Rajan Gyawali &nbsp;·&nbsp; PhD Candidate, University of Missouri–Columbia &nbsp;·&nbsp;
-    <a href="/cdn-cgi/l/email-protection#daa8bdb1bde89ab7b3a9a9b5afa8b3f4bfbeaf">rgkg2&#64;missouri.edu</a>
+    <a href="mailto:rgkg2@missouri.edu">rgkg2&#64;missouri.edu</a>
   </p>
 </footer>
 
@@ -866,7 +914,7 @@
     }
   }
 
-  // Init filter buttons
+  // Init on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
     filterPubs('all');
     var btns = document.querySelectorAll('.f-btn');
@@ -880,19 +928,13 @@
     }
   });
 
-  // Scroll reveal
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Nav active
-  const secs = document.querySelectorAll('section[id]');
-  const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
-  window.addEventListener('scroll', () => {
-     let cur = '';
-    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-    navAs.forEach(a => a.classList.toggle('act', a.getAttribute('href') === '#' + cur));
+  // Nav active highlight on scroll
+  var secs = document.querySelectorAll('section[id]');
+  var navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', function() {
+    var cur = '';
+    secs.forEach(function(s) { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
+    navAs.forEach(function(a) { a.classList.toggle('act', a.getAttribute('href') === '#' + cur); });
   }, { passive: true });
 </script>
 </body>
