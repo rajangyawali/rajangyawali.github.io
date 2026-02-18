@@ -120,37 +120,94 @@
     /* ── SECTION TEMPLATE ── */
     .sec { padding: 4.75rem 0; border-bottom: 1px solid var(--border); }
     .sec:last-of-type { border-bottom: none; }
-    .sec-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
-    h2.sec-title { font-family: 'Lora', serif; font-size: 2rem; font-weight: 500; color: var(--navy); margin-bottom: 2.4rem; line-height: 1.2; }
+    h2.sec-title { font-family: 'Lora', serif; font-size: 2.4rem; font-weight: 500; color: var(--navy); margin-bottom: 2.4rem; line-height: 1.15; border-bottom: 2px solid var(--border); padding-bottom: 0.75rem; }
 
-    /* ── RESEARCH CARDS ── */
-    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
-    .card {
+    /* ── RESEARCH PROJECTS (1 per row, image + text) ── */
+    .projects { display: flex; flex-direction: column; gap: 2rem; }
+    .project {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 5px; padding: 1.8rem; position: relative; overflow: hidden;
+      border-radius: 6px; overflow: hidden;
+      display: grid; grid-template-columns: 420px 1fr;
       transition: border-color .2s, box-shadow .2s;
+      position: relative;
     }
-    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-    .card.c-blue::before  { background: var(--accent); }
-    .card.c-green::before { background: var(--green); }
-    .card.c-amber::before { background: #d07a00; }
-    .card.c-navy::before  { background: var(--navy); }
-    .card:hover { border-color: var(--border2); box-shadow: 0 4px 20px rgba(0,0,0,.07); }
+    .project:hover { border-color: var(--border2); box-shadow: 0 6px 28px rgba(0,0,0,.08); }
 
-    .c-tag {
+    /* Accent bar on left edge */
+    .project::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    }
+    .proj-blue::before  { background: var(--accent); }
+    .proj-green::before { background: var(--green); }
+    .proj-amber::before { background: #d07a00; }
+
+    /* Image panel */
+    .proj-img {
+      position: relative; overflow: hidden;
+      background: var(--surface2);
+      min-height: 260px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .proj-img img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+      display: block; transition: transform .3s ease;
+      /* Show a styled placeholder area when src is missing/broken */
+      min-height: 260px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--surface2) 0px,
+        var(--surface2) 10px,
+        var(--border) 10px,
+        var(--border) 11px
+      );
+      color: transparent;
+    }
+    .proj-img img::after {
+      content: attr(alt);
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; inset: 0;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+      color: var(--sub); text-align: center; padding: 1rem;
+      background: var(--surface2);
+    }
+    .project:hover .proj-img img { transform: scale(1.02); }
+    .proj-img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.55));
+      color: rgba(255,255,255,.9); font-size: 0.72rem;
+      font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.04em;
+      padding: 1.5rem 0.85rem 0.6rem;
+    }
+
+    /* Text panel */
+    .proj-body { padding: 2rem 2rem 2rem 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+    .proj-num {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--sub);
+      margin-bottom: 0.5rem;
+    }
+    .proj-tag {
       display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem;
       letter-spacing: 0.13em; text-transform: uppercase;
-      padding: 0.18rem 0.55rem; border-radius: 2px; margin-bottom: 0.8rem;
+      padding: 0.18rem 0.58rem; border-radius: 2px; margin-bottom: 0.9rem;
     }
-    .t-blue  { background: var(--acc-lt); color: #1a3db5; }
-    .t-green { background: var(--grn-lt); color: #145c38; }
-    .t-amber { background: var(--amb-lt); color: #7a4200; }
-    .t-navy  { background: #eaecf5;       color: var(--navy); }
+    .pt-blue  { background: var(--acc-lt); color: #1a3db5; }
+    .pt-green { background: var(--grn-lt); color: #145c38; }
+    .pt-amber { background: var(--amb-lt); color: #7a4200; }
 
-    .c-title { font-family: 'Lora', serif; font-size: 1.08rem; font-weight: 500; color: var(--navy); margin-bottom: 0.55rem; line-height: 1.4; }
-    .c-desc  { font-size: 0.93rem; color: var(--body); line-height: 1.76; margin-bottom: 0.7rem; }
-    .c-meta  { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--sub); }
-    .c-meta strong { color: var(--navy); }
+    .proj-title { font-family: 'Lora', serif; font-size: 1.28rem; font-weight: 500; color: var(--navy); margin-bottom: 0.7rem; line-height: 1.35; }
+    .proj-desc  { font-size: 0.95rem; color: var(--body); line-height: 1.78; margin-bottom: 1rem; }
+    .proj-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.1rem; }
+    .pill { font-size: 0.8rem; color: var(--mid); background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 0.14rem 0.7rem; }
+    .proj-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--sub); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .proj-meta a { color: var(--accent); text-decoration: none; }
+    .proj-meta a:hover { text-decoration: underline; }
+    .proj-meta strong { color: var(--navy); }
+
+    @media(max-width:880px){
+      .project { grid-template-columns: 1fr; }
+      .proj-img { min-height: 200px; }
+    }
 
     /* ── PUBLICATIONS ── */
     .pub-filters { display: flex; gap: 0.5rem; margin-bottom: 1.85rem; flex-wrap: wrap; }
@@ -162,12 +219,12 @@
     }
     .f-btn:hover, .f-btn.on { background: var(--navy); color: #fff; border-color: var(--navy); }
 
-    /* CSS counter auto-numbering */
-    .pub-list { display: flex; flex-direction: column; counter-reset: pub; }
-    .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1.3rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); align-items: start; counter-increment: pub; }
+    /* CSS counter auto-numbering via data-n attribute (set by JS) */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1.3rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+    .pub[style*="display: none"], .pub[style*="display:none"] { display: none !important; }
     .pub:last-child { border-bottom: none; }
     .pub-n { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--sub); text-align: right; padding-top: 0.22rem; }
-    .pub-n::before { content: '[' counter(pub) ']'; }
 
     .pub-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 500; color: var(--navy); line-height: 1.5; margin-bottom: 0.4rem; }
     .pub-auth { font-size: 0.9rem; color: var(--body); margin-bottom: 0.25rem; }
@@ -263,14 +320,14 @@
     footer a { color: rgba(255,255,255,.72); }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal { opacity: 1; transform: none; transition: opacity .55s ease, transform .55s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
     /* ── RESPONSIVE ── */
     @media(max-width:880px){
       .hero-in, .exp, .edu { grid-template-columns: 1fr; gap: 1rem; }
       .photo-circle { width: 140px; height: 140px; }
-      .cards { grid-template-columns: 1fr; }
+      /* cards removed - now .projects handles responsive via project grid-template override above */
       .two-col { grid-template-columns: 1fr; }
       .sk-table td:first-child { width: 145px; font-size: 0.66rem; }
       .talk { grid-template-columns: 1fr; }
@@ -333,11 +390,11 @@
         </div>
 
         <div class="hero-chips">
-          <a class="chip" href="mailto:rgkg2@missouri.edu">
+          <a class="chip" href="/cdn-cgi/l/email-protection#621005090550220f0b11110d17100b4c070617">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rgkg2&#64;missouri.edu
           </a>
-          <a class="chip" href="mailto:rajangyawali.np@gmail.com">
+          <a class="chip" href="/cdn-cgi/l/email-protection#c3b1a2a9a2ada4baa2b4a2afaaedadb383a4aea2aaafeda0acae">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rajangyawali.np&#64;gmail.com
           </a>
@@ -355,33 +412,87 @@
 <!-- RESEARCH -->
 <section class="sec" id="research">
   <div class="wrap">
-    <p class="sec-label">Research</p>
-    <h2 class="sec-title">Current Projects</h2>
-    <div class="cards reveal">
-      <div class="card c-blue">
-        <span class="c-tag t-blue">3D Atomic Modeling · MICA</span>
-        <div class="c-title">Multimodal Deep Learning for Protein Complex Structure Determination</div>
-        <div class="c-desc">MICA fuses cryo-EM density maps with AlphaFold3 structural predictions through encoder-decoder architectures and feature pyramid networks, enabling fully automated 3D atomic modeling of protein complexes with state-of-the-art accuracy.</div>
-        <div class="c-meta"><strong>Published:</strong> Communications Chemistry (Nature), 2025</div>
+    <h2 class="sec-title">Research</h2>
+    <div class="projects reveal">
+
+      <!-- PROJECT 1: MICA -->
+      <div class="project proj-blue">
+        <div class="proj-img">
+          <!-- REPLACE src WITH YOUR UPLOADED FIGURE PATH, e.g. src="img/mica_fig1.png" -->
+          <img src="img/mica_overview.png" alt="MICA architecture overview" />
+          <div class="proj-img-caption">Fig. 1 — MICA workflow: multimodal integration of cryo-EM &amp; AlphaFold3</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-num">Project 01</div>
+          <span class="proj-tag pt-blue">3D Atomic Modeling · MICA</span>
+          <div class="proj-title">Multimodal Deep Learning for Protein Complex Structure Determination</div>
+          <div class="proj-desc">MICA integrates cryo-EM density maps with AlphaFold3 structural predictions using a multi-task encoder-decoder with feature pyramid networks. It predicts backbone atoms, Cα atoms, and amino acid types, achieving an average TM-score of <strong>0.93</strong> on high-resolution maps — outperforming all current state-of-the-art methods in accuracy and completeness.</div>
+          <div class="proj-pills">
+            <span class="pill">Encoder-Decoder</span>
+            <span class="pill">Feature Pyramid Network</span>
+            <span class="pill">AlphaFold3</span>
+            <span class="pill">Multi-task Learning</span>
+          </div>
+          <div class="proj-meta">
+            <span><strong>Published:</strong> Communications Chemistry (Nature Portfolio), 2025</span>
+            <a href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Paper</a>
+            <a href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
+          </div>
+        </div>
       </div>
-      <div class="card c-green">
-        <span class="c-tag t-green">Particle Picking · CryoSegNet</span>
-        <div class="c-title">SAM + Attention-Gated U-Net for Cryo-EM Particle Detection</div>
-        <div class="c-desc">Integrates Meta's Segment Anything Model with a purpose-built attention-gated U-Net trained on cryo-EM data. Achieves 7–14% improvement in 3D reconstruction resolution (3.32 Å) over crYOLO and Topaz across all protein types.</div>
-        <div class="c-meta"><strong>Published:</strong> Briefings in Bioinformatics, 2024</div>
+
+      <!-- PROJECT 2: Particle Picking -->
+      <div class="project proj-green">
+        <div class="proj-img">
+          <!-- REPLACE src WITH YOUR UPLOADED FIGURE PATH, e.g. src="img/cryosegnet_fig1.png" -->
+          <img src="img/cryosegnet_overview.png" alt="CryoSegNet particle picking overview" />
+          <div class="proj-img-caption">Fig. 1 — CryoSegNet: U-Net + SAM particle picking pipeline</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-num">Project 02</div>
+          <span class="proj-tag pt-green">Cryo-EM Particle Picking</span>
+          <div class="proj-title">AI-Driven Protein Particle Picking: CryoSegNet, CryoTransformer &amp; CryoFSL</div>
+          <div class="proj-desc">A suite of deep learning methods for automated cryo-EM particle picking. <strong>CryoSegNet</strong> integrates Meta's SAM with an attention-gated U-Net, achieving <strong>3.32 Å</strong> average resolution — 14% better than crYOLO and 7% better than Topaz. <strong>CryoTransformer</strong> achieves an F1-score of 0.747 on diverse proteins. <strong>CryoFSL</strong> reduces annotation cost by <strong>95%</strong> through few-shot learning, generalizing across protein types with minimal labeled data.</div>
+          <div class="proj-pills">
+            <span class="pill">Segment Anything Model</span>
+            <span class="pill">Attention U-Net</span>
+            <span class="pill">Vision Transformers</span>
+            <span class="pill">Few-Shot Learning</span>
+          </div>
+          <div class="proj-meta">
+            <span><strong>CryoSegNet:</strong> Briefings in Bioinformatics, 2024</span>
+            <a href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Paper</a>
+            <a href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
+          </div>
+        </div>
       </div>
-      <div class="card c-amber">
-        <span class="c-tag t-amber">Benchmark Dataset · CryoPPP</span>
-        <div class="c-title">Large Expert-Curated Cryo-EM Dataset for ML Particle Picking</div>
-        <div class="c-desc">A 2.6 TB benchmark of 9,893 micrographs with 300K+ expert-validated labels across 34 protein types, validated via 2D class analysis and 3D density map reconstruction. Now the community-standard dataset with 45+ citations.</div>
-        <div class="c-meta"><strong>Published:</strong> Scientific Data (Nature), 2023</div>
+
+      <!-- PROJECT 3: Benchmark Datasets -->
+      <div class="project proj-amber">
+        <div class="proj-img">
+          <!-- REPLACE src WITH YOUR UPLOADED FIGURE PATH, e.g. src="img/cryoppp_fig2.png" -->
+          <img src="img/cryoppp_overview.png" alt="CryoPPP dataset overview" />
+          <div class="proj-img-caption">Fig. 2 — CryoPPP dataset creation pipeline (Scientific Data, 2023)</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-num">Project 03</div>
+          <span class="proj-tag pt-amber">Benchmark Datasets</span>
+          <div class="proj-title">Community-Standard Cryo-EM Benchmark Datasets: CryoPPP &amp; CryoVirusDB</div>
+          <div class="proj-desc"><strong>CryoPPP</strong> is a 2.6 TB benchmark of 9,893 expert-labeled cryo-EM micrographs with 300K+ particle annotations across 34 protein types, validated rigorously by 2D class analysis and 3D density map reconstruction. It has become the community-standard training and evaluation dataset for cryo-EM particle picking with <strong>45+ citations</strong>. <strong>CryoVirusDB</strong> extends this to virus particles, providing the first annotated cryo-EM dataset for AI-based identification of icosahedral virus structures — enabling new antiviral research pipelines.</div>
+          <div class="proj-pills">
+            <span class="pill">Data Curation</span>
+            <span class="pill">Expert Annotation</span>
+            <span class="pill">3D Validation</span>
+            <span class="pill">EMPIAR</span>
+          </div>
+          <div class="proj-meta">
+            <span><strong>CryoPPP:</strong> Scientific Data (Nature), 2023 &nbsp;·&nbsp; <strong>CryoVirusDB:</strong> Viruses, 2026</span>
+            <a href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ CryoPPP</a>
+            <a href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Data</a>
+          </div>
+        </div>
       </div>
-      <div class="card c-navy">
-        <span class="c-tag t-navy">Few-Shot Learning · CryoFSL</span>
-        <div class="c-title">Annotation-Efficient Framework for Cryo-EM Particle Picking</div>
-        <div class="c-desc">Reduces expert labeling requirements by 95% through a few-shot learning framework that generalizes robustly across diverse protein types, dramatically lowering the annotation bottleneck in large-scale cryo-EM pipelines.</div>
-        <div class="c-meta"><strong>Published:</strong> bioRxiv preprint, 2025</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -389,8 +500,7 @@
 <!-- PUBLICATIONS -->
 <section class="sec" id="publications">
   <div class="wrap">
-    <p class="sec-label">Publications</p>
-    <h2 class="sec-title">Peer-Reviewed Works</h2>
+    <h2 class="sec-title">Publications</h2>
 
     <div class="pub-filters">
       <button class="f-btn on" data-f="all">All (10)</button>
@@ -533,8 +643,7 @@
 <!-- EXPERIENCE -->
 <section class="sec" id="experience">
   <div class="wrap">
-    <p class="sec-label">Experience</p>
-    <h2 class="sec-title">Research &amp; Professional Background</h2>
+    <h2 class="sec-title">Experience</h2>
     <div class="reveal">
 
       <div class="exp">
@@ -581,8 +690,7 @@
 <!-- EDUCATION -->
 <section class="sec" id="education">
   <div class="wrap">
-    <p class="sec-label">Education</p>
-    <h2 class="sec-title">Academic Training</h2>
+    <h2 class="sec-title">Education</h2>
     <div class="reveal">
 
       <div class="edu">
@@ -631,8 +739,7 @@
 <!-- SKILLS -->
 <section class="sec" id="skills">
   <div class="wrap">
-    <p class="sec-label">Skills</p>
-    <h2 class="sec-title">Technical Expertise</h2>
+    <h2 class="sec-title">Skills</h2>
     <table class="sk-table reveal">
       <tr>
         <td>Deep Learning</td>
@@ -677,8 +784,7 @@
 <!-- TALKS -->
 <section class="sec" id="talks">
   <div class="wrap">
-    <p class="sec-label">Talks &amp; Presentations</p>
-    <h2 class="sec-title">Selected Presentations</h2>
+    <h2 class="sec-title">Talks &amp; Presentations</h2>
     <div class="talk-list reveal">
       <div class="talk">
         <div class="talk-yr">2024</div>
@@ -701,8 +807,7 @@
 <!-- SERVICE & AWARDS -->
 <section class="sec" id="service">
   <div class="wrap">
-    <p class="sec-label">Service &amp; Awards</p>
-    <h2 class="sec-title">Community &amp; Recognition</h2>
+    <h2 class="sec-title">Service &amp; Awards</h2>
     <div class="two-col reveal">
       <div>
         <div class="sub-h">Honors &amp; Fellowships</div>
@@ -727,35 +832,55 @@
 
 <footer>
   <p>&#169; 2026 Rajan Gyawali &nbsp;·&nbsp; PhD Candidate, University of Missouri–Columbia &nbsp;·&nbsp;
-    <a href="mailto:rgkg2@missouri.edu">rgkg2&#64;missouri.edu</a>
+    <a href="/cdn-cgi/l/email-protection#daa8bdb1bde89ab7b3a9a9b5afa8b3f4bfbeaf">rgkg2&#64;missouri.edu</a>
   </p>
 </footer>
 
 <script>
   // Photo fallback
-  const img = document.querySelector('.photo-circle img');
-  if (img) {
-    img.addEventListener('load', () => { document.querySelector('.photo-initials').style.display = 'none'; });
-    if (img.complete && img.naturalHeight > 0) document.querySelector('.photo-initials').style.display = 'none';
-  }
+  (function() {
+    var img = document.querySelector('.photo-circle img');
+    if (img) {
+      img.addEventListener('load', function() { document.querySelector('.photo-initials').style.display = 'none'; });
+      if (img.complete && img.naturalHeight > 0) document.querySelector('.photo-initials').style.display = 'none';
+    }
+  })();
 
   // Abstract toggle
   function toggleAbs(btn) {
-    const pub = btn.closest('.pub');
+    var pub = btn.closest('.pub');
     pub.classList.toggle('open');
     btn.textContent = pub.classList.contains('open') ? '− Abstract' : '+ Abstract';
   }
 
-  // Publication filter (re-runs counter visually via display)
-  document.querySelectorAll('.f-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
-      btn.classList.add('on');
-      const f = btn.dataset.f;
-      document.querySelectorAll('.pub').forEach(p => {
-        p.style.display = (f === 'all' || p.dataset.t === f) ? 'grid' : 'none';
+  // Publication filter with live renumbering
+  function filterPubs(f) {
+    var pubs = document.querySelectorAll('.pub');
+    var n = 1;
+    for (var i = 0; i < pubs.length; i++) {
+      var p = pubs[i];
+      var show = (f === 'all') || (p.getAttribute('data-t') === f);
+      p.style.display = show ? 'grid' : 'none';
+      if (show) {
+        var numEl = p.querySelector('.pub-n');
+        if (numEl) numEl.textContent = '[' + n + ']';
+        n++;
+      }
+    }
+  }
+
+  // Init filter buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    filterPubs('all');
+    var btns = document.querySelectorAll('.f-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function() {
+        var allBtns = document.querySelectorAll('.f-btn');
+        for (var j = 0; j < allBtns.length; j++) allBtns[j].classList.remove('on');
+        this.classList.add('on');
+        filterPubs(this.getAttribute('data-f'));
       });
-    });
+    }
   });
 
   // Scroll reveal
@@ -768,7 +893,7 @@
   const secs = document.querySelectorAll('section[id]');
   const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
   window.addEventListener('scroll', () => {
-    let cur = '';
+     let cur = '';
     secs.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
     navAs.forEach(a => a.classList.toggle('act', a.getAttribute('href') === '#' + cur));
   }, { passive: true });
