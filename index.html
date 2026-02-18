@@ -143,83 +143,83 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem 2rem;
-      min-height: 280px;
+      padding: 1.75rem 3rem 2.25rem;
+      min-height: 260px;
       position: relative;
     }
     .proj-img img {
       max-width: 100%;
-      max-height: 320px;
+      max-height: 360px;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.07));
     }
     .proj-img-caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      padding: 0.45rem 1rem;
-      background: rgba(26,37,64,0.06);
+      padding: 0.38rem 1.25rem;
+      background: var(--surface2);
       border-top: 1px solid var(--border);
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       color: var(--sub);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
-    /* Content below image — two columns */
     .proj-body {
-      padding: 1.8rem 2rem 2rem;
+      padding: 1.5rem 1.75rem 1.75rem;
       display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 2rem;
+      grid-template-columns: 1fr 240px;
+      gap: 1.75rem;
       align-items: start;
     }
     .proj-body-left {}
     .proj-body-right {
       border-left: 1px solid var(--border);
-      padding-left: 2rem;
+      padding-left: 1.75rem;
     }
 
     .proj-num {
       font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem;
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--sub);
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
     .proj-tag {
       display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
       letter-spacing: 0.13em; text-transform: uppercase;
-      padding: 0.18rem 0.6rem; border-radius: 2px; margin-bottom: 0.85rem;
+      padding: 0.18rem 0.6rem; border-radius: 2px; margin-bottom: 0.7rem;
     }
     .pt-blue  { background: var(--acc-lt); color: #1a3db5; }
     .pt-green { background: var(--grn-lt); color: #145c38; }
     .pt-amber { background: var(--amb-lt); color: #7a4200; }
 
-    .proj-title { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.35; }
-    .proj-desc  { font-size: 0.94rem; color: var(--body); line-height: 1.78; }
+    .proj-title { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.35; }
+    .proj-desc  { font-size: 0.93rem; color: var(--body); line-height: 1.72; }
 
     /* Right column */
     .proj-pills-label {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
-      margin-bottom: 0.6rem;
-    }
-    .proj-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
-    .pill {
-      font-size: 0.78rem; color: var(--mid); background: var(--surface2);
-      border: 1px solid var(--border); border-radius: 3px; padding: 0.15rem 0.6rem;
-    }
-    .proj-meta-label {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
       letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
       margin-bottom: 0.5rem;
     }
-    .proj-meta { display: flex; flex-direction: column; gap: 0.4rem; }
+    .proj-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.1rem; }
+    .pill {
+      font-size: 0.78rem; color: var(--mid); background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 3px; padding: 0.13rem 0.58rem;
+    }
+    .proj-meta-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
+      margin-bottom: 0.45rem;
+    }
+    .proj-meta { display: flex; flex-direction: column; gap: 0.3rem; }
     .proj-meta-pub { font-size: 0.84rem; color: var(--body); line-height: 1.5; }
     .proj-meta-pub strong { color: var(--navy); font-weight: 600; }
-    .proj-meta-links { display: flex; gap: 0.75rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .proj-meta-links { display: flex; gap: 0.6rem; margin-top: 0.55rem; flex-wrap: wrap; }
     .proj-meta-links a {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.73rem;
       color: var(--accent); text-decoration: none;
       border: 1px solid var(--acc-lt); border-radius: 2px;
       padding: 0.18rem 0.6rem; background: var(--acc-lt);
@@ -410,11 +410,11 @@
         </div>
 
         <div class="hero-chips">
-          <a class="chip" href="mailto:rgkg2@missouri.edu">
+          <a class="chip" href="/cdn-cgi/l/email-protection#7002171b1742301d1903031f0502195e151405">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rgkg2&#64;missouri.edu
           </a>
-          <a class="chip" href="mailto:rajangyawali.np@gmail.com">
+          <a class="chip" href="/cdn-cgi/l/email-protection#d3a1b2b9b2bdb4aab2a4b2bfbafdbda393b4beb2babffdb0bcbe">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rajangyawali.np&#64;gmail.com
           </a>
@@ -877,11 +877,11 @@
 
 <footer>
   <p>&#169; 2026 Rajan Gyawali &nbsp;·&nbsp; PhD Candidate, University of Missouri–Columbia &nbsp;·&nbsp;
-    <a href="mailto:rgkg2@missouri.edu">rgkg2&#64;missouri.edu</a>
+    <a href="/cdn-cgi/l/email-protection#6e1c0905095c2e03071d1d011b1c07400b0a1b">rgkg2&#64;missouri.edu</a>
   </p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Photo fallback
   (function() {
     var img = document.querySelector('.photo-circle img');
@@ -933,9 +933,3 @@
   var navAs = document.querySelectorAll('.nav-links a[href^="#"]');
   window.addEventListener('scroll', function() {
     var cur = '';
-    secs.forEach(function(s) { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-    navAs.forEach(function(a) { a.classList.toggle('act', a.getAttribute('href') === '#' + cur); });
-  }, { passive: true });
-</script>
-</body>
-</html>
