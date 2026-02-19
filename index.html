@@ -3,358 +3,481 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rajan Gyawali — Computational Biology &amp; ML Researcher</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <title>Rajan Gyawali — Computational Biology & ML Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:       #f7f6f3;
-      --surface:  #ffffff;
-      --surface2: #f0eeea;
-      --border:   #e2dfd8;
-      --border2:  #c8c4bc;
-      --navy:     #1a2540;
-      --accent:   #2b5ce6;
-      --acc-lt:   #e8eefb;
-      --green:    #1a7a4a;
-      --grn-lt:   #e6f4ed;
-      --amber:    #8a5200;
-      --amb-lt:   #fdf3e3;
-      --text:     #080707;   
-      --body:     #1f1f1f;   
-      --mid:      #272d4b;   
-      --sub:      #1e2131; 
+      --bg:        #faf9f7;
+      --surface:   #ffffff;
+      --surface2:  #f3f1ed;
+      --border:    #e8e4dc;
+      --border2:   #d4cfc5;
+      --ink:       #13120f;
+      --ink2:      #1b1a17;
+      --ink3:      #262521;
+      --ink4:      #524f4b;
+      --accent:    #1e3a5f;
+      --accent2:   #2e5fa3;
+      --gold:      #aa7d0b;
+      --gold-lt:   #fdf6e3;
+      --green:     #1a5c3a;
+      --green-lt:  #e8f5ee;
+      --red:       #8b1a1a;
+      --red-lt:    #fdf0f0;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2.25rem; }
 
-    /* ── NAV ── */
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+    /* ─── LAYOUT ─── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
+
+    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(247,246,243,0.94);
-      backdrop-filter: blur(14px);
+      background: rgba(250,249,247,0.96);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
     .nav-in {
-      max-width: 1100px; margin: 0 auto; padding: 0 2.25rem;
-      height: 58px; display: flex; align-items: center; justify-content: space-between;
+      max-width: 1080px; margin: 0 auto; padding: 0 2.5rem;
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a { font-size: 0.82rem; color: var(--sub); text-decoration: none; letter-spacing: 0.02em; transition: color .15s; }
-    .nav-links a:hover, .nav-links a.act { color: var(--accent); }
-    .nav-cv { font-size: 0.82rem !important; font-weight: 500 !important; padding: 0.4rem 1.05rem; background: var(--navy) !important; color: #fff !important; border-radius: 3px; }
-    .nav-cv:hover { background: var(--accent) !important; text-decoration: none !important; }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 500; color: var(--ink); letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ink3); padding: 0.35rem 0.75rem;
+      border-radius: 3px; transition: all .15s;
+    }
+    .nav-links a:hover, .nav-links a.act { color: var(--accent); background: var(--surface2); text-decoration: none; }
+    .nav-cv {
+      background: var(--accent) !important; color: #fff !important;
+      border-radius: 3px; margin-left: 0.5rem;
+    }
+    .nav-cv:hover { background: var(--accent2) !important; }
 
-    /* ── HERO ── */
-    .hero { padding: 116px 0 76px; border-bottom: 1px solid var(--border); }
-    .hero-in { display: grid; grid-template-columns: auto 1fr; gap: 3.75rem; align-items: center; }
+    /* ─── HERO ─── */
+    .hero {
+      padding: 130px 0 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
 
-    .photo-wrap { flex-shrink: 0; }
-    .photo-circle {
-      width: 190px; height: 190px; border-radius: 50%; overflow: hidden;
+    /* Photo */
+    .photo-wrap { position: relative; }
+    .photo-ring {
+      width: 190px; height: 190px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      padding: 3px;
+      box-shadow: 0 12px 40px rgba(30,58,95,.18);
+    }
+    .photo-inner {
+      width: 100%; height: 100%; border-radius: 50%;
+      overflow: hidden; background: var(--surface2);
       border: 3px solid #fff;
-      box-shadow: 0 0 0 3px var(--border2), 0 8px 28px rgba(26,37,64,.13);
-      background: var(--surface2);
     }
-    .photo-circle img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .photo-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .photo-initials {
       display: none; width: 100%; height: 100%;
       align-items: center; justify-content: center;
-      font-family: 'Lora', serif; font-size: 4rem; color: var(--border2);
+      font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--border2);
     }
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--green); background: var(--grn-lt);
-      border: 1px solid #a8d9be; border-radius: 2px;
-      padding: 0.22rem 0.7rem; margin-bottom: 1.1rem;
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--green);
+      background: var(--green-lt); border: 1px solid #b3d9c2;
+      border-radius: 100px; padding: 0.28rem 0.85rem; margin-bottom: 1.2rem;
     }
-    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .status-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.85)} }
 
-    h1.name {
-      font-family: 'Lora', serif; font-size: clamp(2.6rem, 4vw, 3.5rem);
-      font-weight: 500; line-height: 1.08; color: var(--navy); margin-bottom: 0.3rem;
+    h1.hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      font-weight: 500; line-height: 1.06;
+      color: var(--ink); margin-bottom: 0.55rem;
+      letter-spacing: -0.01em;
     }
-    .hero-role { font-size: 1.08rem; font-weight: 400; color: var(--mid); margin-bottom: 0.2rem; }
-    .hero-affil { font-size: 0.95rem; color: var(--sub); margin-bottom: 1.5rem; }
-    .hero-affil strong { color: var(--mid); font-weight: 500; }
+    .hero-name em { font-style: italic; color: var(--accent); }
+
+    .hero-sub { font-size: 1.05rem; color: var(--ink2); margin-bottom: 0.2rem; font-weight: 400; }
+    .hero-affil { font-size: 0.9rem; color: var(--ink3); margin-bottom: 1.8rem; }
+    .hero-affil strong { color: var(--ink2); font-weight: 500; }
 
     .hero-bio {
-      font-size: 1rem; color: var(--body); line-height: 1.88;
-      max-width: 700px; margin-bottom: 1.75rem;
-      border-left: 3px solid var(--accent); padding-left: 1.1rem;
+      font-size: 0.97rem; color: var(--ink2); line-height: 1.9;
+      max-width: 680px; margin-bottom: 0.75rem;
     }
 
-    .hero-btns { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+    .divider-line {
+      width: 48px; height: 2px; background: var(--accent);
+      margin: 1.6rem 0;
+    }
+
+    /* Stat row */
+    .stat-row { display: flex; gap: 2rem; margin-bottom: 2rem; }
+    .stat { text-align: center; }
+    .stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--accent); line-height: 1; }
+    .stat-l { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink3); margin-top: 0.25rem; }
+
+    /* Action buttons */
+    .hero-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.52rem 1.2rem; border-radius: 3px; font-size: 0.85rem;
-      font-weight: 400; text-decoration: none; transition: all .15s;
-      cursor: pointer; border: none;
+      padding: 0.55rem 1.25rem; border-radius: 4px; font-size: 0.84rem;
+      font-weight: 400; letter-spacing: 0.01em; border: none; cursor: pointer;
+      text-decoration: none; transition: all .18s;
     }
-    .btn-solid { background: var(--navy); color: #fff; }
-    .btn-solid:hover { background: var(--accent); color: #fff; text-decoration: none; }
-    .btn-ghost { background: transparent; color: var(--mid); border: 1px solid var(--border2); }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); color: #fff; text-decoration: none; }
+    .btn-outline { background: transparent; color: var(--ink2); border: 1px solid var(--border2); }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); text-decoration: none; background: var(--gold-lt); }
 
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 1.3rem; }
-    .chip { display: flex; align-items: center; gap: 0.45rem; font-size: 0.9rem; color: var(--mid); text-decoration: none; }
-    .chip:hover { color: var(--accent); text-decoration: none; }
-    .chip svg { opacity: 0.65; flex-shrink: 0; }
+    /* Contact chips */
+    .contact-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-family: 'DM Mono', monospace; font-size: 0.75rem;
+      color: var(--ink3); letter-spacing: 0.02em;
+    }
+    .contact-item svg { opacity: 0.55; flex-shrink: 0; }
 
-    /* ── SECTION TEMPLATE ── */
-    .sec { padding: 4.75rem 0; border-bottom: 1px solid var(--border); }
+    /* ─── SECTION ─── */
+    .sec { padding: 5rem 0; border-bottom: 1px solid var(--border); }
     .sec:last-of-type { border-bottom: none; }
-    h2.sec-title { font-family: 'Lora', serif; font-size: 2.4rem; font-weight: 500; color: var(--navy); margin-bottom: 2.4rem; line-height: 1.15; border-bottom: 2px solid var(--border); padding-bottom: 0.75rem; }
+    .sec:nth-child(even) { background: var(--surface); }
 
-    /* ── RESEARCH PROJECTS ── */
+    .sec-header { margin-bottom: 3rem; }
+    .sec-num {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase;
+      display: block; margin-bottom: 0.35rem;
+    }
+    h2.sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem; font-weight: 500; color: var(--ink); line-height: 1.1;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── PROJECT CARDS ─── */
     .projects { display: flex; flex-direction: column; gap: 2.5rem; }
 
-    .project {
+    .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .project:hover { border-color: var(--border2); box-shadow: 0 8px 32px rgba(0,0,0,.09); }
-
-    /* Top accent line per project */
-    .proj-blue  { border-top: 4px solid var(--accent); }
-    .proj-green { border-top: 4px solid var(--green); }
-    .proj-amber { border-top: 4px solid #d07a00; }
-
-    /* Full-width image panel */
-    .proj-img {
-      width: 100%;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.75rem 3rem 2.25rem;
-      min-height: 260px;
+      transition: box-shadow .25s, border-color .25s;
       position: relative;
     }
-    .proj-img img {
-      max-width: 100%;
-      max-height: 360px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.07));
+    .project-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.1); border-color: var(--border2); }
+
+    .project-card .card-accent { height: 4px; }
+    .card-accent-blue   { background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%); }
+    .card-accent-green  { background: linear-gradient(90deg, var(--green) 0%, #2ecc71 100%); }
+    .card-accent-gold   { background: linear-gradient(90deg, var(--gold) 0%, #e6a817 100%); }
+
+    .project-img-wrap {
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 3.5rem;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 6px 0 12px -4px rgba(0,0,0,0.08),
+                  inset -6px 0 12px -4px rgba(0,0,0,0.08);
     }
-    .proj-img-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 0.38rem 1.25rem;
-      background: var(--surface2);
+    .project-img-wrap::before { display: none; }
+    .project-img-wrap img {
+      max-width: 100%; max-height: 320px; width: auto; height: auto;
+      object-fit: contain; display: block;
+      position: relative; z-index: 1;
+      -webkit-mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, black 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, black 55%, transparent 100%);
+      mix-blend-mode: multiply;
+    }
+    .img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(243,241,237,0.92);
       border-top: 1px solid var(--border);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.67rem;
-      color: var(--sub);
-      letter-spacing: 0.05em;
+      font-family: 'DM Mono', monospace; font-size: 0.64rem;
+      letter-spacing: 0.06em; color: var(--ink3);
+      padding: 0.4rem 1.25rem;
     }
 
-    .proj-body {
-      padding: 1.5rem 1.75rem 1.75rem;
+    .project-body {
       display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 1.75rem;
-      align-items: start;
+      grid-template-columns: 1fr 230px;
+      gap: 0;
     }
-    .proj-body-left {}
-    .proj-body-right {
+    .proj-left { padding: 1.75rem 2rem 2rem; }
+    .proj-right {
       border-left: 1px solid var(--border);
-      padding-left: 1.75rem;
+      padding: 1.75rem 1.5rem 2rem;
+      background: var(--surface2);
     }
 
-    .proj-num {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--sub);
-      margin-bottom: 0.4rem;
+    .proj-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink4); margin-bottom: 0.5rem;
     }
-    .proj-tag {
-      display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.13em; text-transform: uppercase;
-      padding: 0.18rem 0.6rem; border-radius: 2px; margin-bottom: 0.7rem;
+    .proj-tag-chip {
+      display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.61rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.65rem; border-radius: 3px; margin-bottom: 0.8rem;
     }
-    .pt-blue  { background: var(--acc-lt); color: #1a3db5; }
-    .pt-green { background: var(--grn-lt); color: #145c38; }
-    .pt-amber { background: var(--amb-lt); color: #7a4200; }
+    .ptc-blue  { background: #e8eef8; color: #1e3a5f; border: 1px solid #c0d0e8; }
+    .ptc-green { background: var(--green-lt); color: #1a5c3a; border: 1px solid #b3d9c2; }
+    .ptc-gold  { background: var(--gold-lt); color: #7a5800; border: 1px solid #dfc87a; }
 
-    .proj-title { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 500; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.35; }
-    .proj-desc  { font-size: 0.93rem; color: var(--body); line-height: 1.72; }
+    .proj-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 500; color: var(--ink);
+      line-height: 1.4; margin-bottom: 0.75rem;
+    }
+    .proj-desc { font-size: 0.91rem; color: var(--ink2); line-height: 1.78; }
 
     /* Right column */
-    .proj-pills-label {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
-      margin-bottom: 0.5rem;
+    .proj-section-label {
+      font-family: 'DM Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink4);
+      margin-bottom: 0.5rem; margin-top: 1.1rem;
     }
-    .proj-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.1rem; }
-    .pill {
-      font-size: 0.78rem; color: var(--mid); background: var(--surface2);
-      border: 1px solid var(--border); border-radius: 3px; padding: 0.13rem 0.58rem;
+    .proj-section-label:first-child { margin-top: 0; }
+    .method-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .method-tag {
+      font-size: 0.75rem; color: var(--ink2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 3px; padding: 0.15rem 0.55rem;
     }
-    .proj-meta-label {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub);
-      margin-bottom: 0.45rem;
+    .pub-venue-name { font-size: 0.83rem; color: var(--ink); font-weight: 500; }
+    .pub-venue-year { font-size: 0.78rem; color: var(--ink3); }
+    .proj-links { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .proj-link {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.04em;
+      color: var(--accent2); border: 1px solid #c0d0e8;
+      background: #e8eef8; border-radius: 3px;
+      padding: 0.22rem 0.65rem; text-decoration: none; transition: all .15s;
     }
-    .proj-meta { display: flex; flex-direction: column; gap: 0.3rem; }
-    .proj-meta-pub { font-size: 0.84rem; color: var(--body); line-height: 1.5; }
-    .proj-meta-pub strong { color: var(--navy); font-weight: 600; }
-    .proj-meta-links { display: flex; gap: 0.6rem; margin-top: 0.55rem; flex-wrap: wrap; }
-    .proj-meta-links a {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.73rem;
-      color: var(--accent); text-decoration: none;
-      border: 1px solid var(--acc-lt); border-radius: 2px;
-      padding: 0.18rem 0.6rem; background: var(--acc-lt);
-      transition: all .15s;
-    }
-    .proj-meta-links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .proj-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    @media(max-width:800px){
-      .proj-body { grid-template-columns: 1fr; }
-      .proj-body-right { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.25rem; }
-      .proj-img { padding: 1rem; min-height: 200px; }
+    /* ─── PUBLICATIONS ─── */
+    .pub-controls { display: flex; gap: 0.4rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .pub-btn {
+      font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.09em;
+      text-transform: uppercase; padding: 0.32rem 0.9rem;
+      border: 1px solid var(--border); border-radius: 3px;
+      background: transparent; color: var(--ink3); cursor: pointer; transition: all .15s;
     }
-
-    /* ── PUBLICATIONS ── */
-    .pub-filters { display: flex; gap: 0.5rem; margin-bottom: 1.85rem; flex-wrap: wrap; }
-    .f-btn {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.3rem 0.88rem;
-      border: 1px solid var(--border); border-radius: 2px;
-      background: transparent; color: var(--sub); cursor: pointer; transition: all .15s;
-    }
-    .f-btn:hover, .f-btn.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .pub-btn:hover, .pub-btn.on { background: var(--accent); color: #fff; border-color: var(--accent); }
 
     .pub-list { display: flex; flex-direction: column; }
-    .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1.3rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); align-items: start; }
-    .pub:last-child { border-bottom: none; }
-    .pub-n { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--sub); text-align: right; padding-top: 0.22rem; }
 
-    .pub-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 500; color: var(--navy); line-height: 1.5; margin-bottom: 0.4rem; }
-    .pub-auth { font-size: 0.9rem; color: var(--body); margin-bottom: 0.25rem; }
-    .pub-auth strong { color: var(--navy); font-weight: 600; }
-    .pub-venue { font-size: 0.88rem; color: var(--sub); font-style: italic; margin-bottom: 0.6rem; }
-    .pub-row { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+    .pub-item {
+      display: grid; grid-template-columns: 52px 1fr;
+      gap: 1.5rem; padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border); align-items: start;
+      transition: background .15s;
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-num {
+      font-family: 'DM Mono', monospace; font-size: 0.82rem;
+      color: var(--ink3); text-align: right; padding-top: 0.2rem;
+    }
+    .pub-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 500; color: var(--ink); line-height: 1.5;
+      margin-bottom: 0.4rem;
+    }
+    .pub-authors { font-size: 0.88rem; color: var(--ink2); margin-bottom: 0.22rem; }
+    .pub-authors strong { color: var(--ink); font-weight: 600; }
+    .pub-venue { font-size: 0.84rem; color: var(--ink3); font-style: italic; margin-bottom: 0.6rem; }
+    .pub-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
     .badge {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.15rem 0.48rem; border-radius: 2px;
+      font-family: 'DM Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.16rem 0.5rem; border-radius: 3px;
     }
-    .bj { background: var(--acc-lt); color: #1a3db5; }
-    .bc { background: #f0eafa; color: #52309a; }
-    .bd { background: var(--amb-lt); color: #7a4200; }
-    .bp { background: #fff0ee; color: #a02010; }
-    .be { background: #eaf7f0; color: #145c38; }
-    .pub-lnk { font-size: 0.84rem; color: var(--accent); text-decoration: none; }
-    .pub-lnk:hover { text-decoration: underline; }
-    .abs-btn {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.67rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--sub); background: none; border: none; cursor: pointer;
-      padding: 0; margin-left: auto; transition: color .15s;
+    .b-journal    { background: #e8eef8; color: #1e3a5f; }
+    .b-conference { background: #f0eafa; color: #4a2080; }
+    .b-preprint   { background: var(--red-lt); color: var(--red); }
+    .b-dataset    { background: var(--gold-lt); color: #7a5800; }
+    .b-note       { background: var(--green-lt); color: var(--green); }
+    .pub-link { font-size: 0.82rem; color: var(--accent2); }
+    .pub-link:hover { text-decoration: underline; }
+
+    /* ─── EXPERIENCE / TIMELINE ─── */
+    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--border);
     }
-    .abs-btn:hover { color: var(--mid); }
-    .abs-text {
-      display: none; margin-top: 0.8rem; font-size: 0.91rem; color: var(--body);
-      line-height: 1.78; background: var(--surface2); border-radius: 3px;
-      padding: 0.9rem 1.1rem; border-left: 2px solid var(--border2);
+    .tl-item { position: relative; padding-bottom: 2.75rem; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -2.5rem; top: 6px;
+      width: 15px; height: 15px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--accent2);
+      z-index: 1;
     }
-    .pub.open .abs-text { display: block; }
+    .tl-dot-fill { background: var(--accent); border-color: var(--accent); }
 
-    /* ── EXPERIENCE ── */
-    .exp { display: grid; grid-template-columns: 190px 1fr; gap: 2.2rem; padding: 2.25rem 0; border-bottom: 1px solid var(--border); }
-    .exp:last-child { border-bottom: none; }
-    .exp-when { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--sub); margin-bottom: 0.38rem; letter-spacing: 0.04em; }
-    .exp-org  { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; }
-    .exp-loc  { font-size: 0.84rem; color: var(--sub); }
-    .exp-role { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 1rem; }
-    .exp-ul   { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .exp-ul li { font-size: 0.94rem; color: var(--body); padding-left: 1.35rem; position: relative; line-height: 1.7; }
-    .exp-ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
-    .exp-ul li strong { color: var(--navy); font-weight: 600; }
-
-    /* ── EDUCATION ── */
-    .edu { display: grid; grid-template-columns: 190px 1fr; gap: 2.2rem; padding: 2.25rem 0; border-bottom: 1px solid var(--border); }
-    .edu:last-child { border-bottom: none; }
-    .edu-when { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--sub); letter-spacing: 0.04em; }
-    .edu-deg  { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
-    .edu-sch  { font-size: 0.94rem; color: var(--mid); margin-bottom: 0.45rem; }
-    .edu-pct  { font-family: 'IBM Plex Mono', monospace; font-size: 0.73rem; color: var(--sub); border: 1px solid var(--border); border-radius: 2px; padding: 0.1rem 0.55rem; display: inline-block; margin-bottom: 0.7rem; }
-    .edu-det  { font-size: 0.92rem; color: var(--body); line-height: 1.73; }
-    .edu-det p { margin-bottom: 0.3rem; }
-    .edu-det strong { color: var(--navy); font-weight: 600; }
-
-    /* ── SKILLS ── */
-    .sk-table { width: 100%; border-collapse: collapse; }
-    .sk-table tr { border-bottom: 1px solid var(--border); }
-    .sk-table tr:last-child { border-bottom: none; }
-    .sk-table td { padding: 0.95rem 0; vertical-align: top; }
-    .sk-table td:first-child {
-      font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase; color: #1a3db5;
-      width: 205px; padding-right: 1.5rem; white-space: nowrap; padding-top: 1.05rem;
+    .tl-period {
+      font-family: 'DM Mono', monospace; font-size: 0.82rem;
+      letter-spacing: 0.05em; color: var(--ink3); margin-bottom: 0.3rem; font-weight: 400;
     }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      font-size: 0.89rem; color: var(--mid); background: var(--surface);
-      border: 1px solid var(--border); border-radius: 3px; padding: 0.22rem 0.68rem;
-      transition: all .15s; cursor: default;
+    .tl-role {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem;
+      font-weight: 500; color: var(--ink); margin-bottom: 0.2rem;
     }
-    .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--acc-lt); }
+    .tl-org { font-size: 0.9rem; color: var(--ink2); font-weight: 500; margin-bottom: 0.1rem; }
+    .tl-loc { font-size: 0.82rem; color: var(--ink3); margin-bottom: 1rem; }
+    .tl-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .tl-list li {
+      font-size: 0.91rem; color: var(--ink2); line-height: 1.72;
+      padding-left: 1.25rem; position: relative;
+    }
+    .tl-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent2); }
+    .tl-list li strong { color: var(--ink); font-weight: 500; }
 
-    /* ── AWARDS & SERVICE ── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .sub-h { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-    .aw-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-    .aw-list li { font-size: 0.94rem; color: var(--body); display: flex; gap: 0.8rem; align-items: baseline; }
-    .aw-yr { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--accent); flex-shrink: 0; }
-    .sv-list { list-style: none; display: flex; flex-direction: column; gap: 0.72rem; }
-    .sv-list li { font-size: 0.94rem; color: var(--body); padding-left: 0.95rem; border-left: 2px solid var(--border2); line-height: 1.65; }
-    .sv-list li strong { color: var(--navy); font-weight: 600; }
+    /* ─── EDUCATION ─── */
+    .edu-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.75rem 2rem;
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 2rem; align-items: start;
+      transition: border-color .2s;
+    }
+    .edu-card:hover { border-color: var(--border2); }
+    .edu-period {
+      font-family: 'DM Mono', monospace; font-size: 0.82rem;
+      letter-spacing: 0.05em; color: var(--ink3); font-weight: 400;
+    }
+    .edu-score {
+      display: inline-block; margin-top: 0.6rem;
+      font-family: 'DM Mono', monospace; font-size: 0.67rem;
+      letter-spacing: 0.06em; color: var(--green);
+      background: var(--green-lt); border: 1px solid #b3d9c2;
+      border-radius: 3px; padding: 0.15rem 0.55rem;
+    }
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem;
+    }
+    .edu-school { font-size: 0.92rem; color: var(--ink2); font-weight: 500; margin-bottom: 0.6rem; }
+    .edu-detail { font-size: 0.88rem; color: var(--ink3); line-height: 1.72; }
+    .edu-detail strong { color: var(--ink2); font-weight: 500; }
 
-    /* ── TALKS ── */
-    .talk-list { display: flex; flex-direction: column; gap: 1.4rem; }
-    .talk { display: grid; grid-template-columns: 78px 1fr; gap: 1.6rem; align-items: start; }
-    .talk-yr { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; color: var(--sub); text-align: right; padding-top: 0.15rem; }
-    .talk-title  { font-size: 0.97rem; font-weight: 500; color: var(--navy); margin-bottom: 0.22rem; }
-    .talk-venue  { font-size: 0.88rem; color: var(--sub); }
+    /* ─── SKILLS ─── */
+    .skills-grid { display: flex; flex-direction: column; gap: 0; }
+    .skill-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 1.5rem; padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border); align-items: start;
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-cat {
+      font-family: 'DM Mono', monospace; font-size: 0.8rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2);
+      padding-top: 0.3rem; font-weight: 500;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag {
+      font-size: 0.84rem; color: var(--ink2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.22rem 0.7rem;
+      transition: all .14s; cursor: default;
+    }
+    .skill-tag:hover { border-color: var(--accent2); color: var(--accent); background: #eef2f9; }
 
-    /* ── FOOTER ── */
-    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 1.8rem 2rem; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; letter-spacing: 0.06em; }
-    footer a { color: rgba(255,255,255,.72); }
+    /* ─── AWARDS & SERVICE ─── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+    .sub-head {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--ink);
+      margin-bottom: 1.3rem; padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .award-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .award-list li { display: flex; gap: 0.9rem; font-size: 0.91rem; color: var(--ink2); align-items: baseline; line-height: 1.5; }
+    .award-yr {
+      font-family: 'DM Mono', monospace; font-size: 0.69rem;
+      color: var(--gold); flex-shrink: 0; font-weight: 500;
+    }
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .service-list li {
+      font-size: 0.91rem; color: var(--ink2); line-height: 1.68;
+      padding-left: 1rem; border-left: 2px solid var(--accent2);
+    }
+    .service-list li strong { color: var(--ink); font-weight: 500; }
 
-    /* ── REVEAL ── */
-    .reveal { opacity: 1; transform: none; }
+    /* ─── TALKS ─── */
+    .talks-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .talk-item { display: grid; grid-template-columns: 64px 1fr; gap: 1.5rem; align-items: start; }
+    .talk-yr { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--ink3); text-align: right; padding-top: 0.18rem; }
+    .talk-title { font-size: 0.95rem; color: var(--ink); font-weight: 400; margin-bottom: 0.22rem; line-height: 1.5; }
+    .talk-where { font-size: 0.84rem; color: var(--ink3); }
 
-    /* ── RESPONSIVE ── */
-    @media(max-width:880px){
-      .hero-in, .exp, .edu { grid-template-columns: 1fr; gap: 1rem; }
-      .photo-circle { width: 140px; height: 140px; }
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.38);
+      padding: 2.2rem;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.06em;
+    }
+    footer a { color: rgba(255,255,255,.6); }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:860px){
+      .hero-layout, .project-body, .edu-card, .skill-row { grid-template-columns: 1fr; }
+      .proj-right { border-left: none; border-top: 1px solid var(--border); }
       .two-col { grid-template-columns: 1fr; }
-      .sk-table td:first-child { width: 145px; font-size: 0.66rem; }
-      .talk { grid-template-columns: 1fr; }
+      .photo-ring { width: 130px; height: 130px; }
+      .stat-row { gap: 1.2rem; }
     }
-    @media(max-width:600px){
+    @media(max-width:580px){
       .nav-links { display: none; }
       .hero { padding: 90px 0 56px; }
+      .container { padding: 0 1.25rem; }
     }
   </style>
 </head>
@@ -363,7 +486,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-in">
-    <a class="nav-brand" href="#">Rajan Gyawali</a>
+    <span class="nav-brand">Rajan Gyawali</span>
     <ul class="nav-links">
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
@@ -378,48 +501,51 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <div class="hero-in">
+  <div class="container">
+    <div class="hero-layout">
 
       <div class="photo-wrap">
-        <div class="photo-circle">
-          <img src="https://rajangyawali.github.io/img/raj.JPG" alt="Rajan Gyawali"
-               onerror="this.style.display='none'; document.querySelector('.photo-initials').style.display='flex';" />
-          <div class="photo-initials">RG</div>
+        <div class="photo-ring">
+          <div class="photo-inner">
+            <img src="https://rajangyawali.github.io/img/raj.JPG" alt="Rajan Gyawali"
+                 onerror="this.style.display='none'; document.querySelector('.photo-initials').style.display='flex';" />
+            <div class="photo-initials">RG</div>
+          </div>
         </div>
       </div>
 
       <div>
-        <div class="hero-badge"><span class="badge-dot"></span>Seeking Postdoctoral Positions · Jan 2027</div>
-        <h1 class="name">Rajan Gyawali</h1>
-        <p class="hero-role">PhD Candidate in Computer Science</p>
-        <p class="hero-affil">
-          Bioinformatics &amp; Machine Learning Lab | University of Missouri–Columbia
-        </p>
-        <p class="hero-affil">
-          &nbsp;·&nbsp; Advisor: <strong>Dr. Jianlin Cheng</strong>
-        </p>
+        <div class="status-pill"><span class="status-dot"></span>Seeking Postdoctoral Positions · Jan 2027</div>
+
+        <h1 class="hero-name">Rajan Gyawali</h1>
+        <p class="hero-sub">PhD Candidate in Computer Science</p>
+        <p class="hero-affil">Bioinformatics &amp; Machine Learning Lab &nbsp;·&nbsp; <strong>University of Missouri–Columbia</strong></p>
+        <p class="hero-affil">Advisor: <strong><a href="https://calla.rnet.missouri.edu/cheng/">Dr. Jianlin Cheng</a></strong></p>
+
+        <div class="divider-line"></div>
 
         <p class="hero-bio">
-          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of artificial intelligence and structural biology. My doctoral work at the University of Missouri centers on cryo-electron microscopy (cryo-EM) — designing generalizable neural architectures that automate particle detection, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning. These methods draw on computer vision, geometric deep learning, and multimodal learning, with applications spanning protein structure determination, virus characterization, and structure-based drug discovery. My datasets and tools have been adopted by the broader cryo-EM community, with benchmark contributions accumulating 55+ citations.
-        </p> 
+          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of AI and structural biology. My doctoral work centers on cryo-electron microscopy (cryo-EM) — designing neural architectures that automate protein particle picking, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning.
+        </p>
         <p class="hero-bio">
-          I am actively seeking postdoctoral opportunities starting Jan 2027, at the intersection of machine learning, computational biology, and biomedical imaging.
+          My methods draw on computer vision, geometric deep learning, and multimodal learning, with applications in protein structure determination, virus characterization, and structure-based drug discovery.
         </p>
 
-        <div class="hero-btns">
-          <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=qzXOzEkAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a class="btn btn-ghost" href="https://github.com/rajangyawali" target="_blank">GitHub</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/rajangyawali/" target="_blank">LinkedIn</a>
+        <div class="divider-line"></div>
+        
+        <div class="hero-actions">
+          <a class="btn btn-outline" href="https://scholar.google.com/citations?user=qzXOzEkAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          <a class="btn btn-outline" href="https://github.com/rajangyawali" target="_blank">GitHub</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/rajangyawali/" target="_blank">LinkedIn</a>
         </div>
 
-        <div class="hero-chips">
-          <span class="chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        <div class="contact-row">
+          <span class="contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             rgkg2[at]missouri[dot]edu
-          </a>
-          <span class="chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </span>
+          <span class="contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             Columbia, MO
           </span>
         </div>
@@ -431,118 +557,123 @@
 
 <!-- RESEARCH -->
 <section class="sec" id="research">
-  <div class="wrap">
-    <h2 class="sec-title">Research</h2>
-    <div class="projects reveal">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Research</h2>
+    </div>
 
-      <!-- PROJECT 1: MICA -->
-      <div class="project proj-blue">
-        <div class="proj-img">
-          <!-- Replace src with your figure: e.g. src="img/MICA_overview.jpg" -->
+    <div class="projects">
+
+      <!-- MICA -->
+      <div class="project-card">
+        <div class="card-accent card-accent-blue"></div>
+        <div class="project-img-wrap">
           <img src="img/MICA_overview.jpg" alt="MICA architecture overview" />
-          <div class="proj-img-caption">&nbsp;&nbsp;MICA workflow: multimodal integration of cryo-EM &amp; AlphaFold3</div>
+          <div class="img-caption">MICA workflow — multimodal integration of cryo-EM density maps &amp; AlphaFold3 structural predictions</div>
         </div>
-        <div class="proj-body">
-          <div class="proj-body-left">
-            <div class="proj-num">Project 01</div>
-            <span class="proj-tag pt-blue">3D Atomic Modeling · MICA</span>
+        <div class="project-body">
+          <div class="proj-left">
+            <div class="proj-eyebrow">Project 01</div>
+            <span class="proj-tag-chip ptc-blue">3D Atomic Modeling · MICA</span>
             <div class="proj-title">Multimodal Deep Learning for Protein Complex Structure Determination</div>
-            <div class="proj-desc">MICA integrates cryo-EM density maps with AlphaFold3 structural predictions using a multi-task encoder-decoder with feature pyramid networks. It predicts backbone atoms, C&alpha; atoms, and amino acid types, achieving an average TM-score of <strong>0.93</strong> on high-resolution maps — outperforming all current state-of-the-art methods in accuracy and completeness.</div>
+            <div class="proj-desc">MICA integrates cryo-EM density maps with AlphaFold3 structural predictions using a multi-task encoder-decoder with feature pyramid networks. It predicts backbone atoms, Cα atoms, and amino acid types — achieving an average TM-score of <strong>0.93</strong> on high-resolution maps, outperforming all current state-of-the-art methods in both accuracy and model completeness.</div>
           </div>
-          <div class="proj-body-right">
-            <div class="proj-pills-label">Methods</div>
-            <div class="proj-pills">
-              <span class="pill">Encoder-Decoder</span>
-              <span class="pill">Feature Pyramid Network</span>
-              <span class="pill">AlphaFold3</span>
-              <span class="pill">Multi-task Learning</span>
+          <div class="proj-right">
+            <div class="proj-section-label">Methods</div>
+            <div class="method-tags">
+              <span class="method-tag">Encoder-Decoder</span>
+              <span class="method-tag">Feature Pyramid Network</span>
+              <span class="method-tag">AlphaFold3</span>
+              <span class="method-tag">Multi-task Learning</span>
             </div>
-            <div class="proj-meta-label">Publication</div>
-            <div class="proj-meta">
-              <div class="proj-meta-pub"><strong>Communications Chemistry</strong>, 2025</div>
-              <div class="proj-meta-links">
-                <a href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Paper</a>
-                <a href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
-              </div>
+            <div class="proj-section-label">Publication</div>
+            <div class="pub-venue-name">Communications Chemistry</div>
+            <div class="pub-venue-year">Nature, 2025</div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Paper</a>
+              <a class="proj-link" href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 2: Particle Picking -->
-      <div class="project proj-green">
-        <div class="proj-img">
-          <!-- Replace src with your figure: e.g. src="img/CryoSegNet_overview.jpg" -->
+      <!-- Particle Picking -->
+      <div class="project-card">
+        <div class="card-accent card-accent-green"></div>
+        <div class="project-img-wrap">
           <img src="img/CryoSegNet_overview.jpg" alt="CryoSegNet particle picking overview" />
-          <div class="proj-img-caption">&nbsp;&nbsp;CryoSegNet: Attention-gated U-Net + SAM particle picking pipeline</div>
+          <div class="img-caption">CryoSegNet — Attention-gated U-Net + SAM particle picking pipeline</div>
         </div>
-        <div class="proj-body">
-          <div class="proj-body-left">
-            <div class="proj-num">Project 02</div>
-            <span class="proj-tag pt-green">Cryo-EM Particle Picking</span>
+        <div class="project-body">
+          <div class="proj-left">
+            <div class="proj-eyebrow">Project 02</div>
+            <span class="proj-tag-chip ptc-green">Cryo-EM Particle Picking</span>
             <div class="proj-title">AI-Driven Protein Particle Picking: CryoSegNet, CryoTransformer &amp; CryoFSL</div>
             <div class="proj-desc">A suite of deep learning methods for automated cryo-EM particle picking. <strong>CryoSegNet</strong> integrates Meta's SAM with an attention-gated U-Net, achieving <strong>3.32 Å</strong> average resolution — 14% better than crYOLO and 7% better than Topaz. <strong>CryoTransformer</strong> achieves an F1-score of 0.747 on diverse proteins. <strong>CryoFSL</strong> reduces annotation cost by <strong>95%</strong> through few-shot learning, generalizing across protein types with minimal labeled data.</div>
           </div>
-          <div class="proj-body-right">
-            <div class="proj-pills-label">Methods</div>
-            <div class="proj-pills">
-              <span class="pill">Segment Anything Model</span>
-              <span class="pill">Attention U-Net</span>
-              <span class="pill">Vision Transformers</span>
-              <span class="pill">Few-Shot Learning</span>
+          <div class="proj-right">
+            <div class="proj-section-label">Methods</div>
+            <div class="method-tags">
+              <span class="method-tag">Segment Anything</span>
+              <span class="method-tag">Attention U-Net</span>
+              <span class="method-tag">Vision Transformers</span>
+              <span class="method-tag">Few-Shot Learning</span>
             </div>
-            <div class="proj-meta-label">Publication</div>
-            <div class="proj-meta">
-              <div class="proj-meta-pub"><strong>CryoSegNet:</strong> Briefings in Bioinformatics, 2024</div>
-              <div class="proj-meta-links">
-                <a href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Paper</a>
-                <a href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
-              </div>
+            <div class="proj-section-label">Publications</div>
+            <div class="pub-venue-name">CryoSegNet</div>
+            <div class="pub-venue-year">Briefings in Bioinformatics, 2024</div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Paper</a>
+              <a class="proj-link" href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
             </div>
-            <div class="proj-meta-pub"><strong>CryoTransformer:</strong> Bioinformatics, 2024</div>
-              <div class="proj-meta-links">
-                <a href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">↗ Paper</a>
-                <a href="https://github.com/jianlin-cheng/CryoTransformer" target="_blank">↗ Code</a>
+            <div style="margin-top:0.9rem;">
+              <div class="pub-venue-name">CryoTransformer</div>
+              <div class="pub-venue-year">Bioinformatics, 2024</div>
+              <div class="proj-links">
+                <a class="proj-link" href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">↗ Paper</a>
+                <a class="proj-link" href="https://github.com/jianlin-cheng/CryoTransformer" target="_blank">↗ Code</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 3: Benchmark Datasets -->
-      <div class="project proj-amber">
-        <div class="proj-img">
-          <!-- Replace src with your figure: e.g. src="img/CryoPPP_overview.jpg" -->
+      <!-- Benchmark Datasets -->
+      <div class="project-card">
+        <div class="card-accent card-accent-gold"></div>
+        <div class="project-img-wrap">
           <img src="img/CryoPPP_overview.jpg" alt="CryoPPP dataset overview" />
-          <div class="proj-img-caption">CryoPPP dataset creation pipeline (Scientific Data, 2023)</div>
+          <div class="img-caption">CryoPPP — dataset creation pipeline (Scientific Data, 2023)</div>
         </div>
-        <div class="proj-body">
-          <div class="proj-body-left">
-            <div class="proj-num">Project 03</div>
-            <span class="proj-tag pt-amber">Benchmark Datasets</span>
-            <div class="proj-title">Community-Standard Cryo-EM Benchmark Datasets: CryoPPP &amp; CryoVirusDB</div>
-            <div class="proj-desc"><strong>CryoPPP</strong> is a 2.6 TB benchmark of 9,893 expert-labeled cryo-EM micrographs with 300K+ particle annotations across 34 protein types, validated by 2D class analysis and 3D density map reconstruction. Community-standard dataset with <strong>45+ citations</strong>. <strong>CryoVirusDB</strong> extends this to virus particles, providing the first annotated cryo-EM dataset for AI-based identification of icosahedral virus structures.</div>
+        <div class="project-body">
+          <div class="proj-left">
+            <div class="proj-eyebrow">Project 03</div>
+            <span class="proj-tag-chip ptc-gold">Benchmark Datasets</span>
+            <div class="proj-title">Community-Standard Cryo-EM Benchmarks: CryoPPP &amp; CryoVirusDB</div>
+            <div class="proj-desc"><strong>CryoPPP</strong> is a 2.6 TB benchmark of 9,893 expert-labeled cryo-EM micrographs with 300K+ particle annotations across 34 protein types, validated by 2D class analysis and 3D density map reconstruction. Community-standard dataset with <strong>55+ citations</strong>. <strong>CryoVirusDB</strong> extends this to virus particles, providing the first annotated cryo-EM dataset for AI-based identification of icosahedral virus structures.</div>
           </div>
-          <div class="proj-body-right">
-            <div class="proj-pills-label">Methods</div>
-            <div class="proj-pills">
-              <span class="pill">Data Curation</span>
-              <span class="pill">Expert Annotation</span>
-              <span class="pill">3D Validation</span>
-              <span class="pill">EMPIAR</span>
+          <div class="proj-right">
+            <div class="proj-section-label">Methods</div>
+            <div class="method-tags">
+              <span class="method-tag">Data Curation</span>
+              <span class="method-tag">Expert Annotation</span>
+              <span class="method-tag">3D Validation</span>
+              <span class="method-tag">EMPIAR</span>
             </div>
-            <div class="proj-meta-label">Publications</div>
-            <div class="proj-meta">
-              <div class="proj-meta-pub"><strong>CryoPPP:</strong> Scientific Data (Nature), 2023</div>
-              <div class="proj-meta-links">
-                <a href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ Paper</a>
-                <a href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Code</a>
-              </div>              
-              <div class="proj-meta-pub"><strong>CryoVirusDB:</strong> Viruses, 2026</div>
-              <div class="proj-meta-links">
-                <a href="https://www.mdpi.com/1999-4915/18/2/224" target="_blank">↗ Paper</a>
-                <a href="https://github.com/BioinfoMachineLearning/CryoVirusDB" target="_blank">↗ Code</a>
-              </div>  
+            <div class="proj-section-label">Publications</div>
+            <div class="pub-venue-name">CryoPPP</div>
+            <div class="pub-venue-year">Scientific Data (Nature), 2023</div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ Paper</a>
+              <a class="proj-link" href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Code</a>
+            </div>
+            <div style="margin-top:0.9rem;">
+              <div class="pub-venue-name">CryoVirusDB</div>
+              <div class="pub-venue-year">Viruses, 2026</div>
+              <div class="proj-links">
+                <a class="proj-link" href="https://www.mdpi.com/1999-4915/18/2/224" target="_blank">↗ Paper</a>
+                <a class="proj-link" href="https://github.com/BioinfoMachineLearning/CryoVirusDB" target="_blank">↗ Code</a>
+              </div>
             </div>
           </div>
         </div>
@@ -554,147 +685,149 @@
 
 <!-- PUBLICATIONS -->
 <section class="sec" id="publications">
-  <div class="wrap">
-    <h2 class="sec-title">Publications</h2>
-
-    <div class="pub-filters">
-      <button class="f-btn on" data-f="all">All (10)</button>
-      <button class="f-btn" data-f="journal">Journals</button>
-      <button class="f-btn" data-f="preprint">Preprints</button>
-      <button class="f-btn" data-f="conference">Conferences</button>
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Publications</h2>
     </div>
 
-    <div class="pub-list reveal">
+    <div class="pub-controls">
+      <button class="pub-btn on" data-f="all">All (10)</button>
+      <button class="pub-btn" data-f="journal">Journals</button>
+      <button class="pub-btn" data-f="preprint">Preprints</button>
+      <button class="pub-btn" data-f="conference">Conferences</button>
+    </div>
 
-      <div class="pub" data-t="journal">
-        <div class="pub-n"></div>
+    <div class="pub-list">
+
+      <div class="pub-item" data-t="journal">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">CryoVirusDB: An Annotated Dataset for AI-Based Virus Particle Identification in Cryo-EM Micrographs</div>
-          <div class="pub-auth"><strong>Gyawali R.</strong>, Dhakal A., Wang L., Cheng J.</div>
+          <div class="pub-authors"><strong>Gyawali R.</strong>, Dhakal A., Wang L., Cheng J.</div>
           <div class="pub-venue">Viruses, 18(2), 224 · 2026</div>
-          <div class="pub-row">
-            <span class="badge bj">Journal</span>
-            <span class="badge bd">Dataset</span>
-            <a class="pub-lnk" href="https://www.mdpi.com/1999-4915/18/2/224" target="_blank">↗ Article</a>
-            <a class="pub-lnk" href="https://github.com/BioinfoMachineLearning/CryoVirusDB" target="_blank">↗ Code</a>
+          <div class="pub-meta">
+            <span class="badge b-journal">Journal</span>
+            <span class="badge b-dataset">Dataset</span>
+            <a class="pub-link" href="https://www.mdpi.com/1999-4915/18/2/224" target="_blank">↗ Article</a>
+            <a class="pub-link" href="https://github.com/BioinfoMachineLearning/CryoVirusDB" target="_blank">↗ Code</a>
           </div>
         </div>
       </div>
 
-      <div class="pub" data-t="journal">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="journal">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">Multimodal Deep Learning Integration of Cryo-EM and AlphaFold3 for High-Accuracy Protein Structure Determination</div>
-          <div class="pub-auth"><strong>Gyawali R.</strong>, Dhakal A., Cheng J.</div>
-          <div class="pub-venue">Communications Chemistry (Nature), 8(1), 320 · 2025</div>
-          <div class="pub-row">
-            <span class="badge bj">Journal</span>
-            <a class="pub-lnk" href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Article</a>
-            <a class="pub-lnk" href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
+          <div class="pub-authors"><strong>Gyawali R.</strong>, Dhakal A., Cheng J.</div>
+          <div class="pub-venue">Communications Chemistry, 8(1) · 2025</div>
+          <div class="pub-meta">
+            <span class="badge b-journal">Journal</span>
+            <a class="pub-link" href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Article</a>
+            <a class="pub-link" href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
           </div>
-          </div>
+        </div>
       </div>
 
-      <div class="pub" data-t="journal">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="journal">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">Artificial Intelligence in Cryo-EM Protein Particle Picking: Recent Advances and Remaining Challenges</div>
-          <div class="pub-auth">Dhakal A.*, <strong>Gyawali R.*</strong>, Wang L., Cheng J. <em style="font-size:0.82rem;color:var(--sub);">(*equal contribution)</em></div>
+          <div class="pub-authors">Dhakal A.*, <strong>Gyawali R.*</strong>, Wang L., Cheng J. <em style="font-size:0.8rem;color:var(--ink4);">(*equal contribution)</em></div>
           <div class="pub-venue">Briefings in Bioinformatics, 26(1) · 2025</div>
-          <div class="pub-row">
-            <span class="badge bj">Journal · Review</span>
-            <a class="pub-lnk" href="https://academic.oup.com/bib/article/26/1/bbaf011/7958312" target="_blank">↗ Article</a>
+          <div class="pub-meta">
+            <span class="badge b-journal">Journal · Review</span>
+            <a class="pub-link" href="https://academic.oup.com/bib/article/26/1/bbaf011/7958312" target="_blank">↗ Article</a>
           </div>
         </div>
       </div>
 
-      <div class="pub" data-t="preprint">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="preprint">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">CryoFSL: An Annotation-Efficient, Few-Shot Learning Framework for Robust Protein Particle Picking in Cryo-EM Micrographs</div>
-          <div class="pub-auth">Poudel B., <strong>Gyawali R.</strong>, Dhakal A., Cheng J., Xu D.</div>
+          <div class="pub-authors">Poudel B., <strong>Gyawali R.</strong>, Dhakal A., Cheng J., Xu D.</div>
           <div class="pub-venue">bioRxiv · 2025</div>
-          <div class="pub-row">
-            <span class="badge bp">Preprint</span>
-          </div>
+          <div class="pub-meta"><span class="badge b-preprint">Preprint</span></div>
         </div>
       </div>
 
-      <div class="pub" data-t="journal">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="journal">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">CryoSegNet: Accurate Cryo-EM Protein Particle Picking by Integrating the Foundational AI Image Segmentation Model and Attention-Gated U-Net</div>
-          <div class="pub-auth"><strong>Gyawali R.</strong>, Dhakal A., Wang L., Cheng J.</div>
-          <div class="pub-venue">Briefings in Bioinformatics, 25(4), bbae282 · 2024</div>
-          <div class="pub-row">
-            <span class="badge bj">Journal</span>
-            <a class="pub-lnk" href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Article</a>
-            <a class="pub-lnk" href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
+          <div class="pub-authors"><strong>Gyawali R.</strong>, Dhakal A., Wang L., Cheng J.</div>
+          <div class="pub-venue">Briefings in Bioinformatics, 25(4) · 2024</div>
+          <div class="pub-meta">
+            <span class="badge b-journal">Journal</span>
+            <a class="pub-link" href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Article</a>
+            <a class="pub-link" href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
           </div>
-          </div>
+        </div>
       </div>
 
-      <div class="pub" data-t="journal">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="journal">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">CryoTransformer: A Transformer Model for Picking Protein Particles from Cryo-EM Micrographs</div>
-          <div class="pub-auth">Dhakal A., <strong>Gyawali R.</strong>, Wang L., Cheng J.</div>
-          <div class="pub-venue">Bioinformatics, 40(3), btae109 · 2024</div>
-          <div class="pub-row">
-            <span class="badge bj">Journal</span>
-            <a class="pub-lnk" href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">↗ Article</a>
-            <a class="pub-lnk" href="https://github.com/jianlin-cheng/CryoTransformer" target="_blank">↗ Code</a>
+          <div class="pub-authors">Dhakal A., <strong>Gyawali R.</strong>, Wang L., Cheng J.</div>
+          <div class="pub-venue">Bioinformatics, 40(3) · 2024</div>
+          <div class="pub-meta">
+            <span class="badge b-journal">Journal</span>
+            <a class="pub-link" href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">↗ Article</a>
+            <a class="pub-link" href="https://github.com/jianlin-cheng/CryoTransformer" target="_blank">↗ Code</a>
           </div>
         </div>
       </div>
 
-      <div class="pub" data-t="conference">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="conference">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">Adapting Segment Anything Model (SAM) through Prompt-Based Learning for Enhanced Protein Identification in Cryo-EM Micrographs</div>
-          <div class="pub-auth">He F., Yang Z., Gao M., Poudel B., Dhas N.S.E.S., <strong>Gyawali R.</strong>, Dhakal A., et al.</div>
+          <div class="pub-authors">He F., Yang Z., Gao M., Poudel B., Dhas N.S.E.S., <strong>Gyawali R.</strong>, Dhakal A., et al.</div>
           <div class="pub-venue">IEEE International Conference on Medical Artificial Intelligence (MedAI) · 2024</div>
-          <div class="pub-row">
-            <span class="badge bc">Conference</span>
-            <a class="pub-lnk" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10803288" target="_blank">↗ Paper</a>
+          <div class="pub-meta">
+            <span class="badge b-conference">Conference</span>
+            <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10803288" target="_blank">↗ Paper</a>
           </div>
         </div>
       </div>
 
-      <div class="pub" data-t="journal">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="journal">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">A Large Expert-Curated Cryo-EM Image Dataset for Machine Learning Protein Particle Picking</div>
-          <div class="pub-auth">Dhakal A.*, <strong>Gyawali R.*</strong>, Wang L., Cheng J. <em style="font-size:0.82rem;color:var(--sub);">(*equal contribution)</em></div>
-          <div class="pub-venue">Scientific Data (Nature), 10(1), 392 · 2023</div>
-          <div class="pub-row">
-            <span class="badge bj">Journal</span>
-            <span class="badge bd">Dataset · 55+ citations</span>
-            <a class="pub-lnk" href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ Article</a>
-            <a class="pub-lnk" href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Code</a>
+          <div class="pub-authors">Dhakal A.*, <strong>Gyawali R.*</strong>, Wang L., Cheng J. <em style="font-size:0.8rem;color:var(--ink4);">(*equal contribution)</em></div>
+          <div class="pub-venue">Scientific Data (Nature), 10(1) · 2023</div>
+          <div class="pub-meta">
+            <span class="badge b-journal">Journal</span>
+            <span class="badge b-dataset">Dataset · 55+ citations</span>
+            <a class="pub-link" href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ Article</a>
+            <a class="pub-link" href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Code</a>
           </div>
         </div>
       </div>
 
-      <div class="pub" data-t="preprint">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="preprint">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">Predicting Protein-Ligand Binding Structure Using E(n) Equivariant Graph Neural Networks</div>
-          <div class="pub-auth">Dhakal A.*, <strong>Gyawali R.*</strong>, Cheng J. <em style="font-size:0.82rem;color:var(--sub);">(*equal contribution)</em></div>
-          <div class="pub-venue">bioRxiv, 2023.08.06.552202 · 2023</div>
-          <div class="pub-row"><span class="badge bp">Preprint</span><span class="badge be">Equivariant GNN</span></div>
+          <div class="pub-authors">Dhakal A.*, <strong>Gyawali R.*</strong>, Cheng J. <em style="font-size:0.8rem;color:var(--ink4);">(*equal contribution)</em></div>
+          <div class="pub-venue">bioRxiv · 2023</div>
+          <div class="pub-meta">
+            <span class="badge b-preprint">Preprint</span>
+          </div>
         </div>
       </div>
 
-      <div class="pub" data-t="conference">
-        <div class="pub-n"></div>
+      <div class="pub-item" data-t="conference">
+        <div class="pub-num"></div>
         <div>
           <div class="pub-title">An Approach for the Employee Face Recognition by RPN and Faster R-CNN Techniques</div>
-          <div class="pub-auth"><strong>Gyawali R.</strong>, Pant D.R.</div>
+          <div class="pub-authors"><strong>Gyawali R.</strong>, Pant D.R.</div>
           <div class="pub-venue">Proceedings of IOE Graduate Conference, Vol. 6 · 2019</div>
-          <div class="pub-row">
-            <span class="badge bc">Conference</span>
-            <a class="pub-lnk" href="http://conference.ioe.edu.np/publications/ioegc2019-summer/IOEGC-2019-Summer-030.pdf" target="_blank">↗ Paper</a>
+          <div class="pub-meta">
+            <span class="badge b-conference">Conference</span>
+            <a class="pub-link" href="http://conference.ioe.edu.np/publications/ioegc2019-summer/IOEGC-2019-Summer-030.pdf" target="_blank">↗ Paper</a>
           </div>
         </div>
       </div>
@@ -705,63 +838,54 @@
 
 <!-- EXPERIENCE -->
 <section class="sec" id="experience">
-  <div class="wrap">
-    <h2 class="sec-title">Experience</h2>
-    <div class="reveal">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Experience</h2>
+    </div>
 
-      <div class="exp">
-        <div>
-          <div class="exp-when">Aug 2022 – Present</div>
-          <div class="exp-org">University of Missouri</div>
-          <div class="exp-loc">Columbia, MO</div>
-        </div>
-        <div>
-          <div class="exp-role">Graduate Researcher — Bioinformatics &amp; Machine Learning Lab</div>
-          <ul class="exp-ul">
-            <li>Developed <strong>MICA</strong>, a multimodal deep learning method integrating cryo-EM density maps and AlphaFold3 for automated 3D atomic modeling via encoder-decoder + feature pyramid networks, outperforming state-of-the-art.</li>
-            <li>Designed <strong>CryoSegNet</strong>, an attention-gated U-Net + SAM framework achieving 7–14% improvement in 3D reconstruction resolution (3.32 Å) over crYOLO and Topaz.</li>
-            <li>Curated <strong>CryoPPP</strong>, a 2.6 TB benchmark (9,893 micrographs, 300K+ labels, 34 proteins) — the community-standard cryo-EM dataset with 55+ citations.</li>
-            <li>Curated <strong>CryoVirusDB</strong>, an annotated cryo-EM dataset for AI-based icosahedral virus particle identification and classification.</li>
-            <li>Contributed to <strong>CryoFSL</strong>, <strong>CryoTransformer</strong>, and <strong>SAM prompt-based learning</strong> for cryo-EM protein identification.</li>
-            <li>Worked on protein-ligand binding structure prediction using E(n)-equivariant graph neural networks.</li>
-            <li>Trained GNNs, diffusion models, and detection transformers using multi-node multi-GPU DDP on HPC clusters (Slurm, LSF); built large-scale parallel data preprocessing pipelines.</li>
-          </ul>
-        </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot tl-dot-fill"></div>
+        <div class="tl-period">Aug 2022 – Present</div>
+        <div class="tl-role">Graduate Researcher</div>
+        <div class="tl-org">University of Missouri — Bioinformatics &amp; Machine Learning Lab</div>
+        <div class="tl-loc">Columbia, MO</div>
+        <ul class="tl-list">
+          <li>Developed <strong>MICA</strong>, a multimodal deep learning method integrating cryo-EM density maps and AlphaFold3 for automated 3D atomic modeling via encoder-decoder + feature pyramid networks, outperforming all state-of-the-art methods.</li>
+          <li>Designed <strong>CryoSegNet</strong>, an attention-gated U-Net + SAM framework achieving 7–14% improvement in 3D reconstruction resolution (3.32 Å) over crYOLO and Topaz.</li>
+          <li>Curated <strong>CryoPPP</strong>, a 2.6 TB benchmark (9,893 micrographs, 300K+ labels, 34 proteins) — the community-standard cryo-EM dataset with 55+ citations.</li>
+          <li>Curated <strong>CryoVirusDB</strong>, an annotated cryo-EM dataset for AI-based icosahedral virus particle identification and classification.</li>
+          <li>Contributed to <strong>CryoFSL</strong>, <strong>CryoTransformer</strong>, and prompt-based SAM learning for cryo-EM protein identification.</li>
+          <li>Trained GNNs, diffusion models, and detection transformers using multi-node multi-GPU DDP on HPC clusters (Slurm, LSF); built large-scale parallel data preprocessing pipelines.</li>
+        </ul>
       </div>
 
-      <div class="exp">
-        <div>
-          <div class="exp-when">May 2018 – Jun 2022</div>
-          <div class="exp-org">Nepal Telecom</div>
-          <div class="exp-loc">Kathmandu, Nepal</div>
-        </div>
-        <div>
-          <div class="exp-role">Telecommunications Engineer</div>
-          <ul class="exp-ul">
-            <li>Built <i>Wireless KPI Analytics Tool</i> — a full-stack Django/REST web application for automated analysis of KPIs across 5,000+ network elements, reducing analysis time from days to minutes.</li>
-            <li>Designed Python/SQL data pipelines processing 10+ GB daily of network performance data with statistical analysis and real-time visualization.</li>
-            <li>Developed LSTM-based predictive models for network anomaly detection and performance forecasting, improving reliability by 15%.</li>
-            <li>Automated reporting workflows using Python scripting and task scheduling, reducing manual workload by 80%.</li>
-          </ul>
-        </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">May 2018 – Jun 2022</div>
+        <div class="tl-role">Telecommunications Engineer</div>
+        <div class="tl-org">Nepal Telecom</div>
+        <div class="tl-loc">Kathmandu, Nepal</div>
+        <ul class="tl-list">
+          <li>Built a full-stack Django/REST KPI analytics tool for automated analysis across 5,000+ network elements, reducing analysis time from days to minutes.</li>
+          <li>Designed Python/SQL data pipelines processing 10+ GB daily of network performance data with statistical analysis and real-time visualization.</li>
+          <li>Developed LSTM-based predictive models for network anomaly detection and performance forecasting, improving reliability by 15%.</li>
+          <li>Automated reporting workflows reducing manual workload by 80%.</li>
+        </ul>
       </div>
 
-      <div class="exp">
-        <div>
-          <div class="exp-when">Oct 2016 – Jun 2022</div>
-          <div class="exp-org">Himalaya College of Engineering, Tribhuvan University</div>
-          <div class="exp-loc">Kathmandu, Nepal</div>
-        </div>
-        <div>
-          <div class="exp-role">Lecturer <span style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:300;color:var(--sub);">(Oct 2016 – Apr 2018) &nbsp;·&nbsp; Adjunct Lecturer (May 2018 – Jun 2022)</span></div>
-          <ul class="exp-ul">
-            <li>Taught undergraduate courses to class sizes of up to 48 students; subjects included <i>C Programming, Object-Oriented Programming, Computer Graphics, Image Processing, Computer Networks, Signal Processing</i>, and <i>Communication Systems</i>.</li>
-            <li>Prepared course materials including laboratory experiments, lectures, exams, homework, and practice problems.</li>
-            <li>Led weekly laboratory and problem-solving/discussion sections for groups of 16–24 students.</li>
-            <li>Supervised students in final year projects; graded exams and weekly assignments.</li>
-            <li>Delivered <i>Python Programming</i> and <i>Data Analysis &amp; Visualization</i> training to undergraduate students of Computer Engineering and Electronics &amp; Communication Engineering.</li>
-          </ul>
-        </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Oct 2016 – Jun 2022</div>
+        <div class="tl-role">Lecturer &amp; Adjunct Lecturer</div>
+        <div class="tl-org">Himalaya College of Engineering, Tribhuvan University</div>
+        <div class="tl-loc">Kathmandu, Nepal</div>
+        <ul class="tl-list">
+          <li>Taught undergraduate courses to classes of up to 48 students: C Programming, OOP, Computer Graphics, Image Processing, Computer Networks, Signal Processing, and Communication Systems.</li>
+          <li>Delivered Python Programming and Data Analysis &amp; Visualization training to Computer and Electronics Engineering undergraduates.</li>
+          <li>Supervised final year projects; led weekly lab and discussion sections for groups of 16–24 students.</li>
+        </ul>
       </div>
 
     </div>
@@ -770,46 +894,56 @@
 
 <!-- EDUCATION -->
 <section class="sec" id="education">
-  <div class="wrap">
-    <h2 class="sec-title">Education</h2>
-    <div class="reveal">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Education</h2>
+    </div>
 
-      <div class="edu">
-        <div><div class="edu-when">Aug 2022 – Dec 2026 (Expected)</div></div>
+    <div class="edu-cards">
+
+      <div class="edu-card">
         <div>
-          <div class="edu-deg">PhD, Computer Science</div>
-          <div class="edu-sch">University of Missouri–Columbia, USA</div>
-          <div class="edu-det">
-            <p><strong>Emphasis:</strong> Deep Learning, Computational Biology &amp; Bioinformatics</p>
-            <p><strong>Advisor:</strong> Dr. Jianlin Cheng</p>
-            <p>Dean's Fellowship recipient, 2022</p>
+          <div class="edu-period">Aug 2022 – Dec 2026 (Expected)</div>
+          <div class="edu-score">GPA 4.0</div>
+        </div>
+        <div>
+          <div class="edu-degree">PhD, Computer Science</div>
+          <div class="edu-school">University of Missouri–Columbia, USA</div>
+          <div class="edu-detail">
+            <strong>Emphasis:</strong> Deep Learning, Computational Biology &amp; Bioinformatics<br>
+            <strong>Advisor:</strong> Dr. Jianlin Cheng<br>
+            Dean's Fellowship recipient, 2022
           </div>
         </div>
       </div>
 
-      <div class="edu">
-        <div><div class="edu-when">2017 – 2019</div></div>
+      <div class="edu-card">
         <div>
-          <div class="edu-deg">MSc, Information and Communication Engineering</div>
-          <div class="edu-sch">Tribhuvan University, Nepal</div>
-          <span class="edu-pct">Score: 90.13%</span>
-          <div class="edu-det">
-            <p><strong>Thesis:</strong> Employee Face Recognition by RPN and Faster R-CNN — 96.0% accuracy on Chokepoint dataset</p>
-            <p><strong>Project:</strong> CNN for Multiclass Face Recognition — 96.44% accuracy, 13K images, 5,749 identities</p>
-            <p>Graduate Scholarship recipient, 2017</p>
+          <div class="edu-period">2017 – 2019</div>
+          <div class="edu-score">Score: 90.13%</div>
+        </div>
+        <div>
+          <div class="edu-degree">MSc, Information and Communication Engineering</div>
+          <div class="edu-school">Tribhuvan University, Nepal</div>
+          <div class="edu-detail">
+            <strong>Thesis:</strong> Employee Face Recognition by RPN and Faster R-CNN — 96.0% accuracy on Chokepoint dataset<br>
+            <strong>Project:</strong> CNN for Multiclass Face Recognition — 96.44% accuracy, 13K images, 5,749 identities<br>
+            Graduate Scholarship recipient, 2017
           </div>
         </div>
       </div>
 
-      <div class="edu">
-        <div><div class="edu-when">2012 – 2016</div></div>
+      <div class="edu-card">
         <div>
-          <div class="edu-deg">BE, Electronics and Communication Engineering</div>
-          <div class="edu-sch">Tribhuvan University, Nepal</div>
-          <span class="edu-pct">Score: 82.06%</span>
-          <div class="edu-det">
-            <p><strong>Final Project:</strong> Brain Controlled Wheelchair using BCI &amp; NeuroSky Mindwave</p>
-            <p>Undergraduate Scholarship recipient, 2012</p>
+          <div class="edu-period">2012 – 2016</div>
+          <div class="edu-score">Score: 82.06%</div>
+        </div>
+        <div>
+          <div class="edu-degree">BE, Electronics and Communication Engineering</div>
+          <div class="edu-school">Tribhuvan University, Nepal</div>
+          <div class="edu-detail">
+            <strong>Final Project:</strong> Brain Controlled Wheelchair using BCI &amp; NeuroSky Mindwave<br>
+            Undergraduate Scholarship recipient, 2012
           </div>
         </div>
       </div>
@@ -820,66 +954,71 @@
 
 <!-- SKILLS -->
 <section class="sec" id="skills">
-  <div class="wrap">
-    <h2 class="sec-title">Skills</h2>
-    <table class="sk-table reveal">
-      <tr>
-        <td>Deep Learning</td>
-        <td><div class="tags">
-          <span class="tag">CNNs</span><span class="tag">Vision Transformers</span><span class="tag">U-Net</span><span class="tag">ResNet</span><span class="tag">Attention Mechanisms</span><span class="tag">Encoder-Decoder</span><span class="tag">GNNs</span><span class="tag">E(n)-Equivariant Networks</span><span class="tag">Diffusion Models</span><span class="tag">Detection Transformers</span><span class="tag">Few-Shot Learning</span><span class="tag">Prompt-Based Learning</span><span class="tag">Transfer Learning</span>
-        </div></td>
-      </tr>
-      <tr>
-        <td>Frameworks</td>
-        <td><div class="tags">
-          <span class="tag">PyTorch</span><span class="tag">PyTorch Lightning</span><span class="tag">PyTorch Geometric</span><span class="tag">DGL</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">SciPy</span><span class="tag">Matplotlib</span><span class="tag">Plotly</span>
-        </div></td>
-      </tr>
-      <tr>
-        <td>Structural Biology</td>
-        <td><div class="tags">
-          <span class="tag">Cryo-EM</span><span class="tag">Protein Structure Prediction</span><span class="tag">Protein-Ligand Binding</span><span class="tag">AlphaFold</span><span class="tag">RELION</span><span class="tag">CryoSPARC</span><span class="tag">UCSF ChimeraX</span><span class="tag">PyMOL</span><span class="tag">PyRosetta</span><span class="tag">Biopython</span><span class="tag">RDKit</span><span class="tag">Open Babel</span>
-        </div></td>
-      </tr>
-      <tr>
-        <td>HPC &amp; Distributed</td>
-        <td><div class="tags">
-          <span class="tag">Multi-GPU DDP</span><span class="tag">Multi-Node Training</span><span class="tag">Slurm</span><span class="tag">LSF</span><span class="tag">Parallel Processing</span>
-        </div></td>
-      </tr>
-      <tr>
-        <td>Languages</td>
-        <td><div class="tags">
-          <span class="tag">Python (Expert)</span><span class="tag">C++</span><span class="tag">Bash</span><span class="tag">R</span><span class="tag">SQL</span>
-        </div></td>
-      </tr>
-      <tr>
-        <td>Dev Tools</td>
-        <td><div class="tags">
-          <span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Weights &amp; Biases</span><span class="tag">TensorBoard</span><span class="tag">Jupyter</span><span class="tag">Django</span>
-        </div></td>
-      </tr>
-    </table>
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-row">
+        <div class="skill-cat">Deep Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag">CNNs</span><span class="skill-tag">Vision Transformers</span><span class="skill-tag">U-Net</span><span class="skill-tag">ResNet</span><span class="skill-tag">Attention Mechanisms</span><span class="skill-tag">Encoder-Decoder</span><span class="skill-tag">GNNs</span><span class="skill-tag">E(n)-Equivariant Networks</span><span class="skill-tag">Diffusion Models</span><span class="skill-tag">Detection Transformers</span><span class="skill-tag">Few-Shot Learning</span><span class="skill-tag">Prompt-Based Learning</span><span class="skill-tag">Transfer Learning</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span><span class="skill-tag">PyTorch Lightning</span><span class="skill-tag">PyTorch Geometric</span><span class="skill-tag">DGL</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">scikit-learn</span><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span><span class="skill-tag">SciPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Plotly</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Structural Biology</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Cryo-EM</span><span class="skill-tag">Protein Structure Prediction</span><span class="skill-tag">Protein-Ligand Binding</span><span class="skill-tag">AlphaFold</span><span class="skill-tag">RELION</span><span class="skill-tag">CryoSPARC</span><span class="skill-tag">UCSF ChimeraX</span><span class="skill-tag">PyMOL</span><span class="skill-tag">PyRosetta</span><span class="skill-tag">Biopython</span><span class="skill-tag">RDKit</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">HPC &amp; Distributed</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Multi-GPU DDP</span><span class="skill-tag">Multi-Node Training</span><span class="skill-tag">Slurm</span><span class="skill-tag">LSF</span><span class="skill-tag">Parallel Processing</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python (Expert)</span><span class="skill-tag">C++</span><span class="skill-tag">Bash</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Dev Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git / GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">Weights &amp; Biases</span><span class="skill-tag">TensorBoard</span><span class="skill-tag">Jupyter</span><span class="skill-tag">Django</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TALKS -->
 <section class="sec" id="talks">
-  <div class="wrap">
-    <h2 class="sec-title">Talks &amp; Presentations</h2>
-    <div class="talk-list reveal">
-      <div class="talk">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Talks &amp; Presentations</h2>
+    </div>
+    <div class="talks-list">
+      <div class="talk-item">
         <div class="talk-yr">2024</div>
         <div>
           <div class="talk-title">CryoSegNet: AI-based method for protein particle picking from cryo-EM density micrographs</div>
-          <div class="talk-venue">Cryo-EM Super Group · University of Missouri, Columbia, MO</div>
+          <div class="talk-where">Cryo-EM Super Group · University of Missouri, Columbia, MO</div>
         </div>
       </div>
-      <div class="talk">
+      <div class="talk-item">
         <div class="talk-yr">2024</div>
         <div>
           <div class="talk-title">A large expert-curated cryo-EM image dataset for machine learning protein particle picking</div>
-          <div class="talk-venue">RECOMB Conference (Poster Presentation) · Cambridge, MA</div>
+          <div class="talk-where">RECOMB Conference (Poster Presentation) · Cambridge, MA</div>
         </div>
       </div>
     </div>
@@ -888,20 +1027,22 @@
 
 <!-- SERVICE & AWARDS -->
 <section class="sec" id="service">
-  <div class="wrap">
-    <h2 class="sec-title">Service &amp; Awards</h2>
-    <div class="two-col reveal">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Awards &amp; Service</h2>
+    </div>
+    <div class="two-col">
       <div>
-        <div class="sub-h">Honors &amp; Fellowships</div>
-        <ul class="aw-list">
-          <li><span class="aw-yr">2022</span><span>Dean's Fellowship — University of Missouri</span></li>
-          <li><span class="aw-yr">2017</span><span>Graduate Scholarship — Tribhuvan University</span></li>
-          <li><span class="aw-yr">2012</span><span>Undergraduate Scholarship — Tribhuvan University</span></li>
+        <div class="sub-head">Honors &amp; Fellowships</div>
+        <ul class="award-list">
+          <li><span class="award-yr">2022</span><span>Dean's Fellowship — University of Missouri</span></li>
+          <li><span class="award-yr">2017</span><span>Graduate Scholarship — Tribhuvan University</span></li>
+          <li><span class="award-yr">2012</span><span>Undergraduate Scholarship — Tribhuvan University</span></li>
         </ul>
       </div>
       <div>
-        <div class="sub-h">Professional Service</div>
-        <ul class="sv-list">
+        <div class="sub-head">Service</div>
+        <ul class="service-list">
           <li><strong>Manuscript Reviewer</strong> — NeurIPS, Briefings in Bioinformatics, BMC Bioinformatics, Communications Chemistry</li>
           <li><strong>President</strong> — University of Missouri Nepalese Students Association (May 2025 – Apr 2026)</li>
           <li><strong>Treasurer</strong> — University of Missouri Nepalese Students Association (May 2024 – Apr 2025)</li>
@@ -912,71 +1053,65 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>&#169; 2026 Rajan Gyawali &nbsp;·&nbsp; PhD Candidate, University of Missouri–Columbia &nbsp;·&nbsp;
-    <a href="/cdn-cgi/l/email-protection#6e1c0905095c2e03071d1d011b1c07400b0a1b">rgkg2&#64;missouri.edu</a>
-  </p>
+  <p>© 2026 Rajan Gyawali &nbsp;·&nbsp; PhD Candidate, University of Missouri–Columbia &nbsp;·&nbsp; rgkg2[at]missouri[dot]edu</p>
 </footer>
 
 <script>
   // Photo fallback
-  (function() {
-    var img = document.querySelector('.photo-circle img');
-    if (img) {
-      img.addEventListener('load', function() { document.querySelector('.photo-initials').style.display = 'none'; });
-      if (img.complete && img.naturalHeight > 0) document.querySelector('.photo-initials').style.display = 'none';
+  (function(){
+    var img = document.querySelector('.photo-inner img');
+    if(img){
+      if(img.complete && img.naturalHeight > 0) return;
+      img.addEventListener('error', function(){
+        this.style.display='none';
+        document.querySelector('.photo-initials').style.display='flex';
+      });
     }
   })();
 
-  // Abstract toggle
-  function toggleAbs(btn) {
-    var pub = btn.closest('.pub');
-    pub.classList.toggle('open');
-    btn.textContent = pub.classList.contains('open') ? '− Abstract' : '+ Abstract';
-  }
-
-  // Publication filter with live renumbering
+  // Publication filter with renumbering
   function filterPubs(f) {
-    var pubs = document.querySelectorAll('.pub');
+    var items = document.querySelectorAll('.pub-item');
     var n = 1;
-    for (var i = 0; i < pubs.length; i++) {
-      var p = pubs[i];
-      var show = (f === 'all') || (p.getAttribute('data-t') === f);
-      p.style.display = show ? 'grid' : 'none';
-      if (show) {
-        var numEl = p.querySelector('.pub-n');
-        if (numEl) numEl.textContent = '[' + n + ']';
+    items.forEach(function(item){
+      var show = f === 'all' || item.getAttribute('data-t') === f;
+      item.style.display = show ? 'grid' : 'none';
+      if(show){
+        var numEl = item.querySelector('.pub-num');
+        if(numEl) numEl.textContent = '[' + n + ']';
         n++;
       }
-    }
+    });
   }
 
-  // Init — works whether Cloudflare or other scripts delay DOMContentLoaded
-  function initPubs() {
+  function initPubs(){
     filterPubs('all');
-    var btns = document.querySelectorAll('.f-btn');
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener('click', function() {
-        var allBtns = document.querySelectorAll('.f-btn');
-        for (var j = 0; j < allBtns.length; j++) allBtns[j].classList.remove('on');
+    document.querySelectorAll('.pub-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.pub-btn').forEach(function(b){ b.classList.remove('on'); });
         this.classList.add('on');
         filterPubs(this.getAttribute('data-f'));
       });
-    }
+    });
   }
-  if (document.readyState === 'loading') {
+
+  if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', initPubs);
   } else {
     initPubs();
   }
 
-  // Nav active highlight on scroll
-  var secs = document.querySelectorAll('section[id]');
-  var navAs = document.querySelectorAll('.nav-links a[href^="#"]');
-  window.addEventListener('scroll', function() {
+  // Nav highlight on scroll
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', function(){
     var cur = '';
-    secs.forEach(function(s) { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-    navAs.forEach(function(a) { a.classList.toggle('act', a.getAttribute('href') === '#' + cur); });
+    sections.forEach(function(s){ if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(function(a){
+      a.classList.toggle('act', a.getAttribute('href') === '#' + cur);
+    });
   }, { passive: true });
 </script>
 </body>
