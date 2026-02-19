@@ -447,6 +447,14 @@
       padding-left: 1rem; border-left: 2px solid var(--accent2);
     }
     .service-list li strong { color: var(--ink); font-weight: 500; }
+    .service-highlight {
+      background: #eef2f9;
+      border-left: 3px solid var(--accent) !important;
+      border-radius: 0 6px 6px 0;
+      padding: 0.75rem 1rem !important;
+      margin-bottom: 0.2rem;
+    }
+    .service-highlight strong { color: var(--accent) !important; font-weight: 600 !important; }
 
     /* ─── TALKS ─── */
     .talks-list { display: flex; flex-direction: column; gap: 1.25rem; }
@@ -494,7 +502,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#service">Service</a></li>
-      <li><a class="nav-cv" href="https://github.com/rajangyawali/rajangyawali.github.io/blob/master/others/files/Rajan_Gyawali_CV.pdf" target="_blank">CV ↓</a></li>
+      <li><a class="nav-cv" href="https://raw.githubusercontent.com/rajangyawali/rajangyawali.github.io/master/others/files/Rajan_Gyawali_CV.pdf" download="Rajan_Gyawali_CV.pdf" target="_blank">CV ↓</a></li>
     </ul>
   </div>
 </nav>
@@ -525,10 +533,10 @@
         <div class="divider-line"></div>
 
         <p class="hero-bio">
-          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of AI and structural biology. My doctoral work centers on cryo-electron microscopy (cryo-EM) — designing neural architectures that automate protein particle picking, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning.
+          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of AI and structural biology. My doctoral work centers on cryo-electron microscopy (cryo-EM) — designing neural architectures that automate protein particle picking, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning. My methods draw on computer vision, geometric deep learning, and multimodal learning, with applications spanning protein structure determination, virus characterization, and structure-based drug discovery.
         </p>
         <p class="hero-bio">
-          My methods draw on computer vision, geometric deep learning, and multimodal learning, with applications in protein structure determination, virus characterization, and structure-based drug discovery.
+          My research is published in <strong>Nature-portfolio journals</strong> (Communications Chemistry, Scientific Data) and <strong>Oxford journals</strong> (Briefings in Bioinformatics, Bioinformatics), with benchmark datasets accumulating high citations and wide adoption across the global cryo-EM community.
         </p>
 
         <div class="divider-line"></div>
@@ -1043,7 +1051,7 @@
       <div>
         <div class="sub-head">Service</div>
         <ul class="service-list">
-          <li><strong>Manuscript Reviewer</strong> — NeurIPS, Briefings in Bioinformatics, BMC Bioinformatics, Communications Chemistry</li>
+          <li class="service-highlight"><strong>Manuscript Reviewer</strong> — NeurIPS, Briefings in Bioinformatics, BMC Bioinformatics, Communications Chemistry, etc.</li>
           <li><strong>President</strong> — University of Missouri Nepalese Students Association (May 2025 – Apr 2026)</li>
           <li><strong>Treasurer</strong> — University of Missouri Nepalese Students Association (May 2024 – Apr 2025)</li>
           <li><strong>Member</strong> — Academic Affairs Committee, University of Missouri (Aug 2023 – May 2024)</li>
