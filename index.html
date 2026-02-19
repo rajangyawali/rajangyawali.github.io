@@ -87,10 +87,18 @@
       grid-template-columns: 200px 1fr;
       gap: 4rem;
       align-items: start;
+      margin-bottom: 2.5rem;
+    }
+    .hero-bio-full {
+      font-size: 0.97rem; color: var(--ink2); line-height: 1.9;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 2rem;
+      max-width: 860px;
     }
 
     /* Photo */
-    .photo-wrap { position: relative; }
+    .photo-wrap { position: relative; padding-top: 4.0rem; display: flex; justify-content: center; }
     .photo-ring {
       width: 190px; height: 190px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
@@ -527,18 +535,10 @@
 
         <h1 class="hero-name">Rajan Gyawali</h1>
         <p class="hero-sub">PhD Candidate in Computer Science</p>
-        <p class="hero-affil">Bioinformatics &amp; Machine Learning Lab &nbsp;·&nbsp; <strong>University of Missouri–Columbia</strong></p>
-        <p class="hero-affil">Advisor: <strong><a href="https://calla.rnet.missouri.edu/cheng/">Dr. Jianlin Cheng</a></strong></p>
-
-        <div class="divider-line"></div>
-
-        <p class="hero-bio">
-          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of AI and structural biology. My doctoral work centers on cryo-electron microscopy (cryo-EM) — designing neural architectures that automate protein particle picking, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning. My methods draw on computer vision, geometric deep learning, and multimodal learning, with applications spanning protein structure determination, virus characterization, and structure-based drug discovery.
+        <p class="hero-affil">
+            Bioinformatics &amp; Machine Learning Lab &nbsp;·&nbsp; <strong>University of Missouri–Columbia</strong><br>
+            Advisor: <strong><a href="https://calla.rnet.missouri.edu/cheng/">Dr. Jianlin Cheng</a></strong>
         </p>
-        <p class="hero-bio">
-          My research is published in leading journals like <i>Communications Chemistry, Scientific Data, Briefings in Bioinformatics</i> and <i>Bioinformatics</i>, with benchmark dataset <i>CryoPPP</i> accumulating 55+ citations and adoption across the global cryo-EM community.
-        </p>
-        
         <div class="hero-actions">
           <a class="btn btn-outline" href="https://scholar.google.com/citations?user=qzXOzEkAAAAJ&hl=en" target="_blank">Google Scholar</a>
           <a class="btn btn-outline" href="https://github.com/rajangyawali" target="_blank">GitHub</a>
@@ -556,7 +556,13 @@
           </span>
         </div>
       </div>
-
+    </div>
+    <div class="hero-bio-full">
+        <p>
+          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of AI and structural biology. My doctoral work centers on cryo-electron microscopy (cryo-EM) — designing neural architectures that automate protein particle picking, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning. My methods draw on computer vision, geometric deep learning, and multimodal learning, with applications spanning protein structure determination, virus characterization, and structure-based drug discovery.
+        </p>
+        <p  style="margin-top: 0.9rem;">My research is published in leading journals like <i>Communications Chemistry, Scientific Data, Briefings in Bioinformatics</i> and <i>Bioinformatics</i>, with benchmark dataset <i>CryoPPP</i> accumulating 55+ citations and adoption across the global cryo-EM community.
+        </p>
     </div>
   </div>
 </section>
