@@ -1,1130 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rajan Gyawali — Computational Biology & ML Researcher</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:        #faf9f7;
-      --surface:   #ffffff;
-      --surface2:  #f3f1ed;
-      --border:    #e8e4dc;
-      --border2:   #d4cfc5;
-      --ink:       #13120f;
-      --ink2:      #1b1a17;
-      --ink3:      #262521;
-      --ink4:      #524f4b;
-      --accent:    #1e3a5f;
-      --accent2:   #2e5fa3;
-      --gold:      #aa7d0b;
-      --gold-lt:   #fdf6e3;
-      --green:     #1a5c3a;
-      --green-lt:  #e8f5ee;
-      --red:       #8b1a1a;
-      --red-lt:    #fdf0f0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajan Gyawali | Machine Learning for Scientific Data</title>
+<meta name="description" content="Rajan Gyawali is a Ph.D. candidate in Computer Science at the University of Missouri. His research develops machine learning for noisy, label-scarce scientific data: multimodal deep learning, foundation-model adaptation, benchmarks for cryo-EM, and self-improving LLM agents.">
+<meta name="author" content="Rajan Gyawali">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rajan Gyawali | Machine Learning for Scientific Data">
+<meta property="og:description" content="Multimodal deep learning, foundation-model adaptation, benchmarks, and self-improving LLM agents for noisy, label-scarce scientific data.">
+<meta property="og:url" content="https://rajangyawali.github.io/">
+<meta property="og:image" content="https://rajangyawali.github.io/img/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Rajan Gyawali: machine learning for noisy, label-scarce scientific data">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rajangyawali.github.io/img/social-card.png">
+<link rel="canonical" href="https://rajangyawali.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23232a31'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23e0a106' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400&display=swap" rel="stylesheet">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rajan Gyawali",
+  "url": "https://rajangyawali.github.io/",
+  "image": "https://rajangyawali.github.io/img/raj.JPG",
+  "jobTitle": "Ph.D. Candidate in Computer Science",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Missouri" },
+  "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Tribhuvan University" }],
+  "knowsAbout": ["Machine Learning", "Deep Learning", "Computer Vision", "Multimodal Learning", "Foundation Models", "LLM Agents", "Cryo-EM", "Protein Structure Determination", "Computational Biology"],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=qzXOzEkAAAAJ",
+    "https://github.com/rajangyawali",
+    "https://www.linkedin.com/in/rajangyawali"
+  ]
+}
+</script>
 
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: var(--accent2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
-
-    /* ─── LAYOUT ─── */
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(250,249,247,0.96);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-in {
-      max-width: 1080px; margin: 0 auto; padding: 0 2.5rem;
-      height: 56px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 500; color: var(--ink); letter-spacing: 0.01em;
-    }
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
-    .nav-links a {
-      font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--ink3); padding: 0.35rem 0.75rem;
-      border-radius: 3px; transition: all .15s;
-    }
-    .nav-links a:hover, .nav-links a.act { color: var(--accent); background: var(--surface2); text-decoration: none; }
-    .nav-cv {
-      background: var(--accent) !important; color: #fff !important;
-      border-radius: 3px; margin-left: 0.5rem;
-    }
-    .nav-cv:hover { background: var(--accent2) !important; }
-
-    /* ─── HERO ─── */
-    .hero {
-      padding: 130px 0 80px;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-    }
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-bottom: 2.5rem;
-    }
-    .hero-bio-full {
-      font-size: 0.97rem; color: var(--ink2); line-height: 1.9;
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-      margin-top: 2rem;
-      max-width: 860px;
-    }
-
-    /* Photo */
-    .photo-wrap { position: relative; }
-    .photo-ring {
-      width: 190px; height: 190px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      padding: 3px;
-      box-shadow: 0 12px 40px rgba(30,58,95,.18);
-    }
-    .photo-inner {
-      width: 100%; height: 100%; border-radius: 50%;
-      overflow: hidden; background: var(--surface2);
-      border: 3px solid #fff;
-    }
-    .photo-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-    .photo-initials {
-      display: none; width: 100%; height: 100%;
-      align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--border2);
-    }
-
-    .status-pill {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--green);
-      background: var(--green-lt); border: 1px solid #b3d9c2;
-      border-radius: 100px; padding: 0.28rem 0.85rem; margin-bottom: 1.2rem;
-    }
-    .status-dot {
-      width: 5px; height: 5px; border-radius: 50%; background: var(--green);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.85)} }
-
-    h1.hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 3.8rem);
-      font-weight: 500; line-height: 1.06;
-      color: var(--ink); margin-bottom: 0.55rem;
-      letter-spacing: -0.01em;
-    }
-    .hero-name em { font-style: italic; color: var(--accent); }
-
-    .hero-sub { font-size: 1.05rem; color: var(--ink2); margin-bottom: 0.2rem; font-weight: 400; }
-    .hero-affil { font-size: 0.9rem; color: var(--ink3); margin-bottom: 1.8rem; }
-    .hero-affil strong { color: var(--ink2); font-weight: 500; }
-
-    .hero-bio {
-      font-size: 0.97rem; color: var(--ink2); line-height: 1.9;
-      max-width: 680px; margin-bottom: 0.75rem;
-    }
-
-    .divider-line {
-      width: 48px; height: 2px; background: var(--accent);
-      margin: 1.6rem 0;
-    }
-
-    /* Stat row */
-    .stat-row { display: flex; gap: 2rem; margin-bottom: 2rem; }
-    .stat { text-align: center; }
-    .stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--accent); line-height: 1; }
-    .stat-l { font-family: 'DM Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink3); margin-top: 0.25rem; }
-
-    /* Action buttons */
-    .hero-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.55rem 1.25rem; border-radius: 4px; font-size: 0.84rem;
-      font-weight: 400; letter-spacing: 0.01em; border: none; cursor: pointer;
-      text-decoration: none; transition: all .18s;
-    }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent2); color: #fff; text-decoration: none; }
-    .btn-outline { background: transparent; color: var(--ink2); border: 1px solid var(--border2); }
-    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); text-decoration: none; background: var(--gold-lt); }
-
-    /* Contact chips */
-    .contact-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .contact-item {
-      display: flex; align-items: center; gap: 0.4rem;
-      font-family: 'DM Mono', monospace; font-size: 0.75rem;
-      color: var(--ink3); letter-spacing: 0.02em;
-    }
-    .contact-item svg { opacity: 0.55; flex-shrink: 0; }
-
-    /* ─── SECTION ─── */
-    .sec { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    .sec:last-of-type { border-bottom: none; }
-    .sec:nth-child(even) { background: var(--surface); }
-
-    .sec-header { margin-bottom: 3rem; }
-    .sec-num {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase;
-      display: block; margin-bottom: 0.35rem;
-    }
-    h2.sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem; font-weight: 500; color: var(--ink); line-height: 1.1;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ─── PROJECT CARDS ─── */
-    .projects { display: flex; flex-direction: column; gap: 2.5rem; }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: box-shadow .25s, border-color .25s;
-      position: relative;
-    }
-    .project-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.1); border-color: var(--border2); }
-
-    .project-card .card-accent { height: 4px; }
-    .card-accent-blue   { background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%); }
-    .card-accent-green  { background: linear-gradient(90deg, var(--green) 0%, #2ecc71 100%); }
-    .card-accent-gold   { background: linear-gradient(90deg, var(--gold) 0%, #e6a817 100%); }
-
-    .project-img-wrap {
-      border-bottom: 1px solid var(--border);
-      background: #ffffff;
-      display: flex; align-items: center; justify-content: center;
-      padding: 2rem 3.5rem;
-      min-height: 240px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: inset 6px 0 12px -4px rgba(0,0,0,0.08),
-                  inset -6px 0 12px -4px rgba(0,0,0,0.08);
-    }
-    .project-img-wrap::before { display: none; }
-    .project-img-wrap img {
-      max-width: 100%; max-height: 320px; width: auto; height: auto;
-      object-fit: contain; display: block;
-      position: relative; z-index: 1;
-      -webkit-mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, black 55%, transparent 100%);
-      mask-image: radial-gradient(ellipse 88% 80% at 50% 50%, black 55%, transparent 100%);
-      mix-blend-mode: multiply;
-    }
-    .img-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: rgba(243,241,237,0.92);
-      border-top: 1px solid var(--border);
-      font-family: 'DM Mono', monospace; font-size: 0.64rem;
-      letter-spacing: 0.06em; color: var(--ink3);
-      padding: 0.4rem 1.25rem;
-    }
-
-    .project-body {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 0;
-    }
-    .proj-left { padding: 1.75rem 2rem 2rem; }
-    .proj-right {
-      border-left: 1px solid var(--border);
-      padding: 1.75rem 1.5rem 2rem;
-      background: var(--surface2);
-    }
-
-    .proj-eyebrow {
-      font-family: 'DM Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--ink4); margin-bottom: 0.5rem;
-    }
-    .proj-tag-chip {
-      display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.61rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.2rem 0.65rem; border-radius: 3px; margin-bottom: 0.8rem;
-    }
-    .ptc-blue  { background: #e8eef8; color: #1e3a5f; border: 1px solid #c0d0e8; }
-    .ptc-green { background: var(--green-lt); color: #1a5c3a; border: 1px solid #b3d9c2; }
-    .ptc-gold  { background: var(--gold-lt); color: #7a5800; border: 1px solid #dfc87a; }
-
-    .proj-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-weight: 500; color: var(--ink);
-      line-height: 1.4; margin-bottom: 0.75rem;
-    }
-    .proj-desc { font-size: 0.91rem; color: var(--ink2); line-height: 1.78; }
-
-    /* Right column */
-    .proj-section-label {
-      font-family: 'DM Mono', monospace; font-size: 0.58rem;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink4);
-      margin-bottom: 0.5rem; margin-top: 1.1rem;
-    }
-    .proj-section-label:first-child { margin-top: 0; }
-    .method-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-    .method-tag {
-      font-size: 0.75rem; color: var(--ink2);
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 3px; padding: 0.15rem 0.55rem;
-    }
-    .pub-venue-name { font-size: 0.83rem; color: var(--ink); font-weight: 500; }
-    .pub-venue-year { font-size: 0.78rem; color: var(--ink3); }
-    .proj-links { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
-    .proj-link {
-      font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.04em;
-      color: var(--accent2); border: 1px solid #c0d0e8;
-      background: #e8eef8; border-radius: 3px;
-      padding: 0.22rem 0.65rem; text-decoration: none; transition: all .15s;
-    }
-    .proj-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-    /* ─── PUBLICATIONS ─── */
-    .pub-controls { display: flex; gap: 0.4rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .pub-btn {
-      font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.09em;
-      text-transform: uppercase; padding: 0.32rem 0.9rem;
-      border: 1px solid var(--border); border-radius: 3px;
-      background: transparent; color: var(--ink3); cursor: pointer; transition: all .15s;
-    }
-    .pub-btn:hover, .pub-btn.on { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-    .pub-list { display: flex; flex-direction: column; }
-
-    .pub-item {
-      display: grid; grid-template-columns: 52px 1fr;
-      gap: 1.5rem; padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border); align-items: start;
-      transition: background .15s;
-    }
-    .pub-item:last-child { border-bottom: none; }
-
-    .pub-num {
-      font-family: 'DM Mono', monospace; font-size: 0.82rem;
-      color: var(--ink3); text-align: right; padding-top: 0.2rem;
-    }
-    .pub-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 500; color: var(--ink); line-height: 1.5;
-      margin-bottom: 0.4rem;
-    }
-    .pub-authors { font-size: 0.88rem; color: var(--ink2); margin-bottom: 0.22rem; }
-    .pub-authors strong { color: var(--ink); font-weight: 600; }
-    .pub-venue { font-size: 0.84rem; color: var(--ink3); font-style: italic; margin-bottom: 0.6rem; }
-    .pub-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
-    .badge {
-      font-family: 'DM Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.16rem 0.5rem; border-radius: 3px;
-    }
-    .b-journal    { background: #e8eef8; color: #1e3a5f; }
-    .b-conference { background: #f0eafa; color: #4a2080; }
-    .b-preprint   { background: var(--red-lt); color: var(--red); }
-    .b-dataset    { background: var(--gold-lt); color: #7a5800; }
-    .b-note       { background: var(--green-lt); color: var(--green); }
-    .pub-link { font-size: 0.82rem; color: var(--accent2); }
-    .pub-link:hover { text-decoration: underline; }
-
-    /* ─── EXPERIENCE / TIMELINE ─── */
-    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 2.5rem; }
-    .timeline::before {
-      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
-      width: 1px; background: var(--border);
-    }
-    .tl-item { position: relative; padding-bottom: 2.75rem; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-dot {
-      position: absolute; left: -2.5rem; top: 6px;
-      width: 15px; height: 15px; border-radius: 50%;
-      background: var(--surface); border: 2px solid var(--accent2);
-      z-index: 1;
-    }
-    .tl-dot-fill { background: var(--accent); border-color: var(--accent); }
-
-    .tl-period {
-      font-family: 'DM Mono', monospace; font-size: 0.82rem;
-      letter-spacing: 0.05em; color: var(--ink3); margin-bottom: 0.3rem; font-weight: 400;
-    }
-    .tl-role {
-      font-family: 'Playfair Display', serif; font-size: 1.15rem;
-      font-weight: 500; color: var(--ink); margin-bottom: 0.2rem;
-    }
-    .tl-org { font-size: 0.9rem; color: var(--ink2); font-weight: 500; margin-bottom: 0.1rem; }
-    .tl-loc { font-size: 0.82rem; color: var(--ink3); margin-bottom: 1rem; }
-    .tl-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .tl-list li {
-      font-size: 0.91rem; color: var(--ink2); line-height: 1.72;
-      padding-left: 1.25rem; position: relative;
-    }
-    .tl-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent2); }
-    .tl-list li strong { color: var(--ink); font-weight: 500; }
-
-    /* ─── EDUCATION ─── */
-    .edu-cards { display: flex; flex-direction: column; gap: 1.5rem; }
-    .edu-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.75rem 2rem;
-      display: grid; grid-template-columns: 160px 1fr;
-      gap: 2rem; align-items: start;
-      transition: border-color .2s;
-    }
-    .edu-card:hover { border-color: var(--border2); }
-    .edu-period {
-      font-family: 'DM Mono', monospace; font-size: 0.82rem;
-      letter-spacing: 0.05em; color: var(--ink3); font-weight: 400;
-    }
-    .edu-score {
-      display: inline-block; margin-top: 0.6rem;
-      font-family: 'DM Mono', monospace; font-size: 0.67rem;
-      letter-spacing: 0.06em; color: var(--green);
-      background: var(--green-lt); border: 1px solid #b3d9c2;
-      border-radius: 3px; padding: 0.15rem 0.55rem;
-    }
-    .edu-degree {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem;
-    }
-    .edu-school { font-size: 0.92rem; color: var(--ink2); font-weight: 500; margin-bottom: 0.6rem; }
-    .edu-detail { font-size: 0.88rem; color: var(--ink3); line-height: 1.72; }
-    .edu-detail strong { color: var(--ink2); font-weight: 500; }
-
-    /* ─── SKILLS ─── */
-    .skills-grid { display: flex; flex-direction: column; gap: 0; }
-    .skill-row {
-      display: grid; grid-template-columns: 180px 1fr;
-      gap: 1.5rem; padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border); align-items: start;
-    }
-    .skill-row:last-child { border-bottom: none; }
-    .skill-cat {
-      font-family: 'DM Mono', monospace; font-size: 0.8rem;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2);
-      padding-top: 0.3rem; font-weight: 500;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-tag {
-      font-size: 0.84rem; color: var(--ink2);
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 4px; padding: 0.22rem 0.7rem;
-      transition: all .14s; cursor: default;
-    }
-    .skill-tag:hover { border-color: var(--accent2); color: var(--accent); background: #eef2f9; }
-
-    /* ─── AWARDS & SERVICE ─── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
-    .sub-head {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem; font-weight: 500; color: var(--ink);
-      margin-bottom: 1.3rem; padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .award-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .award-list li { display: flex; gap: 0.9rem; font-size: 0.91rem; color: var(--ink2); align-items: baseline; line-height: 1.5; }
-    .award-yr {
-      font-family: 'DM Mono', monospace; font-size: 0.69rem;
-      color: var(--gold); flex-shrink: 0; font-weight: 500;
-    }
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .service-list li {
-      font-size: 0.91rem; color: var(--ink2); line-height: 1.68;
-      padding-left: 1rem; border-left: 2px solid var(--accent2);
-    }
-    .service-list li strong { color: var(--ink); font-weight: 500; }
-    .service-highlight {
-      background: #eef2f9;
-      border-left: 3px solid var(--accent) !important;
-      border-radius: 0 6px 6px 0;
-      padding: 0.75rem 1rem !important;
-      margin-bottom: 0.2rem;
-    }
-    .service-highlight strong { color: var(--accent) !important; font-weight: 600 !important; }
-
-    /* ─── TALKS ─── */
-    .talks-list { display: flex; flex-direction: column; gap: 1.25rem; }
-    .talk-item { display: grid; grid-template-columns: 64px 1fr; gap: 1.5rem; align-items: start; }
-    .talk-yr { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--ink3); text-align: right; padding-top: 0.18rem; }
-    .talk-title { font-size: 0.95rem; color: var(--ink); font-weight: 400; margin-bottom: 0.22rem; line-height: 1.5; }
-    .talk-where { font-size: 0.84rem; color: var(--ink3); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--ink);
-      color: rgba(255,255,255,.38);
-      padding: 2.2rem;
-      text-align: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem; letter-spacing: 0.06em;
-    }
-    footer a { color: rgba(255,255,255,.6); }
-
-    /* ─── RESPONSIVE ─── */
-    @media(max-width:860px){
-      .hero-layout, .project-body, .edu-card, .skill-row { grid-template-columns: 1fr; }
-      .proj-right { border-left: none; border-top: 1px solid var(--border); }
-      .two-col { grid-template-columns: 1fr; }
-      .photo-ring { width: 130px; height: 130px; }
-      .stat-row { gap: 1.2rem; }
-    }
-    @media(max-width:580px){
-      .nav-links { display: none; }
-      .hero { padding: 90px 0 56px; }
-      .container { padding: 0 1.25rem; }
-    }
-  </style>
+<link rel="stylesheet" href="others/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-in">
-    <span class="nav-brand">Rajan Gyawali</span>
-    <ul class="nav-links">
-      <li><a href="#research">Research</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a class="nav-cv" href="https://raw.githubusercontent.com/rajangyawali/rajangyawali.github.io/master/others/files/Rajan_Gyawali_CV.pdf" download="Rajan_Gyawali_CV.pdf" target="_blank">CV</a></li>
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="#top">Rajan Gyawali</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#software">Software</a>
+      <a href="#experience">Experience</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#education">Education</a>
+      <a href="others/files/Rajan_Gyawali_CV.pdf">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <section class="intro" id="top">
+    <div>
+      <h1>Rajan Gyawali</h1>
+      <p class="role">Ph.D. candidate in Computer Science, University of Missouri</p>
+      <div class="bio">
+        <p>I develop machine learning methods for scientific data, where signals are faint and trustworthy labels are expensive. My research asks how to combine complementary sources of evidence, how to adapt pretrained foundation models to low-signal data, and how to learn when supervision is scarce or unreliable. Most of this work is in cryo-electron microscopy (cryo-EM), where these problems limit how quickly protein structures can be determined. I work in the <a href="https://calla.rnet.missouri.edu/cheng/">Bioinformatics and Machine Learning Lab</a>, advised by Dr. Jianlin Cheng.</p>
+        <p>I have built MICA, which combines cryo-EM maps with AlphaFold3 predictions to build atomic models of protein complexes; particle pickers built on foundation models; and CryoPPP and CryoVirusDB, expert-labeled benchmarks for particle picking, all with open code and data. As an Applied Scientist II Intern at Amazon in 2026, I built a training-free system in which LLM agents improve through adversarial self-play and detect real-world scam and phishing pages without retraining.</p>
+      </div>
+      <p class="market">I expect to complete my Ph.D. in May 2027 and am on the job market.</p>
+      <div class="contact">
+        <a href="#" data-user="rgkg2" data-domain="missouri.edu" class="js-email">Email</a>
+        <!-- Personal email: uncomment and fill in.
+        <a href="#" data-user="YOUR-NAME" data-domain="YOUR-DOMAIN" class="js-email">Personal email</a>
+        -->
+        <a href="others/files/Rajan_Gyawali_CV.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=qzXOzEkAAAAJ">Google Scholar</a>
+        <!-- ORCID: uncomment and fill in.
+        <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+        -->
+        <a href="https://github.com/rajangyawali">GitHub</a>
+        <a href="https://www.linkedin.com/in/rajangyawali">LinkedIn</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="img/raj.JPG" data-fallback="https://rajangyawali.github.io/img/raj.JPG" alt="Portrait of Rajan Gyawali" width="176" height="220">
+      <div class="initials" aria-hidden="true">RG</div>
+    </div>
+  </section>
+
+  <figure class="scope">
+    <canvas id="micrograph" role="img" aria-label="Simulated cryo-EM micrograph in which faint protein particles are found in noise and circled one by one"></canvas>
+    <figcaption>A simulated cryo-EM micrograph. Protein particles are faint blobs buried in noise; a picker finds them one by one.</figcaption>
+  </figure>
+
+  <section class="block" id="news" aria-labelledby="news-title">
+    <h2 class="block-title" id="news-title">News</h2>
+    <div class="entry"><div class="when">Jun 2026</div><div class="what">Joined Amazon in San Diego as an Applied Scientist II Intern, working on self-evolving multi-agent LLM systems for scam and phishing detection.</div></div>
+    <div class="entry"><div class="when">May 2026</div><div class="what">Received the Outstanding Doctoral Student Award, EECS Department, University of Missouri.</div></div>
+    <div class="entry"><div class="when">May 2026</div><div class="what">CryoFSL published in <em>Briefings in Bioinformatics</em>.</div></div>
+    <div class="entry"><div class="when">Apr 2026</div><div class="what">Book chapter “AI tools for cryo-EM” published in <em>Progress in Molecular Biology and Translational Science</em>.</div></div>
+    <div class="entry"><div class="when">Feb 2026</div><div class="what">CryoVirusDB published in <em>Viruses</em>.</div></div>
+    <div class="entry"><div class="when">Oct 2025</div><div class="what">MICA published in <em>Communications Chemistry</em>.</div></div>
+  </section>
+
+  <section class="block" id="research" aria-labelledby="research-title">
+    <h2 class="block-title" id="research-title">Research</h2>
+    <p class="block-lede">My research follows four connected themes: multimodal learning and the adaptation of foundation models to low-signal scientific data; learning from scarce and unreliable supervision; benchmarks and evaluation that let a field measure its progress; and LLM agents that improve themselves without retraining. The projects below put each theme into practice, from atomic models of protein complexes to phishing detection.</p>
+
+    <article class="work">
+      <button type="button" class="work-fig" data-full="img/MICA_overview.jpg" data-full-fallback="https://rajangyawali.github.io/img/MICA_overview.jpg" data-caption="A The process begins with multimodal input consisting of a cryo-EM map of a protein, AF3-predicted structures of the individual chains of the protein, and their sequences. B The input density map undergoes resampling of each voxel to 1 Å resolution, followed by normalization. The AF3 structure is aligned with the density map through docking, and the features encoding atoms and amino acids in the AF3 structure are extracted. C Both the density map and the docked AF3 structure are divided into uniform grids of size 64 × 64 × 64. D These cryo-EM and structure grids are processed separately for feature enhancement and then fused together before passing to a deep learning network. E The deep learning network adopts an encoder-decoder based architecture. It utilizes an FPN to perform multi-scale fusion of the features generated by the encoder. The fused features are used by the decoders to predict backbone atoms, Cα atoms, and amino acid types. F The prediction results are the grids of size 64 × 64 × 64 and are stitched back to match the shape of the original input density map. G The Cα predictions are clustered and combined with amino acid type predictions as input for the backbone tracing. H The backbone tracing procedure of EModelX(+AF) is used to build a backbone structure for the protein. I The backbone structure is refined to produce a final 3D atomic model." aria-haspopup="dialog" aria-label="Enlarge figure: Multimodal protein structure determination">
+        <img src="img/research-thumbs/mica.jpg" data-fallback="img/MICA_overview.jpg https://rajangyawali.github.io/img/MICA_overview.jpg" alt="MICA workflow: cryo-EM map and AlphaFold3 structures are resampled, docked, and divided into grids; a deep learning encoder and task-specific decoder predict backbone, Cα, and amino acid types; grid stitching, clustering, backbone tracing, and co-sequence alignment produce the 3D atomic model." loading="lazy">
+      </button>
+      <div class="work-body">
+        <div class="work-text">
+          <h3>Multimodal protein structure determination</h3>
+          <p class="venue">MICA, Communications Chemistry, 2025</p>
+          <p class="summary">MICA fuses cryo-EM density maps with AlphaFold3 predictions in a multi-task encoder–decoder that predicts backbone atoms, Cα atoms, and amino acid types, then refines them into an atomic model of the protein complex.</p>
+          <p class="outcome">MICA reaches an average TM-score of 0.93 on recently released high-resolution cryo-EM maps and significantly outperforms other state-of-the-art deep learning methods in accuracy and completeness, while staying robust to protein size and map resolution.</p>
+        </div>
+          <div class="links work-links"><span class="link-group"><a href="https://doi.org/10.1038/s42004-025-01718-5">Paper</a><a href="https://github.com/jianlin-cheng/MICA">Code</a><a href="https://doi.org/10.5281/zenodo.15756654">Data</a></span></div>
+      </div>
+    </article>
+    <article class="work">
+      <button type="button" class="work-fig is-svg" data-template="agents-figure" data-caption="Self-evolving multi-agent framework for scam and phishing detection. The Attacker and the Detector form an adversarial self-play loop: the Attacker synthesizes new phishing pages and URL attack patterns, which pass through the Oracle to receive certified ground-truth labels before reaching the Detector, and the Detector returns feedback on which attacks were caught or missed. The Reflector compares the Detector’s predictions with the Oracle’s labels and distills reusable detection strategies into a Strategy library that the Detector reads. At test time, real-world scam URLs and pages go directly to the Detector, with no retraining." aria-haspopup="dialog" aria-label="Enlarge figure: Self-evolving LLM agents for phishing detection">
+        <span class="svg-slot" aria-hidden="true"></span>
+      </button>
+
+      <div class="work-body">
+        <div class="work-text">
+          <h3>Self-evolving LLM agents for phishing detection</h3>
+          <p class="venue">Applied Scientist II Intern, Amazon, 2026</p>
+          <p class="summary">In this training-free framework, an attacker agent synthesizes new phishing pages and URL attack patterns, an oracle certifies their labels, a detector classifies them, and a reflector distills reusable detection strategies, so the system improves through adversarial self-play.</p>
+          <p class="outcome">The learned strategies transferred to real-world scam URLs and phishing pages without retraining, outperforming existing baselines on multiple public and internal benchmarks while keeping false-positive rates low.</p>
+        </div>
+          <div class="links work-links"></div>
+      </div>
+    </article>
+    <article class="work">
+      <button type="button" class="work-fig" data-full="img/CryoSegNet_overview.jpg" data-full-fallback="https://rajangyawali.github.io/img/CryoSegNet_overview.jpg" data-caption="The process of particle picking with CryoSegNet. (A) An input micrograph is first denoised and then sent to the U-net model. (B) U-Net model outputs a segmentation mask for each micrograph that is fed to SAM automatic mask generator for predicting the bounding boxes of protein particles. (C) The output generated by SAM is further processed based on thresholding the prediction confidence scores to filter out some false particles to generate the final output of picked particles stored in .star files." aria-haspopup="dialog" aria-label="Enlarge figure: Foundation models for cryo-EM particle picking">
+        <img src="img/research-thumbs/cryosegnet.jpg" data-fallback="img/CryoSegNet_overview.jpg https://rajangyawali.github.io/img/CryoSegNet_overview.jpg" alt="CryoSegNet pipeline: denoised micrographs feed an attention-gated U-Net whose predicted particle masks go to the SAM automatic mask generator; post-processing yields picked particles." loading="lazy">
+      </button>
+      <div class="work-body">
+        <div class="work-text">
+          <h3>Foundation models for cryo-EM particle picking</h3>
+          <p class="venue">CryoSegNet, CryoTransformer, CryoFSL, 2024–2026</p>
+          <p class="summary">CryoSegNet couples Meta’s Segment Anything Model with an attention-gated U-Net, CryoTransformer uses a ResNet and transformer detector, and CryoFSL adapts foundation models with few-shot learning.</p>
+          <p class="outcome">CryoSegNet surpasses the widely used pickers crYOLO and Topaz, CryoTransformer outperformed state-of-the-art methods as the first picker trained on CryoPPP, and CryoFSL picks robustly from only a handful of annotated micrographs.</p>
+        </div>
+          <div class="links work-links"><span class="link-group"><span class="group">CryoSegNet</span><a href="https://doi.org/10.1093/bib/bbae282">Paper</a><a href="https://github.com/jianlin-cheng/CryoSegNet">Code</a></span><span class="link-group"><span class="group">CryoTransformer</span><a href="https://doi.org/10.1093/bioinformatics/btae109">Paper</a><a href="https://github.com/jianlin-cheng/CryoTransformer">Code</a></span><span class="link-group"><span class="group">CryoFSL</span><a href="https://doi.org/10.1093/bib/bbag285">Paper</a><a href="https://github.com/biplabpoudel25/CryoFSL">Code</a></span></div>
+      </div>
+    </article>
+    <article class="work">
+      <button type="button" class="work-fig" data-full="img/CryoPPP_overview.jpg" data-full-fallback="https://rajangyawali.github.io/img/CryoPPP_overview.jpg" data-caption="Graphical illustration of the overall methodology of creating CryoPPP dataset. (A–D) represent the steps for data acquisition and protein metadata preparation. (1–8) represent subsequent steps for the ground truth annotation and validation of picked protein particles. The iterative approach between step (5) and (6) is carried out to achieve the high-quality picking of particles." aria-haspopup="dialog" aria-label="Enlarge figure: Benchmarks for machine learning in cryo-EM">
+        <img src="img/research-thumbs/cryoppp.jpg" data-fallback="img/CryoPPP_overview.jpg https://rajangyawali.github.io/img/CryoPPP_overview.jpg" alt="CryoPPP dataset creation: data acquisition from EMPIAR, data filtering and cleansing, refined protein metadata for 335 EMPIAR IDs, and micrographs and gain files for ground-truth annotation." loading="lazy">
+      </button>
+      <div class="work-body">
+        <div class="work-text">
+          <h3>Benchmarks for machine learning in cryo-EM</h3>
+          <p class="venue">CryoPPP, Scientific Data, 2023; CryoVirusDB, Viruses, 2026</p>
+          <p class="summary">CryoPPP and CryoVirusDB are expert-curated datasets for training and testing particle pickers, with CryoPPP’s labels validated by 2D particle class validation and 3D density map validation against the gold standard.</p>
+          <p class="outcome">CryoPPP contains 2.6 TB and 9,893 micrographs from 34 EMPIAR protein datasets, and CryoVirusDB adds 9,941 micrographs and 339,398 labeled virus particles from nine EMPIAR datasets.</p>
+        </div>
+          <div class="links work-links"><span class="link-group"><span class="group">CryoPPP</span><a href="https://doi.org/10.1038/s41597-023-02280-2">Paper</a><a href="https://github.com/BioinfoMachineLearning/cryoppp">Code</a><a href="https://zenodo.org/record/7934683">Data</a></span><span class="link-group"><span class="group">CryoVirusDB</span><a href="https://doi.org/10.3390/v18020224">Paper</a><a href="https://github.com/BioinfoMachineLearning/CryoVirusDB">Code</a><a href="https://zenodo.org/records/10397742">Data</a></span></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="publications" aria-labelledby="pubs-title">
+    <h2 class="block-title" id="pubs-title">Publications</h2>
+    <!-- Impact summary: fill in from Google Scholar, then uncomment.
+    <p class="impact">[TOTAL] Google Scholar citations, h-index [H]</p>
+    -->
+    <p class="block-note">* equal contribution</p>
+
+    <div class="filters" role="group" aria-label="Filter publications">
+      <button type="button" data-filter="selected" aria-pressed="true">Selected <span class="count"></span></button>
+      <button type="button" data-filter="all" aria-pressed="false">All <span class="count"></span></button>
+      <button type="button" data-filter="journal" aria-pressed="false">Journal articles <span class="count"></span></button>
+      <button type="button" data-filter="conference" aria-pressed="false">Conference papers <span class="count"></span></button>
+      <button type="button" data-filter="chapter" aria-pressed="false">Book chapters <span class="count"></span></button>
+      <button type="button" data-filter="preprint" aria-pressed="false">Preprints <span class="count"></span></button>
+    </div>
+
+    <div class="year-group">
+      <div class="when">2026</div>
+      <ol class="pubs">
+        <li class="pub" data-type="journal" data-selected="true">
+          <a class="pub-thumb" href="https://doi.org/10.1093/bib/bbag285" tabindex="-1" aria-hidden="true"><img src="img/thumbs/cryofsl.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">CryoFSL: a few-shot learning framework for robust protein particle picking in cryo-EM micrographs</p>
+            <p class="pub-authors">Biplab Poudel, <strong>Rajan Gyawali</strong>, Ashwin Dhakal, Jianlin Cheng, D. Xu</p>
+            <p class="pub-venue">Briefings in Bioinformatics, 27(3), bbag285, 2026</p>
+            <p class="links"><a href="https://doi.org/10.1093/bib/bbag285">Paper</a><a href="https://github.com/biplabpoudel25/CryoFSL">Code</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-poudel2026cryofsl">BibTeX</button><span class="kind">Journal article</span></p>
+            <div class="bib-wrap" id="bib-poudel2026cryofsl" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{poudel2026cryofsl,
+  title   = {{CryoFSL}: a few-shot learning framework for robust protein particle picking in cryo-{EM} micrographs},
+  author  = {Poudel, Biplab and Gyawali, Rajan and Dhakal, Ashwin and Cheng, Jianlin and Xu, D.},
+  journal = {Briefings in Bioinformatics},
+  volume  = {27},
+  number  = {3},
+  pages   = {bbag285},
+  year    = {2026},
+  doi     = {10.1093/bib/bbag285}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub" data-type="journal" data-selected="true">
+          <a class="pub-thumb" href="https://doi.org/10.3390/v18020224" tabindex="-1" aria-hidden="true"><img src="img/thumbs/cryovirusdb.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">CryoVirusDB: An Annotated Dataset for AI-Based Virus Particle Identification in Cryo-EM Micrographs</p>
+            <p class="pub-authors"><strong>Rajan Gyawali</strong>, Ashwin Dhakal, Liguo Wang, Jianlin Cheng</p>
+            <p class="pub-venue">Viruses, 18(2), 224, 2026</p>
+            <p class="links"><a href="https://doi.org/10.3390/v18020224">Paper</a><a href="https://github.com/BioinfoMachineLearning/CryoVirusDB">Code</a><a href="https://zenodo.org/records/10397742">Data</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-gyawali2026cryovirusdb">BibTeX</button><span class="kind">Journal article, dataset</span></p>
+            <div class="bib-wrap" id="bib-gyawali2026cryovirusdb" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{gyawali2026cryovirusdb,
+  title   = {{CryoVirusDB}: An Annotated Dataset for {AI}-Based Virus Particle Identification in {Cryo-EM} Micrographs},
+  author  = {Gyawali, Rajan and Dhakal, Ashwin and Wang, Liguo and Cheng, Jianlin},
+  journal = {Viruses},
+  volume  = {18},
+  number  = {2},
+  pages   = {224},
+  year    = {2026},
+  doi     = {10.3390/v18020224}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub" data-type="chapter">
+          <div class="pub-thumb" aria-hidden="true"><img src="img/thumbs/aitools-chapter.png" alt="" loading="lazy" width="280" height="175"></div>
+          <div class="pub-body">
+            <p class="pub-title">AI tools for cryo-EM: Protein particle picking, density map enhancement, and atomic model building</p>
+            <p class="pub-authors">Ashwin Dhakal*, <strong>Rajan Gyawali*</strong>, J. Selvaraj*, Jianlin Cheng</p>
+            <p class="pub-venue">Progress in Molecular Biology and Translational Science, 223, 71–113, 2026</p>
+            <p class="links"><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-dhakal2026aitools">BibTeX</button><span class="kind">Book chapter</span></p>
+            <div class="bib-wrap" id="bib-dhakal2026aitools" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@incollection{dhakal2026aitools,
+  title     = {{AI} tools for cryo-{EM}: Protein particle picking, density map enhancement, and atomic model building},
+  author    = {Dhakal, Ashwin and Gyawali, Rajan and Selvaraj, J. and Cheng, Jianlin},
+  booktitle = {Progress in Molecular Biology and Translational Science},
+  volume    = {223},
+  pages     = {71--113},
+  publisher = {Academic Press},
+  year      = {2026}
+}</pre></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="year-group">
+      <div class="when">2025</div>
+      <ol class="pubs">
+        <li class="pub" data-type="journal" data-selected="true">
+          <a class="pub-thumb" href="https://doi.org/10.1038/s42004-025-01718-5" tabindex="-1" aria-hidden="true"><img src="img/thumbs/mica.png" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">Multimodal deep learning integration of cryo-EM and AlphaFold3 for high-accuracy protein structure determination</p>
+            <p class="pub-authors"><strong>Rajan Gyawali</strong>, Ashwin Dhakal, Jianlin Cheng</p>
+            <p class="pub-venue">Communications Chemistry, 8(1), 320, 2025</p>
+            <p class="links"><a href="https://doi.org/10.1038/s42004-025-01718-5">Paper</a><a href="https://github.com/jianlin-cheng/MICA">Code</a><a href="https://doi.org/10.5281/zenodo.15756654">Data</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-gyawali2025mica">BibTeX</button><span class="kind">Journal article</span></p>
+            <div class="bib-wrap" id="bib-gyawali2025mica" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{gyawali2025mica,
+  title   = {Multimodal deep learning integration of cryo-{EM} and {AlphaFold3} for high-accuracy protein structure determination},
+  author  = {Gyawali, Rajan and Dhakal, Ashwin and Cheng, Jianlin},
+  journal = {Communications Chemistry},
+  volume  = {8},
+  number  = {1},
+  pages   = {320},
+  year    = {2025},
+  doi     = {10.1038/s42004-025-01718-5}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub" data-type="journal">
+          <a class="pub-thumb" href="https://doi.org/10.1093/bib/bbaf011" tabindex="-1" aria-hidden="true"><img src="img/thumbs/review.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">Artificial intelligence in cryo-EM protein particle picking: recent advances and remaining challenges</p>
+            <p class="pub-authors">Ashwin Dhakal*, <strong>Rajan Gyawali*</strong>, Liguo Wang, Jianlin Cheng</p>
+            <p class="pub-venue">Briefings in Bioinformatics, 26(1), bbaf011, 2025</p>
+            <p class="links"><a href="https://doi.org/10.1093/bib/bbaf011">Paper</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-dhakal2025review">BibTeX</button><span class="kind">Review article</span></p>
+            <div class="bib-wrap" id="bib-dhakal2025review" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{dhakal2025review,
+  title   = {Artificial intelligence in cryo-{EM} protein particle picking: recent advances and remaining challenges},
+  author  = {Dhakal, Ashwin and Gyawali, Rajan and Wang, Liguo and Cheng, Jianlin},
+  journal = {Briefings in Bioinformatics},
+  volume  = {26},
+  number  = {1},
+  pages   = {bbaf011},
+  year    = {2025},
+  doi     = {10.1093/bib/bbaf011}
+}</pre></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="year-group">
+      <div class="when">2024</div>
+      <ol class="pubs">
+        <li class="pub" data-type="journal" data-selected="true">
+          <a class="pub-thumb" href="https://doi.org/10.1093/bib/bbae282" tabindex="-1" aria-hidden="true"><img src="img/thumbs/cryosegnet.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">CryoSegNet: accurate cryo-EM protein particle picking by integrating the foundational AI image segmentation model and attention-gated U-Net</p>
+            <p class="pub-authors"><strong>Rajan Gyawali</strong>, Ashwin Dhakal, Liguo Wang, Jianlin Cheng</p>
+            <p class="pub-venue">Briefings in Bioinformatics, 25(4), bbae282, 2024</p>
+            <p class="links"><a href="https://doi.org/10.1093/bib/bbae282">Paper</a><a href="https://github.com/jianlin-cheng/CryoSegNet">Code</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-gyawali2024cryosegnet">BibTeX</button><span class="kind">Journal article</span></p>
+            <div class="bib-wrap" id="bib-gyawali2024cryosegnet" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{gyawali2024cryosegnet,
+  title   = {{CryoSegNet}: accurate cryo-{EM} protein particle picking by integrating the foundational {AI} image segmentation model and attention-gated {U-Net}},
+  author  = {Gyawali, Rajan and Dhakal, Ashwin and Wang, Liguo and Cheng, Jianlin},
+  journal = {Briefings in Bioinformatics},
+  volume  = {25},
+  number  = {4},
+  pages   = {bbae282},
+  year    = {2024},
+  doi     = {10.1093/bib/bbae282}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub" data-type="journal" data-selected="true">
+          <a class="pub-thumb" href="https://doi.org/10.1093/bioinformatics/btae109" tabindex="-1" aria-hidden="true"><img src="img/thumbs/cryotransformer.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">CryoTransformer: a transformer model for picking protein particles from cryo-EM micrographs</p>
+            <p class="pub-authors">Ashwin Dhakal, <strong>Rajan Gyawali</strong>, Liguo Wang, Jianlin Cheng</p>
+            <p class="pub-venue">Bioinformatics, 40(3), btae109, 2024</p>
+            <p class="links"><a href="https://doi.org/10.1093/bioinformatics/btae109">Paper</a><a href="https://github.com/jianlin-cheng/CryoTransformer">Code</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-dhakal2024cryotransformer">BibTeX</button><span class="kind">Journal article</span></p>
+            <div class="bib-wrap" id="bib-dhakal2024cryotransformer" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{dhakal2024cryotransformer,
+  title   = {{CryoTransformer}: a transformer model for picking protein particles from cryo-{EM} micrographs},
+  author  = {Dhakal, Ashwin and Gyawali, Rajan and Wang, Liguo and Cheng, Jianlin},
+  journal = {Bioinformatics},
+  volume  = {40},
+  number  = {3},
+  pages   = {btae109},
+  year    = {2024},
+  doi     = {10.1093/bioinformatics/btae109}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub" data-type="conference">
+          <a class="pub-thumb" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10803288" tabindex="-1" aria-hidden="true"><img src="img/thumbs/sam-prompt.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">Adapting Segment Anything Model (SAM) through prompt-based learning for enhanced protein identification in cryo-EM micrographs</p>
+            <p class="pub-authors">F. He, Z. Yang, M. Gao, B. Poudel, N. S. E. S. Dhas, <strong>R. Gyawali</strong>, A. Dhakal, et al.</p>
+            <p class="pub-venue">IEEE International Conference on Medical Artificial Intelligence (MedAI), 9–20, 2024</p>
+            <p class="links"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10803288">Paper</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-he2024adapting">BibTeX</button><span class="kind">Conference paper</span></p>
+            <div class="bib-wrap" id="bib-he2024adapting" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@inproceedings{he2024adapting,
+  title     = {Adapting {Segment Anything Model} ({SAM}) through prompt-based learning for enhanced protein identification in cryo-{EM} micrographs},
+  author    = {He, F. and Yang, Z. and Gao, M. and Poudel, B. and Dhas, N. S. E. S. and Gyawali, R. and Dhakal, A. and others},
+  booktitle = {Proceedings of the IEEE International Conference on Medical Artificial Intelligence (MedAI)},
+  pages     = {9--20},
+  year      = {2024}
+}</pre></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="year-group">
+      <div class="when">2023</div>
+      <ol class="pubs">
+        <li class="pub" data-type="journal" data-selected="true">
+          <a class="pub-thumb" href="https://doi.org/10.1038/s41597-023-02280-2" tabindex="-1" aria-hidden="true"><img src="img/thumbs/cryoppp.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">A large expert-curated cryo-EM image dataset for machine learning protein particle picking</p>
+            <p class="pub-authors">Ashwin Dhakal*, <strong>Rajan Gyawali*</strong>, Liguo Wang, Jianlin Cheng</p>
+            <p class="pub-venue">Scientific Data, 10(1), 392, 2023</p>
+            <p class="links"><a href="https://doi.org/10.1038/s41597-023-02280-2">Paper</a><a href="https://github.com/BioinfoMachineLearning/cryoppp">Code</a><a href="https://zenodo.org/record/7934683">Data</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-dhakal2023cryoppp">BibTeX</button><span class="kind">Journal article, dataset</span></p>
+            <div class="bib-wrap" id="bib-dhakal2023cryoppp" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{dhakal2023cryoppp,
+  title   = {A large expert-curated cryo-{EM} image dataset for machine learning protein particle picking},
+  author  = {Dhakal, Ashwin and Gyawali, Rajan and Wang, Liguo and Cheng, Jianlin},
+  journal = {Scientific Data},
+  volume  = {10},
+  number  = {1},
+  pages   = {392},
+  year    = {2023},
+  doi     = {10.1038/s41597-023-02280-2}
+}</pre></div>
+          </div>
+        </li>
+        <li class="pub" data-type="preprint">
+          <a class="pub-thumb" href="https://doi.org/10.1101/2023.08.06.552202" tabindex="-1" aria-hidden="true"><img src="img/thumbs/egnn.png" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">Predicting protein–ligand binding structure using E(n) equivariant graph neural networks</p>
+            <p class="pub-authors">Ashwin Dhakal*, <strong>Rajan Gyawali*</strong>, Jianlin Cheng</p>
+            <p class="pub-venue">bioRxiv, 2023.08.06.552202, 2023</p>
+            <p class="links"><a href="https://doi.org/10.1101/2023.08.06.552202">Paper</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-dhakal2023egnn">BibTeX</button><span class="kind">Preprint</span></p>
+            <div class="bib-wrap" id="bib-dhakal2023egnn" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@article{dhakal2023egnn,
+  title   = {Predicting protein-ligand binding structure using {E(n)} equivariant graph neural networks},
+  author  = {Dhakal, Ashwin and Gyawali, Rajan and Cheng, Jianlin},
+  journal = {bioRxiv},
+  pages   = {2023.08.06.552202},
+  year    = {2023},
+  doi     = {10.1101/2023.08.06.552202}
+}</pre></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="year-group">
+      <div class="when">2019</div>
+      <ol class="pubs">
+        <li class="pub" data-type="conference">
+          <a class="pub-thumb" href="http://conference.ioe.edu.np/publications/ioegc2019-summer/IOEGC-2019-Summer-030.pdf" tabindex="-1" aria-hidden="true"><img src="img/thumbs/face-rcnn.jpg" alt="" loading="lazy" width="280" height="175"></a>
+          <div class="pub-body">
+            <p class="pub-title">An Approach for the Employee Face Recognition by RPN and Faster R-CNN Techniques</p>
+            <p class="pub-authors"><strong>Rajan Gyawali</strong>, Dibakar Raj Pant</p>
+            <p class="pub-venue">Proceedings of IOE Graduate Conference, 2019-Summer, 6, 231–237, 2019</p>
+            <p class="links"><a href="http://conference.ioe.edu.np/publications/ioegc2019-summer/IOEGC-2019-Summer-030.pdf">Paper</a><button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-gyawali2019face">BibTeX</button><span class="kind">Conference paper</span></p>
+            <div class="bib-wrap" id="bib-gyawali2019face" hidden><button type="button" class="bib-copy">Copy</button><pre class="bib">@inproceedings{gyawali2019face,
+  title     = {An Approach for the Employee Face Recognition by {RPN} and {Faster R-CNN} Techniques},
+  author    = {Gyawali, Rajan and Pant, Dibakar Raj},
+  booktitle = {Proceedings of IOE Graduate Conference, 2019-Summer},
+  volume    = {6},
+  pages     = {231--237},
+  year      = {2019}
+}</pre></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="software" aria-labelledby="software-title">
+    <h2 class="block-title" id="software-title">Software and datasets</h2>
+    <div class="entry"><div class="when soft-name">MICA</div><div class="what"><p class="soft-desc">Automated atomic model building from cryo-EM density maps and AlphaFold3 predictions.</p><p class="links"><a href="https://github.com/jianlin-cheng/MICA">Code</a><a href="https://doi.org/10.5281/zenodo.15756654">Data</a></p></div></div>
+    <div class="entry"><div class="when soft-name">CryoSegNet</div><div class="what"><p class="soft-desc">Protein particle picking with the Segment Anything Model and an attention-gated U-Net, with output for RELION and CryoSPARC.</p><p class="links"><a href="https://github.com/jianlin-cheng/CryoSegNet">Code</a></p></div></div>
+    <div class="entry"><div class="when soft-name">CryoTransformer</div><div class="what"><p class="soft-desc">Particle picking with a ResNet and transformer detector trained on CryoPPP.</p><p class="links"><a href="https://github.com/jianlin-cheng/CryoTransformer">Code</a></p></div></div>
+    <div class="entry"><div class="when soft-name">CryoPPP</div><div class="what"><p class="soft-desc">Expert-curated benchmark of 9,893 labeled micrographs from 34 EMPIAR protein datasets.</p><p class="links"><a href="https://github.com/BioinfoMachineLearning/cryoppp">Code</a><a href="https://zenodo.org/record/7934683">Data</a></p></div></div>
+    <div class="entry"><div class="when soft-name">CryoVirusDB</div><div class="what"><p class="soft-desc">Labeled virus particles in 9,941 cryo-EM micrographs for training and testing virus particle pickers.</p><p class="links"><a href="https://github.com/BioinfoMachineLearning/CryoVirusDB">Code</a><a href="https://zenodo.org/records/10397742">Data</a></p></div></div>
+  </section>
+
+  <section class="block entries-spaced" id="experience" aria-labelledby="exp-title">
+    <h2 class="block-title" id="exp-title">Experience</h2>
+
+    <div class="entry">
+      <div class="when">Jun – Aug 2026</div>
+      <div class="what">
+        <h3>Applied Scientist II Intern</h3>
+        <p class="org">Amazon, San Diego, CA</p>
+        <p class="detail">Built a training-free, self-evolving framework for URL-based scam and phishing detection, driven by adversarial self-play among four LLM agents: an attacker that synthesizes novel phishing pages and URL attack patterns, an oracle that certifies ground-truth labels, a detector, and a reflector that distills reusable detection strategies. Strategies learned from synthetic attacks transferred to real-world scam URLs and phishing pages, outperforming existing baselines on public and internal benchmarks without retraining while keeping false-positive rates low.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Aug 2022 – present</div>
+      <div class="what">
+        <h3>Graduate Research Assistant</h3>
+        <p class="org">Bioinformatics and Machine Learning Lab, University of Missouri, Columbia, MO</p>
+        <p class="detail">Deep learning for cryo-EM and protein structure: multimodal atomic model building (MICA), foundation-model-based particle picking (CryoSegNet), and benchmark datasets (CryoPPP, CryoVirusDB), plus contributions to transformer-based detection, few-shot learning, macromolecule identification in cryo-ET tomograms, and protein–ligand binding prediction with E(n)-equivariant graph neural networks. Trains models with PyTorch DDP on multi-node, multi-GPU clusters (Slurm, LSF).</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">May 2018 – Jun 2022</div>
+      <div class="what">
+        <h3>Telecommunications Engineer</h3>
+        <p class="org">Nepal Telecom, Kathmandu, Nepal</p>
+        <p class="detail">Built the Wireless KPI Analytics Tool, a Django application with REST APIs that automated analysis across 5,000+ network elements and cut analysis time from days to minutes. Designed Python and SQL pipelines for 10+ GB of daily network data, and LSTM models for anomaly detection and forecasting that improved network reliability by 15%.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Nov 2016 – May 2022</div>
+      <div class="what">
+        <h3>Lecturer</h3>
+        <p class="org">Himalaya College of Engineering, Tribhuvan University, Kathmandu, Nepal</p>
+        <p class="detail">Promoted from Assistant Lecturer to Lecturer within a year, then continued as Adjunct Lecturer alongside full-time engineering work. See Teaching and mentoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block entries-spaced" id="teaching" aria-labelledby="teaching-title">
+    <h2 class="block-title" id="teaching-title">Teaching and mentoring</h2>
+    <div class="entry">
+      <div class="when">2026 – present</div>
+      <div class="what">
+        <h3>Undergraduate research mentor</h3>
+        <p class="org">Bioinformatics and Machine Learning Lab, University of Missouri</p>
+        <p class="detail">Mentors undergraduate researchers in deep learning–based image segmentation.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="when">2016 – 2022</div>
+      <div class="what">
+        <h3>Instructor of record</h3>
+        <p class="org">Himalaya College of Engineering, Tribhuvan University, Kathmandu, Nepal</p>
+        <p class="detail">Instructor of record for eight undergraduate engineering courses, with 36–48 students each. Designed Python training and supervised final-year projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block entries-spaced" id="education" aria-labelledby="edu-title">
+    <h2 class="block-title" id="edu-title">Education</h2>
+
+    <div class="entry">
+      <div class="when">2022 – May 2027</div>
+      <div class="what">
+        <h3>Ph.D. in Computer Science</h3>
+        <p class="org">University of Missouri, Columbia, MO</p>
+        <p class="detail">Advisor: Dr. Jianlin Cheng. Focus: deep learning, computational biology and bioinformatics. GPA 4.0. Expected May 2027.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2017 – 2019</div>
+      <div class="what">
+        <h3>M.Sc. in Electronics and Communication Engineering</h3>
+        <p class="org">Tribhuvan University, Kathmandu, Nepal</p>
+        <p class="detail">Specialization in information and communication, graduated with distinction. Thesis: employee face recognition with region proposal networks and Faster R-CNN, 96.0% accuracy on the ChokePoint dataset.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2012 – 2016</div>
+      <div class="what">
+        <h3>B.E. in Electronics and Communication Engineering</h3>
+        <p class="org">Himalaya College of Engineering, Tribhuvan University, Kathmandu, Nepal</p>
+        <p class="detail">Graduated with distinction. Final project: a brain-controlled wheelchair using a NeuroSky MindWave brain–computer interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="awards" aria-labelledby="awards-title">
+    <h2 class="block-title" id="awards-title">Honors and awards</h2>
+    <div class="entry"><div class="when">2026</div><div class="what">Outstanding Doctoral Student Award, EECS Department, University of Missouri</div></div>
+    <div class="entry"><div class="when">2024</div><div class="what">EECS Excellence Travel Grant, University of Missouri</div></div>
+    <div class="entry"><div class="when">2022</div><div class="what">Dean's Fellowship, University of Missouri</div></div>
+    <div class="entry"><div class="when">2018</div><div class="what">First rank, engineer recruitment examination, Public Service Commission, Nepal</div></div>
+    <div class="entry"><div class="when">2017</div><div class="what">Graduate Scholarship, Tribhuvan University</div></div>
+    <div class="entry"><div class="when">2012</div><div class="what">Undergraduate Scholarship, Tribhuvan University</div></div>
+    <div class="entry"><div class="when"></div><div class="what">Golden Jubilee Scholarship for undergraduate study, Embassy of India, Kathmandu</div></div>
+  </section>
+
+  <section class="block" id="talks" aria-labelledby="talks-title">
+    <h2 class="block-title" id="talks-title">Talks</h2>
+    <div class="entry"><div class="when">2024</div><div class="what">CryoSegNet: AI-based method for protein particle picking from cryo-EM micrographs. Invited talk, Cryo-EM Super Group, University of Missouri.</div></div>
+    <div class="entry"><div class="when">2024</div><div class="what">A large expert-curated cryo-EM image dataset for machine learning protein particle picking. Poster, RECOMB 2024, Cambridge, MA.</div></div>
+  </section>
+
+  <section class="block" id="service" aria-labelledby="service-title">
+    <h2 class="block-title" id="service-title">Service and leadership</h2>
+    <ul class="service-list">
+      <li><strong>Reviewer</strong> for NeurIPS and for Bioinformatics, Briefings in Bioinformatics, BMC Bioinformatics, Biochemical and Biophysical Research Communications, Communications Chemistry, IUCrJ, Patterns, Scientific Data, and Scientific Reports.</li>
+      <li><strong>President</strong> (2025 – 2026) and <strong>Treasurer</strong> (2024 – 2025), Nepalese Students Association, University of Missouri.</li>
+      <li><strong>Member</strong>, Academic Affairs Committee, University of Missouri (2023 – 2024).</li>
     </ul>
-  </div>
-</nav>
+  </section>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-layout">
+</main>
 
-      <div class="photo-wrap">
-        <div class="photo-ring">
-          <div class="photo-inner">
-            <img src="https://rajangyawali.github.io/img/raj.JPG" alt="Rajan Gyawali"
-                 onerror="this.style.display='none'; document.querySelector('.photo-initials').style.display='flex';" />
-            <div class="photo-initials">RG</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <!--<div class="status-pill"><span class="status-dot"></span>Seeking Postdoctoral Positions · Jan 2027</div>-->
-
-        <h1 class="hero-name">Rajan Gyawali</h1>
-        <p class="hero-sub">PhD Candidate in Computer Science</p>
-        <p class="hero-affil">
-            Bioinformatics &amp; Machine Learning Lab &nbsp;·&nbsp; <strong>University of Missouri–Columbia</strong><br>
-            Advisor: <strong><a href="https://calla.rnet.missouri.edu/cheng/">Dr. Jianlin Cheng</a></strong>
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-outline" href="https://scholar.google.com/citations?user=qzXOzEkAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a class="btn btn-outline" href="https://github.com/rajangyawali" target="_blank">GitHub</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/rajangyawali/" target="_blank">LinkedIn</a>
-        </div>
-
-        <div class="contact-row">
-          <span class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-            rgkg2[at]missouri[dot]edu
-          </span>
-          <span class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            Columbia, MO
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-bio-full">
-        <p>
-          I am a computational biology and machine learning researcher developing deep learning methods at the intersection of AI and structural biology. My doctoral work centers on cryo-electron microscopy (cryo-EM) — designing neural architectures that automate protein particle picking, enable 3D atomic modeling by fusing cryo-EM data with AlphaFold3 predictions, and reduce annotation bottlenecks through few-shot and foundation model-based learning. My methods draw on computer vision, geometric deep learning, and multimodal learning, with applications spanning protein structure determination, virus characterization, and structure-based drug discovery.
-        </p>
-        <p  style="margin-top: 0.9rem;">My research is published in leading journals like <i>Communications Chemistry, Scientific Data, Briefings in Bioinformatics</i> and <i>Bioinformatics</i>, with benchmark dataset <i>CryoPPP</i> accumulating 65+ citations and adoption across the global cryo-EM community.
-        </p>
-    </div>
-  </div>
-</section>
-
-<!-- RESEARCH -->
-<section class="sec" id="research">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Research</h2>
-    </div>
-
-    <div class="projects">
-
-      <!-- MICA -->
-      <div class="project-card">
-        <div class="card-accent card-accent-blue"></div>
-        <div class="project-img-wrap">
-          <img src="img/MICA_overview.jpg" alt="MICA architecture overview" />
-          <div class="img-caption">MICA workflow — Multimodal integration of cryo-EM density maps &amp; AlphaFold3 structural predictions</div>
-        </div>
-        <div class="project-body">
-          <div class="proj-left">
-            <div class="proj-eyebrow">Project 01</div>
-            <span class="proj-tag-chip ptc-blue">3D Atomic Modeling · MICA</span>
-            <div class="proj-title">Multimodal Deep Learning for Protein Complex Structure Determination</div>
-            <div class="proj-desc">MICA integrates cryo-EM density maps with AlphaFold3 structural predictions using a multi-task encoder-decoder with feature pyramid networks. It predicts backbone atoms, Cα atoms, and amino acid types to build an atomic model of protein complexes — achieving an average TM-score of 0.93 on high-resolution maps, outperforming all current state-of-the-art methods in both accuracy and model completeness.</div>
-          </div>
-          <div class="proj-right">
-            <div class="proj-section-label">Methods</div>
-            <div class="method-tags">
-              <span class="method-tag">Encoder-Decoder</span>
-              <span class="method-tag">Feature Pyramid Network</span>
-              <span class="method-tag">AlphaFold3</span>
-              <span class="method-tag">Multi-task Learning</span>
-            </div>
-            <div class="proj-section-label">Publication</div>
-            <div class="pub-venue-name">MICA</div>
-            <div class="pub-venue-year">Communications Chemistry (Nature), 2025</div>
-            <div class="proj-links">
-              <a class="proj-link" href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Paper</a>
-              <a class="proj-link" href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Particle Picking -->
-      <div class="project-card">
-        <div class="card-accent card-accent-green"></div>
-        <div class="project-img-wrap">
-          <img src="img/CryoSegNet_overview.jpg" alt="CryoSegNet particle picking overview" />
-          <div class="img-caption">CryoSegNet — Attention-gated U-Net + SAM particle picking pipeline</div>
-        </div>
-        <div class="project-body">
-          <div class="proj-left">
-            <div class="proj-eyebrow">Project 02</div>
-            <span class="proj-tag-chip ptc-green">Cryo-EM Particle Picking</span>
-            <div class="proj-title">AI-Driven Protein Particle Picking: CryoSegNet, CryoTransformer &amp; CryoFSL</div>
-            <div class="proj-desc">A suite of deep learning methods for automated cryo-EM particle picking. <strong>CryoSegNet</strong> integrates Meta's SAM with an attention-gated U-Net, achieving 3.32 Å average resolution — 14% better than crYOLO and 7% better than Topaz. <strong>CryoTransformer</strong> achieves an F1-score of 0.747 on diverse proteins. <strong>CryoFSL</strong> reduces annotation cost by <strong>95%</strong> through few-shot learning, generalizing across protein types with minimal labeled data.</div>
-          </div>
-          <div class="proj-right">
-            <div class="proj-section-label">Methods</div>
-            <div class="method-tags">
-              <span class="method-tag">Segment Anything</span>
-              <span class="method-tag">Attention U-Net</span>
-              <span class="method-tag">Vision Transformers</span>
-              <span class="method-tag">Few-Shot Learning</span>
-            </div>
-            <div class="proj-section-label">Publications</div>
-            <div class="pub-venue-name">CryoSegNet</div>
-            <div class="pub-venue-year">Briefings in Bioinformatics, 2024</div>
-            <div class="proj-links">
-              <a class="proj-link" href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Paper</a>
-              <a class="proj-link" href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
-            </div>
-            <div style="margin-top:0.9rem;">
-              <div class="pub-venue-name">CryoTransformer</div>
-              <div class="pub-venue-year">Bioinformatics, 2024</div>
-              <div class="proj-links">
-                <a class="proj-link" href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">↗ Paper</a>
-                <a class="proj-link" href="https://github.com/jianlin-cheng/CryoTransformer" target="_blank">↗ Code</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Benchmark Datasets -->
-      <div class="project-card">
-        <div class="card-accent card-accent-gold"></div>
-        <div class="project-img-wrap">
-          <img src="img/CryoPPP_overview.jpg" alt="CryoPPP dataset overview" />
-          <div class="img-caption">CryoPPP — Dataset creation pipeline (Scientific Data, 2023)</div>
-        </div>
-        <div class="project-body">
-          <div class="proj-left">
-            <div class="proj-eyebrow">Project 03</div>
-            <span class="proj-tag-chip ptc-gold">Benchmark Datasets</span>
-            <div class="proj-title">Community-Standard Cryo-EM Benchmarks: CryoPPP &amp; CryoVirusDB</div>
-            <div class="proj-desc"><strong>CryoPPP</strong> is a 2.6 TB benchmark of 9,893 expert-labeled cryo-EM micrographs with 300K+ particle annotations across 34 protein types, validated by 2D class analysis and 3D density map reconstruction. Community-standard dataset with 65+ citations. <strong>CryoVirusDB</strong> extends this to virus particles, providing the first annotated cryo-EM dataset for AI-based identification of icosahedral virus structures.</div>
-          </div>
-          <div class="proj-right">
-            <div class="proj-section-label">Methods</div>
-            <div class="method-tags">
-              <span class="method-tag">Data Curation</span>
-              <span class="method-tag">Expert Annotation</span>
-              <span class="method-tag">3D Validation</span>
-              <span class="method-tag">EMPIAR</span>
-            </div>
-            <div class="proj-section-label">Publications</div>
-            <div class="pub-venue-name">CryoPPP</div>
-            <div class="pub-venue-year">Scientific Data (Nature), 2023</div>
-            <div class="proj-links">
-              <a class="proj-link" href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ Paper</a>
-              <a class="proj-link" href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Code</a>
-            </div>
-            <div style="margin-top:0.9rem;">
-              <div class="pub-venue-name">CryoVirusDB</div>
-              <div class="pub-venue-year">Viruses, 2026</div>
-              <div class="proj-links">
-                <a class="proj-link" href="https://www.mdpi.com/1999-4915/18/2/224" target="_blank">↗ Paper</a>
-                <a class="proj-link" href="https://github.com/BioinfoMachineLearning/CryoVirusDB" target="_blank">↗ Code</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section class="sec" id="publications">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Publications</h2>
-    </div>
-
-    <div class="pub-controls">
-      <button class="pub-btn on" data-f="all">All (10)</button>
-      <button class="pub-btn" data-f="journal">Journals</button>
-      <button class="pub-btn" data-f="preprint">Preprints</button>
-      <button class="pub-btn" data-f="conference">Conferences</button>
-    </div>
-
-    <div class="pub-list">
-
-      <div class="pub-item" data-t="journal">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">CryoVirusDB: An Annotated Dataset for AI-Based Virus Particle Identification in Cryo-EM Micrographs</div>
-          <div class="pub-authors"><strong>Gyawali R.</strong>, Dhakal A., Wang L., Cheng J.</div>
-          <div class="pub-venue">Viruses, 18(2), 224 · 2026</div>
-          <div class="pub-meta">
-            <span class="badge b-journal">Journal</span>
-            <span class="badge b-dataset">Dataset</span>
-            <a class="pub-link" href="https://www.mdpi.com/1999-4915/18/2/224" target="_blank">↗ Article</a>
-            <a class="pub-link" href="https://github.com/BioinfoMachineLearning/CryoVirusDB" target="_blank">↗ Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="journal">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">Multimodal Deep Learning Integration of Cryo-EM and AlphaFold3 for High-Accuracy Protein Structure Determination</div>
-          <div class="pub-authors"><strong>Gyawali R.</strong>, Dhakal A., Cheng J.</div>
-          <div class="pub-venue">Communications Chemistry, 8(1) · 2025</div>
-          <div class="pub-meta">
-            <span class="badge b-journal">Journal</span>
-            <a class="pub-link" href="https://doi.org/10.1038/s42004-025-01718-5" target="_blank">↗ Article</a>
-            <a class="pub-link" href="https://github.com/jianlin-cheng/MICA" target="_blank">↗ Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="journal">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">Artificial Intelligence in Cryo-EM Protein Particle Picking: Recent Advances and Remaining Challenges</div>
-          <div class="pub-authors">Dhakal A.*, <strong>Gyawali R.*</strong>, Wang L., Cheng J. <em style="font-size:0.8rem;color:var(--ink4);">(*equal contribution)</em></div>
-          <div class="pub-venue">Briefings in Bioinformatics, 26(1) · 2025</div>
-          <div class="pub-meta">
-            <span class="badge b-journal">Journal · Review</span>
-            <a class="pub-link" href="https://academic.oup.com/bib/article/26/1/bbaf011/7958312" target="_blank">↗ Article</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="preprint">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">CryoFSL: An Annotation-Efficient, Few-Shot Learning Framework for Robust Protein Particle Picking in Cryo-EM Micrographs</div>
-          <div class="pub-authors">Poudel B., <strong>Gyawali R.</strong>, Dhakal A., Cheng J., Xu D.</div>
-          <div class="pub-venue">bioRxiv · 2025</div>
-          <div class="pub-meta"><span class="badge b-preprint">Preprint</span></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="journal">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">CryoSegNet: Accurate Cryo-EM Protein Particle Picking by Integrating the Foundational AI Image Segmentation Model and Attention-Gated U-Net</div>
-          <div class="pub-authors"><strong>Gyawali R.</strong>, Dhakal A., Wang L., Cheng J.</div>
-          <div class="pub-venue">Briefings in Bioinformatics, 25(4) · 2024</div>
-          <div class="pub-meta">
-            <span class="badge b-journal">Journal</span>
-            <a class="pub-link" href="https://academic.oup.com/bib/article/25/4/bbae282/7690949" target="_blank">↗ Article</a>
-            <a class="pub-link" href="https://github.com/jianlin-cheng/CryoSegNet" target="_blank">↗ Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="journal">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">CryoTransformer: A Transformer Model for Picking Protein Particles from Cryo-EM Micrographs</div>
-          <div class="pub-authors">Dhakal A., <strong>Gyawali R.</strong>, Wang L., Cheng J.</div>
-          <div class="pub-venue">Bioinformatics, 40(3) · 2024</div>
-          <div class="pub-meta">
-            <span class="badge b-journal">Journal</span>
-            <a class="pub-link" href="https://academic.oup.com/bioinformatics/article/40/3/btae109/7614090" target="_blank">↗ Article</a>
-            <a class="pub-link" href="https://github.com/jianlin-cheng/CryoTransformer" target="_blank">↗ Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="conference">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">Adapting Segment Anything Model (SAM) through Prompt-Based Learning for Enhanced Protein Identification in Cryo-EM Micrographs</div>
-          <div class="pub-authors">He F., Yang Z., Gao M., Poudel B., Dhas N.S.E.S., <strong>Gyawali R.</strong>, Dhakal A., et al.</div>
-          <div class="pub-venue">IEEE International Conference on Medical Artificial Intelligence (MedAI) · 2024</div>
-          <div class="pub-meta">
-            <span class="badge b-conference">Conference</span>
-            <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10803288" target="_blank">↗ Paper</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="journal">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">A Large Expert-Curated Cryo-EM Image Dataset for Machine Learning Protein Particle Picking</div>
-          <div class="pub-authors">Dhakal A.*, <strong>Gyawali R.*</strong>, Wang L., Cheng J. <em style="font-size:0.8rem;color:var(--ink4);">(*equal contribution)</em></div>
-          <div class="pub-venue">Scientific Data (Nature), 10(1) · 2023</div>
-          <div class="pub-meta">
-            <span class="badge b-journal">Journal</span>
-            <span class="badge b-dataset">Dataset · 65+ citations</span>
-            <a class="pub-link" href="https://www.nature.com/articles/s41597-023-02280-2" target="_blank">↗ Article</a>
-            <a class="pub-link" href="https://github.com/BioinfoMachineLearning/cryoppp" target="_blank">↗ Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="preprint">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">Predicting Protein-Ligand Binding Structure Using E(n) Equivariant Graph Neural Networks</div>
-          <div class="pub-authors">Dhakal A.*, <strong>Gyawali R.*</strong>, Cheng J. <em style="font-size:0.8rem;color:var(--ink4);">(*equal contribution)</em></div>
-          <div class="pub-venue">bioRxiv · 2023</div>
-          <div class="pub-meta">
-            <span class="badge b-preprint">Preprint</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-t="conference">
-        <div class="pub-num"></div>
-        <div>
-          <div class="pub-title">An Approach for the Employee Face Recognition by RPN and Faster R-CNN Techniques</div>
-          <div class="pub-authors"><strong>Gyawali R.</strong>, Pant D.R.</div>
-          <div class="pub-venue">Proceedings of IOE Graduate Conference, Vol. 6 · 2019</div>
-          <div class="pub-meta">
-            <span class="badge b-conference">Conference</span>
-            <a class="pub-link" href="http://conference.ioe.edu.np/publications/ioegc2019-summer/IOEGC-2019-Summer-030.pdf" target="_blank">↗ Paper</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="sec" id="experience">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Experience</h2>
-    </div>
-
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-dot tl-dot-fill"></div>
-        <div class="tl-period">Aug 2022 – Present</div>
-        <div class="tl-role">Graduate Researcher</div>
-        <div class="tl-org">University of Missouri — Bioinformatics &amp; Machine Learning Lab</div>
-        <div class="tl-loc">Columbia, MO</div>
-        <ul class="tl-list">
-          <li>Developed <strong>MICA</strong>, a multimodal deep learning method integrating cryo-EM density maps and AlphaFold3 for automated 3D atomic modeling via encoder-decoder + feature pyramid networks, outperforming all state-of-the-art methods.</li>
-          <li>Designed <strong>CryoSegNet</strong>, an attention-gated U-Net + SAM framework achieving 7–14% improvement in 3D reconstruction resolution (3.32 Å) over crYOLO and Topaz.</li>
-          <li>Curated <strong>CryoPPP</strong>, a 2.6 TB benchmark (9,893 micrographs, 300K+ labels, 34 proteins) — the community-standard cryo-EM dataset with 65+ citations.</li>
-          <li>Curated <strong>CryoVirusDB</strong>, an annotated cryo-EM dataset for AI-based icosahedral virus particle identification and classification.</li>
-          <li>Contributed to <strong>CryoFSL</strong>, <strong>CryoTransformer</strong>, and prompt-based SAM learning for cryo-EM protein identification.</li>
-          <li>Trained GNNs, diffusion models, and detection transformers using multi-node multi-GPU DDP on HPC clusters (Slurm, LSF); built large-scale parallel data preprocessing pipelines.</li>
-        </ul>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">May 2018 – Jun 2022</div>
-        <div class="tl-role">Telecommunications Engineer</div>
-        <div class="tl-org">Nepal Telecom</div>
-        <div class="tl-loc">Kathmandu, Nepal</div>
-        <ul class="tl-list">
-          <li>Built a full-stack Django/REST KPI analytics tool for automated analysis across 5,000+ network elements, reducing analysis time from days to minutes.</li>
-          <li>Designed Python/SQL data pipelines processing 10+ GB daily of network performance data with statistical analysis and real-time visualization.</li>
-          <li>Developed LSTM-based predictive models for network anomaly detection and performance forecasting, improving reliability by 15%.</li>
-          <li>Automated reporting workflows reducing manual workload by 80%.</li>
-        </ul>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">Oct 2016 – Jun 2022</div>
-        <div class="tl-role">Lecturer &amp; Adjunct Lecturer</div>
-        <div class="tl-org">Himalaya College of Engineering, Tribhuvan University</div>
-        <div class="tl-loc">Kathmandu, Nepal</div>
-        <ul class="tl-list">
-          <li>Taught undergraduate courses to classes of up to 48 students: C Programming, OOP, Computer Graphics, Image Processing, Computer Networks, Signal Processing, and Communication Systems.</li>
-          <li>Delivered Python Programming and Data Analysis &amp; Visualization training to Computer and Electronics Engineering undergraduates.</li>
-          <li>Supervised final year projects; led weekly lab and discussion sections for groups of 16–24 students.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="sec" id="education">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Education</h2>
-    </div>
-
-    <div class="edu-cards">
-
-      <div class="edu-card">
-        <div>
-          <div class="edu-period">Aug 2022 – Dec 2026 (Expected)</div>
-          <div class="edu-score">GPA 4.0</div>
-        </div>
-        <div>
-          <div class="edu-degree">PhD, Computer Science</div>
-          <div class="edu-school">University of Missouri–Columbia, USA</div>
-          <div class="edu-detail">
-            <strong>Emphasis:</strong> Deep Learning, Computational Biology &amp; Bioinformatics<br>
-            <strong>Advisor:</strong> Dr. Jianlin Cheng<br>
-            Dean's Fellowship recipient, 2022
-          </div>
-        </div>
-      </div>
-
-      <div class="edu-card">
-        <div>
-          <div class="edu-period">2017 – 2019</div>
-          <div class="edu-score">Score: 90.13%</div>
-        </div>
-        <div>
-          <div class="edu-degree">MSc, Information and Communication Engineering</div>
-          <div class="edu-school">Tribhuvan University, Nepal</div>
-          <div class="edu-detail">
-            <strong>Thesis:</strong> Employee Face Recognition by RPN and Faster R-CNN — 96.0% accuracy on Chokepoint dataset<br>
-            <strong>Project:</strong> CNN for Multiclass Face Recognition — 96.44% accuracy, 13K images, 5,749 identities<br>
-            Graduate Scholarship recipient, 2017
-          </div>
-        </div>
-      </div>
-
-      <div class="edu-card">
-        <div>
-          <div class="edu-period">2012 – 2016</div>
-          <div class="edu-score">Score: 82.06%</div>
-        </div>
-        <div>
-          <div class="edu-degree">BE, Electronics and Communication Engineering</div>
-          <div class="edu-school">Tribhuvan University, Nepal</div>
-          <div class="edu-detail">
-            <strong>Final Project:</strong> Brain Controlled Wheelchair using BCI &amp; NeuroSky Mindwave<br>
-            Undergraduate Scholarship recipient, 2012
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="sec" id="skills">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Skills</h2>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-row">
-        <div class="skill-cat">Deep Learning</div>
-        <div class="skill-tags">
-          <span class="skill-tag">CNNs</span><span class="skill-tag">Vision Transformers</span><span class="skill-tag">U-Net</span><span class="skill-tag">ResNet</span><span class="skill-tag">Attention Mechanisms</span><span class="skill-tag">Encoder-Decoder</span><span class="skill-tag">GNNs</span><span class="skill-tag">E(n)-Equivariant Networks</span><span class="skill-tag">Diffusion Models</span><span class="skill-tag">Detection Transformers</span><span class="skill-tag">Few-Shot Learning</span><span class="skill-tag">Prompt-Based Learning</span><span class="skill-tag">Transfer Learning</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Frameworks</div>
-        <div class="skill-tags">
-          <span class="skill-tag">PyTorch</span><span class="skill-tag">PyTorch Lightning</span><span class="skill-tag">PyTorch Geometric</span><span class="skill-tag">DGL</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">scikit-learn</span><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span><span class="skill-tag">SciPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Plotly</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Structural Biology</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Cryo-EM</span><span class="skill-tag">Protein Structure Prediction</span><span class="skill-tag">Protein-Ligand Binding</span><span class="skill-tag">AlphaFold</span><span class="skill-tag">RELION</span><span class="skill-tag">CryoSPARC</span><span class="skill-tag">UCSF ChimeraX</span><span class="skill-tag">PyMOL</span><span class="skill-tag">PyRosetta</span><span class="skill-tag">Biopython</span><span class="skill-tag">RDKit</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">HPC &amp; Distributed</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Multi-GPU DDP</span><span class="skill-tag">Multi-Node Training</span><span class="skill-tag">Slurm</span><span class="skill-tag">LSF</span><span class="skill-tag">Parallel Processing</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Python (Expert)</span><span class="skill-tag">C++</span><span class="skill-tag">Bash</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Dev Tools</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Git / GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">Weights &amp; Biases</span><span class="skill-tag">TensorBoard</span><span class="skill-tag">Jupyter</span><span class="skill-tag">Django</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TALKS -->
-<section class="sec" id="talks">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Talks &amp; Presentations</h2>
-    </div>
-    <div class="talks-list">
-      <div class="talk-item">
-        <div class="talk-yr">2024</div>
-        <div>
-          <div class="talk-title">CryoSegNet: AI-based method for protein particle picking from cryo-EM density micrographs</div>
-          <div class="talk-where">Cryo-EM Super Group · University of Missouri, Columbia, MO</div>
-        </div>
-      </div>
-      <div class="talk-item">
-        <div class="talk-yr">2024</div>
-        <div>
-          <div class="talk-title">A large expert-curated cryo-EM image dataset for machine learning protein particle picking</div>
-          <div class="talk-where">RECOMB Conference (Poster Presentation) · Cambridge, MA</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICE & AWARDS -->
-<section class="sec" id="service">
-  <div class="container">
-    <div class="sec-header">
-      <h2 class="sec-title">Awards &amp; Service</h2>
-    </div>
-    <div class="two-col">
-      <div>
-        <div class="sub-head">Honors &amp; Fellowships</div>
-        <ul class="award-list">
-          <li><span class="award-yr">2022</span><span>Dean's Fellowship — University of Missouri</span></li>
-          <li><span class="award-yr">2017</span><span>Graduate Scholarship — Tribhuvan University</span></li>
-          <li><span class="award-yr">2012</span><span>Undergraduate Scholarship — Tribhuvan University</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="sub-head">Service</div>
-        <ul class="service-list">
-          <li class="service-highlight"><strong>Manuscript Reviewer</strong> — NeurIPS, Briefings in Bioinformatics, BMC Bioinformatics, Communications Chemistry, etc.</li>
-          <li><strong>President</strong> — University of Missouri Nepalese Students Association (May 2025 – Apr 2026)</li>
-          <li><strong>Treasurer</strong> — University of Missouri Nepalese Students Association (May 2024 – Apr 2025)</li>
-          <li><strong>Member</strong> — Academic Affairs Committee, University of Missouri (Aug 2023 – May 2024)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Rajan Gyawali &nbsp;·&nbsp; PhD Candidate, University of Missouri–Columbia &nbsp;·&nbsp; rgkg2[at]missouri[dot]edu</p>
+<footer class="site-foot">
+  <div class="wrap">Rajan Gyawali. Last updated September 2026.</div>
 </footer>
 
-<script>
-  // Photo fallback
-  (function(){
-    var img = document.querySelector('.photo-inner img');
-    if(img){
-      if(img.complete && img.naturalHeight > 0) return;
-      img.addEventListener('error', function(){
-        this.style.display='none';
-        document.querySelector('.photo-initials').style.display='flex';
-      });
-    }
-  })();
+<dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+  <div class="lightbox-bar">
+    <p class="lightbox-title" id="lightbox-title">Figure</p>
+    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+  </div>
+  <div class="lightbox-body" id="lightbox-body"></div>
+</dialog>
 
-  // Publication filter with renumbering
-  function filterPubs(f) {
-    var items = document.querySelectorAll('.pub-item');
-    var n = 1;
-    items.forEach(function(item){
-      var show = f === 'all' || item.getAttribute('data-t') === f;
-      item.style.display = show ? 'grid' : 'none';
-      if(show){
-        var numEl = item.querySelector('.pub-num');
-        if(numEl) numEl.textContent = '[' + n + ']';
-        n++;
-      }
-    });
-  }
 
-  function initPubs(){
-    filterPubs('all');
-    document.querySelectorAll('.pub-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        document.querySelectorAll('.pub-btn').forEach(function(b){ b.classList.remove('on'); });
-        this.classList.add('on');
-        filterPubs(this.getAttribute('data-f'));
-      });
-    });
-  }
+<template id="agents-figure">
+    <svg class="agf" viewBox="0 0 1040 550" role="img" aria-labelledby="agf-title" focusable="false">
+      <title id="agf-title">Self-evolving LLM agents: the Attacker and Detector form an adversarial self-play loop. Attacks pass through the Oracle, which certifies ground-truth labels, before reaching the Detector; the Detector returns feedback on which attacks were caught or missed. The Reflector compares the Detector's predictions with the Oracle's labels and distills strategies into a Strategy library that the Detector reads. At test time, real-world scam URLs and pages go straight to the Detector with no retraining.</title>
+      <defs>
+        <marker id="agf-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="mk-a" d="M0 0L10 5L0 10z"/></marker>
+        <marker id="agf-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-g" d="M0 0L10 5L0 10z"/></marker>
+      </defs>
+      <path class="loop" d="M135 148 C135 98 220 80 296 80" marker-end="url(#agf-a)"/>
+      <path class="loop" d="M564 80 C650 80 715 98 715 146" marker-end="url(#agf-a)"/>
+      <path class="loop" d="M630 244 C560 342 250 332 135 246" marker-end="url(#agf-a)"/>
+      <text class="path-label" x="425" y="152" text-anchor="middle">new phishing pages and URL attack patterns</text>
+      <text class="loop-label" x="425" y="205" text-anchor="middle">adversarial self-play</text>
+      <text class="path-label" x="405" y="254" text-anchor="middle">feedback: which attacks were caught or missed</text>
+      <rect class="box" x="20" y="150" width="230" height="90" rx="9"/>
+      <text class="h" x="135" y="189" text-anchor="middle">Attacker</text>
+      <text class="s" x="135" y="214" text-anchor="middle">synthesizes new attacks</text>
+      <rect class="box" x="300" y="45" width="260" height="70" rx="9"/>
+      <text class="h" x="430" y="75" text-anchor="middle">Oracle</text>
+      <text class="s" x="430" y="99" text-anchor="middle">certifies ground-truth labels</text>
+      <rect class="box det" x="600" y="150" width="230" height="90" rx="9"/>
+      <text class="h" x="715" y="189" text-anchor="middle">Detector</text>
+      <text class="s" x="715" y="214" text-anchor="middle">classifies URLs and pages</text>
+      <rect class="box ext" x="870" y="132" width="160" height="124" rx="9"/>
+      <text class="h" x="950" y="164" text-anchor="middle">Real-world</text>
+      <text class="h" x="950" y="186" text-anchor="middle">scam URLs</text>
+      <text class="s" x="950" y="211" text-anchor="middle">at test time,</text>
+      <text class="s" x="950" y="233" text-anchor="middle">no retraining</text>
+      <path class="edge dashed" d="M868 195 H836" marker-end="url(#agf-g)"/>
+      <path class="edge" d="M715 242 V338" marker-end="url(#agf-g)"/>
+      <text class="path-label" x="727" y="296">predictions</text>
+      <rect class="box" x="595" y="344" width="240" height="90" rx="9"/>
+      <text class="h" x="715" y="373" text-anchor="middle">Reflector</text>
+      <text class="s" x="715" y="397" text-anchor="middle">compares predictions</text>
+      <text class="s" x="715" y="419" text-anchor="middle">with Oracle labels</text>
+      <path class="edge" d="M715 436 V464" marker-end="url(#agf-g)"/>
+      <text class="path-label" x="727" y="456">distills</text>
+      <rect class="lib" x="595" y="470" width="240" height="72" rx="9"/>
+      <text class="h" x="715" y="500" text-anchor="middle">Strategy library</text>
+      <text class="s" x="715" y="525" text-anchor="middle">reusable detection strategies</text>
+      <path class="edge" d="M837 506 H858 V222 H836" marker-end="url(#agf-g)"/>
+      <text class="path-label" x="870" y="400">Detector</text>
+      <text class="path-label" x="870" y="421">reads</text>
+    </svg>
+</template>
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initPubs);
-  } else {
-    initPubs();
-  }
-
-  // Nav highlight on scroll
-  var sections = document.querySelectorAll('section[id]');
-  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  window.addEventListener('scroll', function(){
-    var cur = '';
-    sections.forEach(function(s){ if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
-    navLinks.forEach(function(a){
-      a.classList.toggle('act', a.getAttribute('href') === '#' + cur);
-    });
-  }, { passive: true });
-</script>
+<script src="others/script.js"></script>
 </body>
 </html>
